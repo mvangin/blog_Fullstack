@@ -1,0 +1,78 @@
+let User = require('../models/user');
+let bcrypt = require('bcryptjs');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+
+
+const secret = "SECRETHERE"
+
+exports.loginGet = function (req, res) {
+    res.send('login page');
+}
+
+exports.loginPost = function (req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+    User.findOne({ username })
+        .then(user => {
+            if (!user) {
+                errors.username = "No Account Found";
+                return res.status(404).json(errors);
+            }
+            bcrypt.compare(password, user.password)
+                .then((isMatch, errors) => {
+                    if (isMatch) {
+                        const payload = {
+                            id: user._id,
+                            name: user.username
+                        };
+                        jwt.sign(payloa, secret, { expiresIn: 36000 },
+                            (err, token) => {
+                                if (err) res.status(500)
+                                    .json({
+                                        error: "Error signing token",
+                                        raw: err
+                                    });
+                                res.json({
+                                    success: true,
+                                    token: `Bearer ${token}`
+                                });
+                            });
+                    } else {
+                        errors.password = "Password is incorrect";
+                        res.status(400).json(errors);
+                    }
+                });
+        })
+
+}
+
+exports.signupGet = function (req, res) {
+    res.send('sign up get');
+}
+
+exports.signupPost = function (req, res, next) {
+    let username = req.body.username;
+    User.findOne({ username })
+        .then(user => {
+            if (user) {
+                let error = 'Username already in database'
+                return res.status(400).json(error)
+            }
+            bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
+                if (err) {
+                    return next(err);
+                };
+                const user = new User({
+                    username: req.body.username,
+                    password: hashedPassword
+                }).save(err => {
+                    if (err) {
+                        return next(err);
+                    };
+                    console.log("success")
+                    res.redirect("/");
+                });
+            })
+        })
+}
