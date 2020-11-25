@@ -24,6 +24,8 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
+app.use(cors())
+app.use(bp.json());
 
 
 // view engine setup
@@ -34,12 +36,10 @@ app.use(passport.initialize());
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(bp.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors())
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
