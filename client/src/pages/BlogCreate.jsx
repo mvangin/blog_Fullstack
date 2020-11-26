@@ -9,7 +9,6 @@ function BlogCreate() {
     function handleSubmit(e) {
         e.preventDefault();
         api.createBlog({ title, content })
-        console.log("yup")
     }
 
     return (

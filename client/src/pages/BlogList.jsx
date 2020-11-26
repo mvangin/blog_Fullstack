@@ -1,51 +1,51 @@
-import React, { Component } from 'react'
-import ReactTable from 'react-table'
+import React, { useEffect, useState } from 'react'
 import api from '../api'
-import {nanoid} from 'nanoid'
+import { nanoid } from 'nanoid'
 
 import styled from 'styled-components'
 
 //import 'react-table/react-table.css'
 
-const Wrapper = styled.div`
-    padding: 0 40px 40px 40px;
-`
+function BlogList() {
 
-class BlogList extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            blogs: [],
-            columns: [],
-            isLoading: false,
+    const [blogs, setBlogs] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+
+    useEffect(() => {
+
+        let accessString = localStorage.getItem('token')
+        if (accessString === null) {
+            setIsLoading(false)
+            console.log("no token")
         }
-    }
 
-    componentDidMount = async () => {
-        this.setState({ isLoading: true })
 
-        await api.getAllBlogs().then(blogs => {
-            this.setState({
-                blogs: blogs.data.data,
-                isLoading: false,
+        console.log("heelo")
+        setIsLoading(true)
+        async function fetchData() {
+            await api.getAllBlogs().then(blogsRec => {
+                setBlogs(blogsRec.data.data);
+                setIsLoading(false);
             })
-        })
-    }
+        }
+        fetchData();
+    }, [])
 
-    render() {
-        let keyIndex = 0
-        return (
-            <div>
-                {
-                    this.state.blogs.map((item, key) =>  {
-                    return (<div key={nanoid()}> {item._id} </div>)
+    return (
+        <div>
+            {
+                blogs.map((item) => {
+                    return (<div key={nanoid()}> {item.title} : {item.content} </div>)
                 })
-                }
-            </div>
+            }
+        </div>
 
-        )
+    )
 
-    }
 }
 
+
 export default BlogList
+
+

@@ -14,10 +14,9 @@ exports.loginPost = function (req, res) {
     const username = req.body.username;
     const password = req.body.password;
     User.findOne({ username })
-        .then(user => {
+        .then((user) => {
             if (!user) {
-                errors.username = "No Account Found";
-                return res.status(404).json(errors);
+                return res.status(404).json({error: "no user found"});
             }
             bcrypt.compare(password, user.password)
                 .then((isMatch, errors) => {
@@ -26,7 +25,7 @@ exports.loginPost = function (req, res) {
                             id: user._id,
                             name: user.username
                         };
-                        jwt.sign(payloa, secret, { expiresIn: 36000 },
+                        jwt.sign(payload, secret, { expiresIn: 36000 },
                             (err, token) => {
                                 if (err) res.status(500)
                                     .json({
@@ -35,16 +34,18 @@ exports.loginPost = function (req, res) {
                                     });
                                 res.json({
                                     success: true,
-                                    token: `Bearer ${token}`
+                                    token: `Bearer ${token}`,
+                                    username
                                 });
+
                             });
+
                     } else {
-                        errors.password = "Password is incorrect";
-                        res.status(400).json(errors);
+                        res.status(400).json({error: "password not correct"});
                     }
                 });
         })
-
+    
 }
 
 exports.signupGet = function (req, res) {

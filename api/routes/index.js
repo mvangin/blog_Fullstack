@@ -24,8 +24,9 @@ router.post('/signup', userController.signupPost)
 
 
 //get all blogs
-router.get('/blogs', blogController.blogsListGet)
-//router.get('/blogs', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
+//router.get('/blogs', blogController.blogsListGet)
+router.get('/blogs', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
+
 
 //new blog form
 router.get('/blogs/create', blogController.blogCreateGet)

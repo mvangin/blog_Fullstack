@@ -33,6 +33,16 @@ class Links extends Component {
                                 Create Blogs
                             </Link>
                         </Item>
+                        <Item>
+                            <Link to="/signup" className="nav-link">
+                                SignUp
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/login" className="nav-link">
+                                Login
+                            </Link>
+                        </Item>
                     </List>
                 </Collapse>
             </React.Fragment>
