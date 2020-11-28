@@ -15,13 +15,13 @@ function BlogCreate() {
         <form onSubmit={handleSubmit}>
             <label>
                 Title
-            <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); console.log(e.target.value) }} />
+            <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }} />
             </label>
 
 
             <label>
                 Content
-            <input type="text" value={content} onChange={(e) => { setContent(e.target.value); console.log(e.target.value) }} />
+            <input type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
             </label>
 
             <input type="submit"/>

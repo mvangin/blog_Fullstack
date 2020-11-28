@@ -21,6 +21,7 @@ exports.loginPost = function (req, res) {
             bcrypt.compare(password, user.password)
                 .then((isMatch, errors) => {
                     if (isMatch) {
+                        console.log(user)
                         const payload = {
                             id: user._id,
                             name: user.username
@@ -32,10 +33,12 @@ exports.loginPost = function (req, res) {
                                         error: "Error signing token",
                                         raw: err
                                     });
+                                let username = user.username + ""
+                                console.log(username)
                                 res.json({
                                     success: true,
                                     token: `Bearer ${token}`,
-                                    username
+                                    username: username
                                 });
 
                             });

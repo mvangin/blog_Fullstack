@@ -11,8 +11,9 @@ function Login() {
         e.preventDefault();
         api.login({ username, password })
         .then(data => {
-            console.log(data.data.username)
+            let username = data.data.username;
             localStorage.setItem("token", data.data.token)
+            localStorage.setItem("username", username)
         })
     }
 
@@ -20,13 +21,13 @@ function Login() {
         <form onSubmit={handleSubmit}>
             <label>
                 Username
-                <input type="text" value={username} onChange={(e) => { setUsername(e.target.value); console.log(e.target.value) }} />
+                <input type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} />
             </label>
 
 
             <label>
                 Password
-                <input type="password" value={password} onChange={(e) => { setPassword(e.target.value); console.log(e.target.value) }} />
+                <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
             </label>
 
             <input type="submit" />
