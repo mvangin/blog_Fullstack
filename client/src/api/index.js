@@ -5,6 +5,8 @@ const api = axios.create({
 })
 
 export const createPost = payload => api.post(`/posts`, payload)
+export const createComment = payload => api.post(`/post/comment`, payload)
+
 export const signUp = payload => api.post(`/signup`, payload)
 export const login = payload => api.post(`/login`, payload)
 
