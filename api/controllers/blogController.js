@@ -1,10 +1,13 @@
 var express = require('express');
 let User = require('../models/user')
 var bcrypt = require('bcryptjs')
-let Post = require('../models/post')
+let Post = require('../models/post');
+const { NotExtended } = require('http-errors');
 
 exports.blogsListGet = async function (req, res) {
-    await Post.find({}, (err, posts) => {
+    await Post.find({})
+    .populate('username')
+    .exec(function(err, posts) {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
@@ -13,13 +16,16 @@ exports.blogsListGet = async function (req, res) {
                 .status(404)
                 .json({ success: false, error: `No blogs found` })
         }
+
         return res.status(200).json({ success: true, data: posts })
-    }).catch(err => console.log(err))
+    })
 }
 
 exports.blogPost = function (req, res) {
     const title = req.body.title;
     const content = req.body.content;
+    const username = req.body.username;
+
     if (!content || !title) {
         return res.status(400).json({
             success: false,
@@ -27,7 +33,7 @@ exports.blogPost = function (req, res) {
         })
     }
 
-    const post = new Post({ title, content })
+    const post = new Post({ title, content, username })
 
     if (!post) {
         return res.status(400).json({ success: false, error: err })
@@ -54,16 +60,23 @@ exports.blogCreateGet = function (req, res) {
     res.send('create blogpost')
 }
 
+
 exports.blogGet = function (req, res) {
-    res.send(`get specific blog ${req.params.blogID}`)
+    Post.findById(req.params.postID, (err, data) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+
+        res.status(201).json({data})
+    })
 }
 
 exports.blogPut = function (req, res) {
-    res.send(`edit specific blog ${req.params.blogID}`)
+    res.send(`edit specific blog ${req.params.postID}`)
 }
 
 exports.blogDelete = function (req, res) {
-    res.send(`delete specific blog ${req.params.blogID}`)
+    res.send(`delete specific blog ${req.params.postID}`)
 }
 
 

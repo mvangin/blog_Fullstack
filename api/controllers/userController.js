@@ -26,7 +26,7 @@ exports.loginPost = function (req, res) {
                             id: user._id,
                             name: user.username
                         };
-                        jwt.sign(payload, secret, { expiresIn: 36000 },
+                        jwt.sign(payload, secret, {expiresIn: '1d'},
                             (err, token) => {
                                 if (err) res.status(500)
                                     .json({
@@ -34,11 +34,11 @@ exports.loginPost = function (req, res) {
                                         raw: err
                                     });
                                 let username = user.username + ""
-                                console.log(username)
                                 res.json({
                                     success: true,
                                     token: `Bearer ${token}`,
-                                    username: username
+                                    id: user._id,
+                                    username: username,
                                 });
 
                             });

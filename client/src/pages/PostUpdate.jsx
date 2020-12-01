@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BlogUpdate() {
+function PostUpdate() {
     return (
         <div>
             <p>In this page you'll see the form to update the movies</p>
@@ -8,4 +8,4 @@ function BlogUpdate() {
     )
 }
 
-export default BlogUpdate
+export default PostUpdate

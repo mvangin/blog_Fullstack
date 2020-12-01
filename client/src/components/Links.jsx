@@ -26,13 +26,13 @@ function Links() {
             <Collapse>
                 <List>
                     <Item>
-                        <Link to="/blogs" className="nav-link">
-                            List Blogs
+                        <Link to="/posts" className="nav-link">
+                            List Posts
                             </Link>
                     </Item>
                     <Item>
-                        <Link to="/blogs/create" className="nav-link">
-                            Create Blogs
+                        <Link to="/posts/create" className="nav-link">
+                            Create Posts
                             </Link>
                     </Item>
                     <Item>

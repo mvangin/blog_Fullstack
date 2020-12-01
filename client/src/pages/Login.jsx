@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
+import { useHistory } from 'react-router-dom';
+
 
 function Login() {
+
+    const history = useHistory();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -11,9 +15,14 @@ function Login() {
         e.preventDefault();
         api.login({ username, password })
         .then(data => {
-            let username = data.data.username;
+            let id = data.data.id;
             localStorage.setItem("token", data.data.token)
-            localStorage.setItem("username", username)
+            localStorage.setItem("id", id)
+            history.push(`/posts`);
+           //window.location.reload();
+
+
+            
         })
     }
 

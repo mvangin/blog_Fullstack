@@ -24,32 +24,32 @@ router.post('/signup', userController.signupPost)
 
 
 //get all blogs
-//router.get('/blogs', blogController.blogsListGet)
-router.get('/blogs', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
+router.get('/posts', blogController.blogsListGet)
+//router.get('/blogs', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
 
 
 //new blog form
-router.get('/blogs/create', blogController.blogCreateGet)
+router.get('/posts/create', blogController.blogCreateGet)
 
 //create blog
-router.post('/blogs', blogController.blogPost)
+router.post('/posts', blogController.blogPost)
 
 //get specific blog
-router.get('/blogs/:blogID', blogController.blogGet)
+router.get('/posts/:postID', blogController.blogGet)
 
 
 //update blog
-router.put('/blogs/:blogID', blogController.blogPut)
+router.put('/posts/:postID', blogController.blogPut)
 
 //delete blog
-router.delete('/blogs/:blogID', blogController.blogDelete)
+router.delete('/posts/:postID', blogController.blogDelete)
 
 
 //get all comments of specific blog post
-router.get('/blogs/:blogID/comments', commentController.commentListGet)
+router.get('/posts/:postID/comments', commentController.commentListGet)
 
 //post comment on specific blog post
-router.post('/blogs/:blogID/comments', commentController.commentPost)
+router.post('/posts/:postID/comments', commentController.commentPost)
 
 
 

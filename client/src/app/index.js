@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { BlogList, BlogCreate, BlogUpdate, SignUp, Login, Logout} from '../pages'
+import { PostList, PostCreate, PostUpdate, SignUp, Login, Logout, Post} from '../pages'
 import { NavBar } from '../components'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,12 +10,13 @@ function App() {
         <Router>
             <NavBar />
             <Switch>
-                <Route path="/blogs/" exact component={BlogList} />
-                <Route path="/blogs/create" exact component={BlogCreate} />
+                <Route path="/posts/" exact component={PostList} />
+                <Route path="/posts/create" exact component={PostCreate} />
+                <Route path="/posts/:id" component={Post} />
                 <Route
                     path="/movies/update/:id"
                     exact
-                    component={BlogUpdate}
+                    component={PostUpdate}
                 />
                 <Route path="/signup" exact component={SignUp}/>
                 <Route path="/login" exact component ={Login}/>

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import api from '../api'
+import {useHistory} from "react-router-dom"
 
 
-function BlogCreate() {
+function PostCreate() {
+    const history = useHistory();
+    
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    let username = localStorage.getItem('id')
 
     function handleSubmit(e) {
         e.preventDefault();
-        api.createBlog({ title, content })
+        api.createPost({ title, content, username })
+        history.push('/posts')
     }
 
     return (
@@ -29,4 +34,4 @@ function BlogCreate() {
     )
 
 }
-export default BlogCreate
+export default PostCreate

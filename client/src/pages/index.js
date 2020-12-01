@@ -1,8 +1,9 @@
-import BlogList from './BlogList'
-import BlogCreate from './BlogCreate'
-import BlogUpdate from './BlogUpdate'
-import SignUp from "./SignUp.jsx"
+import PostList from './PostList'
+import PostCreate from './PostCreate'
+import PostUpdate from './PostUpdate'
+import SignUp from "./SignUp"
 import Login from "./Login"
 import Logout from "./Logout"
+import Post from  "./Post"
 
-export { BlogList, BlogCreate, BlogUpdate, SignUp, Login, Logout} 
+export { PostList, PostCreate, PostUpdate, SignUp, Login, Logout, Post} 
