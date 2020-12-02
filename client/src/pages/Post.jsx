@@ -7,6 +7,7 @@ import CreateComment from "./CreateComment"
 function Post({ match }) {
 
     const [post, setPost] = useState([]);
+    const [comments, setComments] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     let postID = match.params.id
 
@@ -17,17 +18,27 @@ function Post({ match }) {
         async function fetchData() {
             await api.getPostByID(postID)
                 .then(res => {
-                    let data = res.data.data;
-                    setPost(data)
+                    let post = res.data.posts;
+                    setPost(post)
+                    setComments(res.data.comments)
                     setIsLoading(false);
+                    console.log(res.data.comments)
                 })
+             
         }
         fetchData();
     }, [])
 
     return (
         <>
-        hello {post.content}
+        {post.content}
+
+        {
+        comments.map(comment => {
+            return <div key={nanoid()} style={{color:"red"}}> {comment.content} </div>
+        })
+        }
+
         <br/>
         <CreateComment postID={postID}/>
         </>

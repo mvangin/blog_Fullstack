@@ -5,7 +5,7 @@ const api = axios.create({
 })
 
 export const createPost = payload => api.post(`/posts`, payload)
-export const createComment = payload => api.post(`/post/comment`, payload)
+export const createComment = (postID, payload) => api.post(`/posts/${postID}`, payload)
 
 export const signUp = payload => api.post(`/signup`, payload)
 export const login = payload => api.post(`/login`, payload)
@@ -25,13 +25,14 @@ export const deletePostByID = postID => api.delete(`/posts/${postID}`)
 export const getPostByID = postID => api.get(`/posts/${postID}`)
 
 const apis = {
-    createPost: createPost,
+    createPost,
     getAllPosts,
     updatePostByID,
     deletePostByID,
     getPostByID,
     signUp,
-    login
+    login,
+    createComment
 }
 
 export default apis

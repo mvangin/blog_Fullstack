@@ -46,10 +46,10 @@ router.delete('/posts/:postID', blogController.blogDelete)
 
 
 //get all comments of specific blog post
-router.get('/posts/:postID/comments', commentController.commentListGet)
+router.get('/posts/:postID', commentController.commentListGet)
 
 //post comment on specific blog post
-router.post('/posts/:postID/comments', commentController.commentPost)
+router.post('/posts/:postID', commentController.commentPost)
 
 
 

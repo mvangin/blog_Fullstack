@@ -1,10 +1,36 @@
 var express = require('express');
+let Comment = require ('../models/comment')
 
 
 exports.commentListGet = function(req, res) {
-    res.send(`all comments for blog  ${req.params.blogID}`)
+    res.send(`all comments for blog  ${req.params.postID}`)
 }
 
 exports.commentPost = function(req, res) {
-    res.send(`create comment for blog  ${req.params.blogID}`)
+    let content = req.body.content;
+    let username = req.body.username;
+    let post = req.body.postID;
+
+    if (!content) {
+        return res.status(400).json({
+            success: false,
+            error: "you must provide content"
+        })
+    }
+    const comment = new Comment({username, content, post})
+
+    comment
+        .save()
+        .then(() => {
+            return res.status(201).json({
+                    success: true,
+                    id: comment._id,
+                    message: "comment created"
+                })
+        }).catch(err => {
+            return res.status(400).json({
+                err, 
+                message: "comment not created",
+            })
+        })
 }

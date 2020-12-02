@@ -13,17 +13,17 @@ function CreateComment({ postID }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        api.createComment({ content, username, postID })
+        api.createComment(postID, { content, username, postID })
         history.push('/posts')
     }
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="content">
-                Content
+                
         <input type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
             </label>
 
-            <input type="submit" />
+            <button type="submit"> Post Comment </button>
         </form>
     )
 }

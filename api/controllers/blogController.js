@@ -2,7 +2,9 @@ var express = require('express');
 let User = require('../models/user')
 var bcrypt = require('bcryptjs')
 let Post = require('../models/post');
+let Comment = require('../models/comment')
 const { NotExtended } = require('http-errors');
+let async = require('async')
 
 exports.blogsListGet = async function (req, res) {
     await Post.find({})
@@ -62,14 +64,20 @@ exports.blogCreateGet = function (req, res) {
 
 
 exports.blogGet = function (req, res) {
-    Post.findById(req.params.postID, (err, data) => {
-        //data.populate('comments')
-
+    async.parallel({
+        posts: function (callback) {
+            Post.findById(req.params.postID)
+                .exec(callback)
+        },
+        comments: function (callback) {
+            Comment.find({post : req.params.id})
+                .exec(callback)
+        },
+    }, function (err, results) {
         if (err) {
-            return res.status(400).json({ success: false, error: err })
+            return next(err)
         }
-
-        res.status(201).json({data})
+        res.status(201).json({posts: results.posts, comments: results.comments})
     })
 }
 
