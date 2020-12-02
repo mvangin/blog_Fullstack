@@ -70,7 +70,8 @@ exports.blogGet = function (req, res) {
                 .exec(callback)
         },
         comments: function (callback) {
-            Comment.find({post : req.params.id})
+            console.log(req.body)
+            Comment.find({post : req.params.postID})
                 .exec(callback)
         },
     }, function (err, results) {

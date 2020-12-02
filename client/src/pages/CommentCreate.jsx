@@ -3,7 +3,7 @@ import api from '../api'
 import {useHistory} from "react-router-dom"
 
 
-function CreateComment({ postID }) {
+function CommentCreate({ postID, fetchData}) {
 
     const history = useHistory();
 
@@ -13,9 +13,11 @@ function CreateComment({ postID }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        api.createComment(postID, { content, username, postID })
-        history.push('/posts')
+        let payload = {content, username, postID}
+        api.commentCreate(postID, payload)
+        .then(()=>fetchData())
     }
+
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="content">
@@ -28,4 +30,4 @@ function CreateComment({ postID }) {
     )
 }
 
-export default CreateComment
+export default CommentCreate

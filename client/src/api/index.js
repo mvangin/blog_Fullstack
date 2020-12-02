@@ -5,7 +5,7 @@ const api = axios.create({
 })
 
 export const createPost = payload => api.post(`/posts`, payload)
-export const createComment = (postID, payload) => api.post(`/posts/${postID}`, payload)
+export const commentCreate = (postID, payload) => api.post(`/posts/${postID}`,payload)
 
 export const signUp = payload => api.post(`/signup`, payload)
 export const login = payload => api.post(`/login`, payload)
@@ -32,7 +32,7 @@ const apis = {
     getPostByID,
     signUp,
     login,
-    createComment
+    commentCreate
 }
 
 export default apis
