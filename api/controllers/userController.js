@@ -2,9 +2,10 @@ let User = require('../models/user');
 let bcrypt = require('bcryptjs');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
-const secret = "SECRETHERE"
+const secret = process.env.SECRET
 
 exports.loginGet = function (req, res) {
     res.send('login page');
