@@ -27,6 +27,7 @@ function PostList() {
 
     return (
         <div>
+              <h1> ALL POSTS </h1>
             {
                 posts.map((item) => {
                     return (

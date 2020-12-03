@@ -19,6 +19,7 @@ function SignUp() {
 
     return (
         <>
+            <h1> SIGN UP </h1>
             {submitted ? <Redirect to="/login" /> : null}
             <form onSubmit={handleSubmit}>
                 <label>

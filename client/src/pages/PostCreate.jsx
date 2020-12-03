@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import api from '../api'
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
 function PostCreate() {
     const history = useHistory();
-    
+
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     let username = localStorage.getItem('id')
@@ -17,20 +17,23 @@ function PostCreate() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Title
+        <>
+            <h1> CREATE POST</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Title
             <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }} />
-            </label>
+                </label>
 
 
-            <label>
-                Content
+                <label>
+                    Content
             <input type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
-            </label>
+                </label>
 
-            <input type="submit"/>
-        </form>
+                <input type="submit" />
+            </form>
+        </>
     )
 
 }

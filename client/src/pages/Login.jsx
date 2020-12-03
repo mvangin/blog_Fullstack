@@ -27,6 +27,8 @@ function Login() {
     }
 
     return (
+        <>
+        <h1> LOGIN </h1>
         <form onSubmit={handleSubmit}>
             <label>
                 Username
@@ -41,6 +43,7 @@ function Login() {
 
             <input type="submit" />
         </form>
+        </>
     )
 
 }

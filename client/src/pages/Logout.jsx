@@ -8,9 +8,7 @@ function Logout() {
 
 
     return (
-        <div>
-            You have been logged out
-        </div>
+        <h3> You have been logged out </h3>
     )
 }
 
