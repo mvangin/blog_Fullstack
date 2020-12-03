@@ -16,6 +16,7 @@ function CommentCreate({ postID, fetchData}) {
         let payload = {content, username, postID}
         api.commentCreate(postID, payload)
         .then(()=>fetchData())
+        setContent("");
     }
 
     return (

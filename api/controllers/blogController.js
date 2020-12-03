@@ -72,6 +72,7 @@ exports.blogGet = function (req, res) {
         comments: function (callback) {
             console.log(req.body)
             Comment.find({post : req.params.postID})
+                .populate('username')
                 .exec(callback)
         },
     }, function (err, results) {

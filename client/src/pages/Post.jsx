@@ -14,11 +14,10 @@ function Post({ match }) {
     async function fetchData() {
         await api.getPostByID(postID)
             .then(res => {
-                let post = res.data.posts;
-                setPost(post)
-                setComments(res.data.comments)
+                setPost(res.data.posts);
+                setComments(res.data.comments);
                 setIsLoading(false);
-                console.log(res.data.comments)
+                console.log(res.data.comments);
             })
     }
 
@@ -34,7 +33,7 @@ function Post({ match }) {
 
             {
                 comments.map(comment => {
-                    return <div key={nanoid()} style={{ color: "red" }}> {comment.content} </div>
+                    return <div key={nanoid()} style={{ color: "red" }}> {comment.content}. Posted by {comment.username.username} </div>
                 })
             }
 

@@ -29,12 +29,14 @@ function PostList() {
         <div>
             {
                 posts.map((item) => {
-                    return (<div key={nanoid()}>
-                        <Link to={`/posts/${item._id}`}> {item.title} </Link>
-                    : {item.content} : {item.username ? <span> {item.username.username} </span> : null}
-                    </div>)
+                    return (
+                    <div key={nanoid()}>
+                        <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
+                    : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                    </div>
+                    )
                 })
-                
+
             }
         </div>
 
