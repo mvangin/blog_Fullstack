@@ -13,6 +13,10 @@ function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if (username.trim() == "" || password.trim() == "") {
+            return
+        }
+        e.preventDefault();
         api.signUp({ username, password })
         setSubmitted(true)
     }

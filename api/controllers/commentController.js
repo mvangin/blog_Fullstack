@@ -10,7 +10,7 @@ exports.commentPost = function(req, res) {
     let content = req.body.content;
     let username = req.body.username;
     let post = req.body.postID;
-
+    console.log(req.body)
     if (!content) {
         return res.status(400).json({
             success: false,

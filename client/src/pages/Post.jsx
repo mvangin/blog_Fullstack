@@ -31,9 +31,12 @@ function Post({ match }) {
         <>
             {post.content}
 
+            <div>
+                <u> Comments  </u>
+            </div>
             {
                 comments.map(comment => {
-                    return <div key={nanoid()} style={{ color: "red" }}> {comment.content}. Posted by {comment.username.username} </div>
+                    return <div key={nanoid()}> {comment.content}.  {comment.username ? <span> Posted by: {comment.username.username} </span> : null} </div>
                 })
             }
 

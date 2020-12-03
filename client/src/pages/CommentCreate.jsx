@@ -8,12 +8,18 @@ function CommentCreate({ postID, fetchData}) {
     const history = useHistory();
 
     const [content, setContent] = useState("");
-    let username = localStorage.getItem('id')
 
 
     function handleSubmit(e) {
         e.preventDefault();
+        e.preventDefault();
+        if (content.trim() == "") {
+            return
+        }
+
+        let username = localStorage.getItem('id')
         let payload = {content, username, postID}
+        console.log(payload)
         api.commentCreate(postID, payload)
         .then(()=>fetchData())
         setContent("");

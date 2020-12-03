@@ -58,7 +58,7 @@ exports.blogPost = function (req, res) {
 
 }
 
-exports.blogCreateGet = function (req, res) {
+exports.getPostCreate = function (req, res) {
     res.send('create blogpost')
 }
 

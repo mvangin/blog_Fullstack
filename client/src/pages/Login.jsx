@@ -13,6 +13,10 @@ function Login() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        e.preventDefault();
+        if (username.trim() == "" || password.trim() == "") {
+            return
+        }
         api.login({ username, password })
         .then(data => {
             let id = data.data.id;

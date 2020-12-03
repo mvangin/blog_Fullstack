@@ -25,11 +25,11 @@ router.post('/signup', userController.signupPost)
 
 //get all blogs
 router.get('/posts', blogController.blogsListGet)
-//router.get('/blogs', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
+//router.get('/posts', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
 
 
 //new blog form
-router.get('/posts/create', blogController.blogCreateGet)
+router.get('/posts/create',  passport.authenticate('jwt', {session: false}), blogController.getPostCreate)
 
 //create blog
 router.post('/posts', blogController.blogPost)
@@ -49,7 +49,8 @@ router.delete('/posts/:postID', blogController.blogDelete)
 router.get('/posts/:postID', commentController.commentListGet)
 
 //post comment on specific blog post
-router.post('/posts/:postID', commentController.commentPost)
+//router.post('/posts/:postID', commentController.commentPost)
+router.post('/posts/:postID', passport.authenticate('jwt', {session: false}), commentController.commentPost)
 
 
 

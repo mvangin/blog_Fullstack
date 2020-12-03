@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from '../api'
 import { useHistory } from "react-router-dom"
 
@@ -10,10 +10,18 @@ function PostCreate() {
     const [content, setContent] = useState("");
     let username = localStorage.getItem('id')
 
+    useEffect(() => {
+        api.getPostCreate()
+    }, [])
+
     function handleSubmit(e) {
         e.preventDefault();
+        if (title.trim() == "" || content.trim() == "") {
+            return
+        }
+
         api.createPost({ title, content, username })
-        history.push('/posts')
+            .then(history.push('/posts'))
     }
 
     return (
