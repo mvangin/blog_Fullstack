@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
 import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
-import styled from 'styled-components'
 
-//import 'react-table/react-table.css'
 
 function PostList() {
 
@@ -26,19 +26,39 @@ function PostList() {
     }, [])
 
     return (
-        <div>
-              <h1> ALL POSTS </h1>
-            {
-                posts.map((item) => {
-                    return (
-                    <div key={nanoid()}>
-                        <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
-                    : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
-                    </div>
-                    )
-                })
+        <div className="container">
+            <h1> ALL POSTS</h1>
+            <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
+                {
+                    posts.map((item) => {
+                        return (
+                            <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
+                                <Card.Body>
+                                    <Card.Header><b>{item.title} </b></Card.Header>
+                                    <Card.Title> </Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted">
+                                        {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                                    </Card.Subtitle>
+                                    <Button>
+                                        <Link className="text-white" to={`/posts/${item._id}`} >
+                                            See More
+                                        </Link>
+                                    </Button>
 
-            }
+                                </Card.Body>
+
+                            </Card>
+
+                            /*  <div key={nanoid()}>
+                                   <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
+                           : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                               </div>
+                               */
+                        )
+                    })
+
+                }
+            </div>
         </div>
 
     )

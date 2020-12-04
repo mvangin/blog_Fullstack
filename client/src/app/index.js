@@ -1,16 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { PostList, PostCreate, PostUpdate, SignUp, Login, Logout, Post, Homepage } from '../pages'
-import { NavBar } from '../components'
+import { PostList, PostCreate, PostUpdate, SignUp, Login, Logout, Post, LoginSignup } from '../pages'
+import {  NavbarComponent} from '../components'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 function App() {
     return (
         <Router>
-            <NavBar />
+
+            <NavbarComponent />
             <Switch>
-                <Route path="/" exact component={Homepage} />
+                <Route path="/" exact component={LoginSignup} />
                 <Route path="/posts/" exact component={PostList} />
                 <Route path="/posts/create" exact component={PostCreate} />
                 <Route path="/posts/:id" component={Post} />

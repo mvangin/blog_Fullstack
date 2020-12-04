@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+.loginSignupCont {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+.loginSignupBorder {
+    width: 350px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.userContainer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.userChoice {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bodyContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formContainer {
+    width: 200px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+.formInput {
+    padding: 5px;
+    margin-top:20px;
+    width: 100%;
+
+}
+.formSubmit {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
