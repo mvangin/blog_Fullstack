@@ -25,11 +25,6 @@ function NavbarComponent() {
                             </Link>
                     </Nav>
                     <Nav>
-                        <Link to="/signup" className="nav-link">
-                            SignUp
-                            </Link>
-                    </Nav>
-                    <Nav>
                         <Link to="/login" className="nav-link">
                             Login
                             </Link>
