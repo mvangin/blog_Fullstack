@@ -28,7 +28,7 @@ function SignUp({handleLogin}) {
             
             {/*submitted ? <Redirect to="/login" /> : null*/}
 
-            <div class="formContainer">
+            <div className="formContainer">
                 <form onSubmit={handleSubmit} className="form">
                     <label>
                         <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
@@ -39,7 +39,7 @@ function SignUp({handleLogin}) {
                         <input className="formInput" type="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                     </label>
 
-                    <input className="formInput" type="submit" class="formSubmit" value="Signup"/>
+                    <input className="formInput submit" type="submit" value="Sign up"/>
 
                 </form>
             </div>

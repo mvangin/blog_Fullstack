@@ -24,10 +24,7 @@ function Login() {
                 localStorage.setItem("token", data.data.token)
                 localStorage.setItem("id", id)
                 history.push(`/posts`);
-                //window.location.reload();
-
-
-
+                window.location.reload();
             })
     }
 
@@ -46,7 +43,8 @@ function Login() {
                             <input className="formInput" type="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                         </label>
 
-                        <input className="formInput" type="submit" class="formSubmit" value="Login"/>
+
+                        <input className="formInput submit" type="submit" value="Login"/>
 
                     </form>
                 </div>
