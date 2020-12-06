@@ -7,8 +7,8 @@ function NavbarComponent() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             < Navbar.Brand>
-                <Link to="/" className="nav-link">
-                    Homepage
+                <Link to="/" className="nav-link text-light">
+                    SnoffleStein Blogs
                 </Link>
             </Navbar.Brand >
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -29,12 +29,13 @@ function NavbarComponent() {
                             Login
                             </Link>
                     </Nav>
-                    <Nav>
-                        <Link to="/logout" className="nav-link">
-                            Logout
-                    </Link>
-                    </Nav>
                 </Nav>
+                <Nav className="ml-auto">
+                    <Link to="/logout" className="nav-link">
+                        Logout
+                    </Link>
+                </Nav>
+  
             </Navbar.Collapse >
         </Navbar >
     )

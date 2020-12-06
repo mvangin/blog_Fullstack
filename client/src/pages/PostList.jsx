@@ -27,7 +27,6 @@ function PostList() {
 
     return (
         <div className="container">
-            <h1> ALL POSTS</h1>
             <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
                 {
                     posts.map((item) => {

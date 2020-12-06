@@ -7,6 +7,7 @@
     justify-content: center;
     margin-top: 80px;
 }
+
 .loginSignupBorder {
     width: 350px;
     padding: 10px 10px 0px 10px;
@@ -62,5 +63,70 @@
     background: rgb(64, 148, 197);
     font-size: 1.5rem;
     color:rgb(250, 250, 250);
+}
 
+.createPostContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.postForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.postInput{
+    padding: 10px;
+    width: 100%;
+}
+
+.homepageContainer {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    align-items: center;
+}
+
+.linkContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.homeLink {
+    border: 1px solid rgb(75, 176, 235);
+    border-radius: 5px;
+    width: 150px;
+    margin: 30px 10px;
+    padding: 5px;
+    background: rgb(64, 148, 197);
+    font-size: 1.2rem;
+    color:rgb(250, 250, 250);
+}
+
+.link {
+    color: white;
+}
+
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commentInput {
+    width: 350px;
+}
+
+.commentSubmit {
+    border: 1px solid rgb(75, 176, 235);
+    border-radius: 5px;
+    width: 150px;
+    padding: 5px;
+    background: rgb(64, 148, 197);
+    color:rgb(250, 250, 250);
+}
+
+.allCommentsContainer {
+    margin: 10px;
 }

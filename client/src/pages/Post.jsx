@@ -29,19 +29,31 @@ function Post({ match }) {
 
     return (
         <>
-            {post.content}
+            <div className='postContainer'>
 
-            <div>
-                <u> Comments  </u>
+                <div>
+                    <h1><b> {post.title}  </b>  </h1>
+
+                    {post.content}
+                </div>
+
+
+                <br />
+                <CommentCreate postID={postID} fetchData={fetchData} />
+                <div class="allCommentsContainer">
+                    <u> All Comments  </u>
+
+                    <div>
+                        {
+                            comments.map(comment => {
+                                return <div key={nanoid()}> {comment.content}.  {comment.username ? <span> Posted by: {comment.username.username} </span> : null} </div>
+                            })
+                        }
+
+                    </div>
+                </div>
             </div>
-            {
-                comments.map(comment => {
-                    return <div key={nanoid()}> {comment.content}.  {comment.username ? <span> Posted by: {comment.username.username} </span> : null} </div>
-                })
-            }
 
-            <br />
-            <CommentCreate postID={postID} fetchData={fetchData} />
         </>
     )
 

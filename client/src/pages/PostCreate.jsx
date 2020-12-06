@@ -26,21 +26,20 @@ function PostCreate() {
 
     return (
         <>
-            <h1> CREATE POST</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Title
-            <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }} />
-                </label>
+            <div class="createPostContainer">
+                <form onSubmit={handleSubmit} class="postForm">
+                    <label>
+                        <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
+                    </label>
 
 
-                <label>
-                    Content
-            <input type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
-                </label>
+                    <label>
+                        <textarea rows="8" cols="80" type="text" value={content} onChange={(e) => { setContent(e.target.value); }} placeholder="content" className="postInput" />
+                    </label>
 
-                <input type="submit" />
-            </form>
+                    <input type="submit" value="Create Post" className="postInput submit" />
+                </form>
+            </div>
         </>
     )
 

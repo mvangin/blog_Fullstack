@@ -1,9 +1,9 @@
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import api from '../api'
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
-function CommentCreate({ postID, fetchData}) {
+function CommentCreate({ postID, fetchData }) {
 
     const history = useHistory();
 
@@ -18,21 +18,23 @@ function CommentCreate({ postID, fetchData}) {
         }
 
         let username = localStorage.getItem('id')
-        let payload = {content, username, postID}
+        let payload = { content, username, postID }
         console.log(payload)
         api.commentCreate(postID, payload)
-        .then(()=>fetchData())
+            .then(() => fetchData())
         setContent("");
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="content">
-                
-        <input type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
+            <label>
+                <textarea placeholder="Enter your comment here..." className="commentInput" type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
             </label>
 
-            <button type="submit"> Post Comment </button>
+            <div>
+                <button type="submit" class="commentSubmit"> Leave a comment </button>
+            </div>
+
         </form>
     )
 }
