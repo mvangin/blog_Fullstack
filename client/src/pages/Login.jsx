@@ -3,9 +3,11 @@ import api from '../api'
 import { nanoid } from 'nanoid'
 import { useHistory } from 'react-router-dom';
 import '../styles/styles.css'
+import jwt_decode from "jwt-decode";
 
 
-function Login() {
+
+function Login({setUser}) {
     const history = useHistory();
 
     const [username, setUsername] = useState("");
@@ -23,7 +25,14 @@ function Login() {
                 localStorage.setItem("token", data.data.token)
                 localStorage.setItem("id", id)
                 history.push(`/posts`);
-                window.location.reload();
+
+                if (localStorage.getItem("token") !== null) {
+                    let token = localStorage.getItem("token");
+                    setUser(jwt_decode(token).name);
+                } else {
+                    return null;
+                }
+
             })
     }
 

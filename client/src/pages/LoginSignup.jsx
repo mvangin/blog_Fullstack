@@ -4,7 +4,7 @@ import SignUp from "./SignUp"
 import '../styles/styles.css'
 
 
-function LoginSignup() {
+function LoginSignup({setUser}) {
 
     const [login, setLogin] = useState(true);
     function handleLogin() {
@@ -25,7 +25,7 @@ function LoginSignup() {
                         {login ? <h4 > Signup</h4> : <h4 ><u> Sign up </u> </h4>}
                     </div>
                 </div>
-                {login ? <Login /> : <SignUp handleLogin={handleLogin}  />}
+                {login ? <Login setUser={setUser} /> : <SignUp handleLogin={handleLogin}  />}
             </div>
         </div>
     )

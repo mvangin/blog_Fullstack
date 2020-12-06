@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom'
 
 
-function NavbarComponent() {
+function NavbarComponent({ user }) {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             < Navbar.Brand>
@@ -24,18 +24,22 @@ function NavbarComponent() {
                             Create Posts
                             </Link>
                     </Nav>
+
+                </Nav>
+                {user ?
+                    <Nav className="ml-auto">
+                        <Link to="/logout" className="nav-link">
+                            Logout {user}
+                        </Link>
+                    </Nav>
+                    :
                     <Nav>
                         <Link to="/login" className="nav-link">
                             Login
-                            </Link>
+                        </Link>
                     </Nav>
-                </Nav>
-                <Nav className="ml-auto">
-                    <Link to="/logout" className="nav-link">
-                        Logout
-                    </Link>
-                </Nav>
-  
+                }
+
             </Navbar.Collapse >
         </Navbar >
     )

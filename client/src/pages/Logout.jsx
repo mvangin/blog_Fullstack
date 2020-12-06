@@ -1,9 +1,10 @@
 import React from "react"
 
-function Logout() {
+function Logout({setUser}) {
 
     localStorage.removeItem('token')
     localStorage.removeItem('id')
+    setUser(null)
 
 
 
