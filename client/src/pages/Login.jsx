@@ -6,7 +6,6 @@ import '../styles/styles.css'
 
 
 function Login() {
-
     const history = useHistory();
 
     const [username, setUsername] = useState("");
@@ -32,7 +31,7 @@ function Login() {
         <>
             <div className="bodyContainer">
                
-                <div class="formContainer">
+                <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
                         <label>
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />

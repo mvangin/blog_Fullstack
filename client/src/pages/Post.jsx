@@ -40,7 +40,7 @@ function Post({ match }) {
 
                 <br />
                 <CommentCreate postID={postID} fetchData={fetchData} />
-                <div class="allCommentsContainer">
+                <div className="allCommentsContainer">
                     <u> All Comments  </u>
 
                     <div>

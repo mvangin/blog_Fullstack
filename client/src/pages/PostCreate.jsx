@@ -26,8 +26,8 @@ function PostCreate() {
 
     return (
         <>
-            <div class="createPostContainer">
-                <form onSubmit={handleSubmit} class="postForm">
+            <div className="createPostContainer">
+                <form onSubmit={handleSubmit} className="postForm">
                     <label>
                         <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
                     </label>

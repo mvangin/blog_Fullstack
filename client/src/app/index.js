@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { PostList, PostCreate, PostUpdate, Logout, Post, LoginSignup, Homepage } from '../pages'
 import { NavbarComponent } from '../components'
@@ -7,10 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 function App() {
+
     return (
         <Router>
 
-            <NavbarComponent />
+            <NavbarComponent/>
             <Switch>
                 <Route path="/" exact component={Homepage} />
 
@@ -22,7 +23,7 @@ function App() {
                     exact
                     component={PostUpdate}
                 />
-                <Route path="/login" exact component={LoginSignup} />
+                <Route path="/login" exact render={()=> <LoginSignup />} />
                 <Route path="/logout" exact component={Logout} />
             </Switch>
         </Router>
