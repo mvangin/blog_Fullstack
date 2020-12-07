@@ -11,13 +11,13 @@ function Post({ match }) {
     const [isLoading, setIsLoading] = useState(false);
     let postID = match.params.id
 
+
     async function fetchData() {
         await api.getPostByID(postID)
             .then(res => {
                 setPost(res.data.posts);
                 setComments(res.data.comments);
                 setIsLoading(false);
-                console.log(res.data.comments);
             })
     }
 
@@ -33,7 +33,10 @@ function Post({ match }) {
                 <div className="sizeContainer">
                     <div>
                         <h1><b> {post.title}  </b>  </h1>
-
+                        <div class="postAuthor">
+                            By <i> {post.username ? post.username.username : null} </i>
+                        </div>
+                        <br/>
                         {post.content}
                     </div>
 

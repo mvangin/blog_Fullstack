@@ -8,19 +8,19 @@ let async = require('async')
 
 exports.blogsListGet = async function (req, res) {
     await Post.find({})
-    .populate('username')
-    .exec(function(err, posts) {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-        if (!posts.length) {
-            return res
-                .status(404)
-                .json({ success: false, error: `No blogs found` })
-        }
+        .populate('username')
+        .exec(function (err, posts) {
+            if (err) {
+                return res.status(400).json({ success: false, error: err })
+            }
+            if (!posts.length) {
+                return res
+                    .status(404)
+                    .json({ success: false, error: `No blogs found` })
+            }
 
-        return res.status(200).json({ success: true, data: posts })
-    })
+            return res.status(200).json({ success: true, data: posts })
+        })
 }
 
 exports.blogPost = function (req, res) {
@@ -45,13 +45,13 @@ exports.blogPost = function (req, res) {
         .save()
         .then(() => {
             return res.status(201).json({
-                    success: true,
-                    id: post._id,
-                    message: "blog created"
-                })
+                success: true,
+                id: post._id,
+                message: "blog created"
+            })
         }).catch(err => {
             return res.status(400).json({
-                err, 
+                err,
                 message: "blog not created",
             })
         })
@@ -67,11 +67,12 @@ exports.blogGet = function (req, res) {
     async.parallel({
         posts: function (callback) {
             Post.findById(req.params.postID)
+                .populate('username')
                 .exec(callback)
         },
         comments: function (callback) {
             console.log(req.body)
-            Comment.find({post : req.params.postID})
+            Comment.find({ post: req.params.postID })
                 .populate('username')
                 .exec(callback)
         },
@@ -79,7 +80,7 @@ exports.blogGet = function (req, res) {
         if (err) {
             return next(err)
         }
-        res.status(201).json({posts: results.posts, comments: results.comments})
+        res.status(201).json({ posts: results.posts, comments: results.comments })
     })
 }
 
@@ -88,9 +89,10 @@ exports.blogPut = function (req, res) {
 }
 
 exports.blogDelete = function (req, res) {
-    res.send(`delete specific blog ${req.params.postID}`)
+    Post.findByIdAndDelete(req.params.postID, function(err) {
+        if (err) {
+            next(err)
+        }
+            console.log("successful")
+    })
 }
-
-
-
-
