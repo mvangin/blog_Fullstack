@@ -1,8 +1,8 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
-function Logout({setUser}) {
+function Logout({ setUser }) {
     localStorage.removeItem('token')
     localStorage.removeItem('id')
     setUser(null)
@@ -11,16 +11,16 @@ function Logout({setUser}) {
 
     return (
         <div className="homepageContainer">
-        <div>
-            <h1>
-                You have been logged out
+            <div>
+                <h1>
+                    You have been logged out
         </h1>
-            <div className="linkContainer">
-                <button className="homeLink"> <Link to="/posts" className="link"> View Blogs </Link> </button>
-                <button className="homeLink"> <Link to="/login" className="link"> Sign In </Link>  </button>
+                <div className="linkContainer">
+                    <Link to="/posts" className="link"><button className="homeLink"> View Blogs </button> </Link>
+                    <Link to="/login" className="link">  <button className="homeLink">  Sign In  </button> </Link>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

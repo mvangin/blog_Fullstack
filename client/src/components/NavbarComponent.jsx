@@ -13,27 +13,33 @@ function NavbarComponent({ user }) {
             </Navbar.Brand >
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
+                <Nav >
                     <Nav>
                         <Link to="/posts" className="nav-link">
                             List Posts
                             </Link>
                     </Nav>
-                    <Nav>
-                        <Link to="/posts/create" className="nav-link">
-                            Create Posts
-                            </Link>
-                    </Nav>
+
 
                 </Nav>
+                
                 {user ?
-                    <Nav className="ml-auto">
-                        <Link to="/logout" className="nav-link">
-                            Logout {user}
-                        </Link>
-                    </Nav>
+                    <>
+
+                        < Nav className="mr-auto">
+                            <Link to="/posts/create" className="nav-link">
+                            Create Posts
+                                        </Link>
+                        </Nav>
+
+                        <Nav className="ml-auto">
+                            <Link to="/logout" className="nav-link">
+                                Logout {user}
+                            </Link>
+                        </Nav>
+                    </>
                     :
-                    <Nav>
+                    <Nav className="ml-auto" >
                         <Link to="/login" className="nav-link">
                             Login
                         </Link>

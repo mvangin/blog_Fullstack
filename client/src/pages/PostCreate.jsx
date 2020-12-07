@@ -11,7 +11,7 @@ function PostCreate() {
     let username = localStorage.getItem('id')
 
     useEffect(() => {
-        api.getPostCreate()
+        //api.getPostCreate()
     }, [])
 
     function handleSubmit(e) {
