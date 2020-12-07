@@ -1,12 +1,12 @@
 var express = require('express');
-let Comment = require ('../models/comment')
+let Comment = require('../models/comment')
 
 
-exports.commentListGet = function(req, res) {
+exports.commentListGet = function (req, res) {
     res.send(`all comments for blog  ${req.params.postID}`)
 }
 
-exports.commentPost = function(req, res) {
+exports.commentPost = function (req, res) {
     let content = req.body.content;
     let username = req.body.username;
     let post = req.body.postID;
@@ -17,20 +17,24 @@ exports.commentPost = function(req, res) {
             error: "you must provide content"
         })
     }
-    const comment = new Comment({username, content, post})
+    const comment = new Comment({ username, content, post })
 
     comment
         .save()
         .then(() => {
             return res.status(201).json({
-                    success: true,
-                    id: comment._id,
-                    message: "comment created"
-                })
+                success: true,
+                id: comment._id,
+                message: "comment created"
+            })
         }).catch(err => {
             return res.status(400).json({
-                err, 
+                err,
                 message: "comment not created",
             })
         })
+}
+
+exports.commentDelete = function (req, res) {
+
 }

@@ -93,6 +93,8 @@ exports.blogDelete = function (req, res) {
         if (err) {
             next(err)
         }
-            console.log("successful")
+    
+            console.log("successfully delete blog")
+            res.json({success: true})
     })
 }

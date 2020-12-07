@@ -9,8 +9,8 @@ function Homepage() {
                     Welcome to SnoffleStein Blogs
             </h1>
                 <div className="linkContainer">
-                    <button className="homeLink"> <Link to="/posts" className="link"> View Blogs </Link> </button>
-                    <button className="homeLink"> <Link to="/login" className="link"> Sign In </Link>  </button>
+                     <Link to="/posts" className="link"><button className="homeLink"> View Blogs </button> </Link> 
+                   <Link to="/login" className="link">  <button className="homeLink">  Sign In  </button> </Link> 
                 </div>
             </div>
         </div>
