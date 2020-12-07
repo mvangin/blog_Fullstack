@@ -38,11 +38,13 @@ function PostList() {
                                     <Card.Subtitle className="mb-2 text-muted">
                                         {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
                                     </Card.Subtitle>
-                                    <Button>
-                                        <Link className="text-white" to={`/posts/${item._id}`} >
+
+                                    <Link className="text-white" to={`/posts/${item._id}`} >
+                                        <Button>
                                             See More
-                                        </Link>
-                                    </Button>
+                                            </Button>
+                                    </Link>
+
 
                                 </Card.Body>
 

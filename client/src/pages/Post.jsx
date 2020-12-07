@@ -30,26 +30,28 @@ function Post({ match }) {
     return (
         <>
             <div className='postContainer'>
+                <div className="sizeContainer">
+                    <div>
+                        <h1><b> {post.title}  </b>  </h1>
 
-                <div>
-                    <h1><b> {post.title}  </b>  </h1>
-
-                    {post.content}
-                </div>
-
-
-                <br />
-                <CommentCreate postID={postID} fetchData={fetchData} />
-                <div className="allCommentsContainer">
-                    <u> All Comments  </u>
+                        {post.content}
+                    </div>
 
                     <div>
-                        {
-                            comments.map(comment => {
-                                return <div key={nanoid()}> {comment.content}.  {comment.username ? <span> Posted by: {comment.username.username} </span> : null} </div>
-                            })
-                        }
+                        <CommentCreate postID={postID} fetchData={fetchData} />
+                    </div>
 
+                    <div className="allCommentsContainer">
+                        <u> All Comments  </u>
+
+                        <div>
+                            {
+                                comments.map(comment => {
+                                    return <div key={nanoid()}> {comment.content}.  {comment.username ? <span> Posted by: {comment.username.username} </span> : null} </div>
+                                })
+                            }
+
+                        </div>
                     </div>
                 </div>
             </div>

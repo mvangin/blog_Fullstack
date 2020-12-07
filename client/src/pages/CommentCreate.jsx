@@ -26,10 +26,11 @@ function CommentCreate({ postID, fetchData }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                <textarea placeholder="Enter your comment here..." className="commentInput" type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
-            </label>
+
+        <form onSubmit={handleSubmit} className="createComment" >
+
+            <textarea placeholder="Enter your comment here..." className="commentInput" type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
+
 
             <div>
                 <button type="submit" class="commentSubmit"> Leave a comment </button>
