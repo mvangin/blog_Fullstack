@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+}
+
+.loginSignupCont {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.loginSignupBorder {
+    width: 350px;
+    padding: 10px 10px 0px 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.userContainer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.userChoice {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bodyContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formContainer {
+    width: 200px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+.formInput {
+    padding: 5px;
+    margin-top:20px;
+    width: 100%;
+
+}
+.formSubmit {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.submit {
+    border: 1px solid rgb(75, 176, 235);
+    border-radius: 5px;
+    width: 350px;
+    padding: 1.3rem;
+    background: rgb(64, 148, 197);
+    font-size: 1.5rem;
+    color:rgb(250, 250, 250);
+}
+
+.createPostContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.postForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.postInput{
+    padding: 10px;
+    width: 100%;
+}
+
+.postAuthor {
+    color: rgb(87, 86, 86);
+}
+
+.homepageContainer {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    align-items: center;
+}
+
+.linkContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.homeLink {
+    border: 1px solid rgb(75, 176, 235);
+    border-radius: 5px;
+    width: 150px;
+    margin: 30px 10px;
+    padding: 5px;
+    background: rgb(64, 148, 197);
+    font-size: 1.2rem;
+    color:rgb(250, 250, 250);
+}
+
+.link {
+    color: white;
+}
+
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sizeContainer {
+    width: 600px;
+}
+
+.postTitle {
+    float: left;
+}
+
+.postDelete {
+    float:right;
+    margin-top: 10px;
+    background:rgb(192, 25, 25);
+    color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.createComment {
+    margin-top: 30px;
+    width: 600px;   
+}
+
+.commentInput {
+    width: 100%;
+}
+
+.commentContainer {
+    border-bottom: 1px solid rgb(180, 179, 179);
+    padding: 10px;
+    margin: 20px;
+}
+
+.commentAuthor {
+    color: grey;
+    font-size: .8rem;
+}
+
+.commentContent {
+    margin-top: 10px;
+}
+
+.commentSubmit {
+    border: 1px solid rgb(75, 176, 235);
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    background: rgb(64, 148, 197);
+    color:rgb(250, 250, 250);
+}
+
+.allCommentsContainer {
+    margin-top: 30px;
+}

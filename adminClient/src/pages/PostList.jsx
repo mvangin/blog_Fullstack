@@ -7,9 +7,8 @@ import Button from 'react-bootstrap/Button'
 
 
 
-function PostList() {
+function PostList({ setPosts, posts }) {
 
-    const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -24,6 +23,7 @@ function PostList() {
         }
         fetchData();
     }, [])
+
 
     return (
         <div className="container">
@@ -44,7 +44,6 @@ function PostList() {
                                             See More
                                             </Button>
                                     </Link>
-                                    
 
 
                                 </Card.Body>

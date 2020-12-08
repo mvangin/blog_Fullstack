@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import api from '../api'
-import { useHistory, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
-function CommentCreate({ postID, fetchData, user }) {
+
+function CommentCreate({ postID, fetchData }) {
 
     const history = useHistory();
 
@@ -30,18 +31,10 @@ function CommentCreate({ postID, fetchData, user }) {
 
             <textarea placeholder="Enter your comment here..." className="commentInput" type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
 
-            {user ?
-                <div>
-                    <button type="submit" className="commentSubmit"> Leave a comment </button>
-                </div>
-                :
 
-                <Link to="/login" >
-                    <button className="commentSubmit"> 
-                        Please login to comment
-                    </button>
-                </Link>
-            }
+            <div>
+                <button type="submit" className="commentSubmit"> Leave a comment </button>
+            </div>
 
         </form>
     )

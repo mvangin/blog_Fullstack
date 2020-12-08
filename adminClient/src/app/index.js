@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
+    const [posts, setPosts] = useState([]);
+
     const [decTokenUser, setDecTokenUser] = useState(() => {
         if (localStorage.getItem("token") !== null) {
             let token = localStorage.getItem("token")
@@ -16,20 +18,18 @@ function App() {
         } else {
             return null;
         }
-    }
-    )
-
+    })
 
     return (
         <Router>
 
-            <NavbarComponent user={decTokenUser}/>
+            <NavbarComponent user={decTokenUser} />
             <Switch>
                 <Route path="/" exact component={Homepage} />
 
-                <Route path="/posts/" exact component={PostList} />
+                <Route path="/posts/" exact render={()=><PostList posts={posts} setPosts={setPosts} />} />
                 <Route path="/posts/create" exact component={PostCreate} />
-                <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} />}/>
+                <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} posts={posts} setPosts={setPosts} />}/>
                 <Route
                     path="/movies/update/:id"
                     exact
@@ -38,7 +38,7 @@ function App() {
 
                 <Route path="/logout" exact render={() => <Logout setUser={setDecTokenUser} />} />
 
-                <Route path="/login" exact render={() => <LoginSignup setUser={setDecTokenUser}/>} />
+                <Route path="/login" exact render={() => <LoginSignup setUser={setDecTokenUser} />} />
 
 
             </Switch>

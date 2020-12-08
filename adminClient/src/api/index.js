@@ -7,7 +7,7 @@ const api = axios.create({
 
 const UNAUTHORIZED = 401;
 
-// if unauthorized redirect to login page
+// if unauthorized alert need to login
 api.interceptors.response.use(
     response => response,
     error => {
@@ -18,7 +18,6 @@ api.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-
 
 
 
@@ -54,8 +53,9 @@ export const login = payload => api.post(`/login`, payload)
 export const getAllPosts = () => (api.get(`/posts`))
 
 export const updatePostByID = (postID, payload) => api.put(`/posts/${postID}`, payload)
-
 export const deletePostByID = postID => api.delete(`/posts/${postID}`)
+
+export const deleteCommentByID = (postID, commentID) => api.delete(`/posts/${postID}/${commentID}`)
 
 export const getPostByID = postID => api.get(`/posts/${postID}`)
 
@@ -68,6 +68,7 @@ const apis = {
     signUp,
     login,
     commentCreate,
+    deleteCommentByID,
     getPostCreate
 }
 

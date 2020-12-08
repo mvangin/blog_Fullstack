@@ -1,0 +1,102 @@
+import React, { useEffect, useState } from 'react'
+import api from '../api'
+import { nanoid } from 'nanoid'
+import CommentCreate from "./CommentCreate"
+import { useHistory } from "react-router-dom"
+
+
+function Post({ match, setPosts, posts }) {
+
+    const [postItem, setPostItem] = useState([]);
+    const [comments, setComments] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
+
+    let postID = match.params.id
+
+    const history = useHistory();
+
+
+
+    async function fetchData() {
+        await api.getPostByID(postID)
+            .then(res => {
+                setPostItem(res.data.posts);
+                setComments(res.data.comments);
+                setIsLoading(false);
+            })
+    }
+
+    useEffect(() => {
+        setIsLoading(true);
+        fetchData();
+    }, [])
+
+    function handlePostDelete() {
+        api.deletePostByID(postID)
+            .then(() => {
+                setPosts(posts.filter((post => post._id !== postID)));
+                history.push(`/posts/${postID}`);
+            })
+    }
+
+    function handleCommentDelete(commentID) {
+        api.deleteCommentByID(postID, commentID)
+            .then(() => {
+                //setPosts(posts.filter((post => post._id !== postID)));
+                //history.push('/posts');
+            })
+    }
+    return (
+        <>
+            <div className='postContainer'>
+                <div className="sizeContainer">
+                    <div>
+                        <div> <h1 className="postTitle"><b> {postItem.title}  </b> </h1> <button className="postDelete" onClick={handlePostDelete}> Delete </button> </div>
+
+                        <div style={{ clear: "both" }} className="postAuthor">
+                            By <i> {postItem.username ? postItem.username.username : null} </i>
+                        </div>
+                        <br />
+                        {postItem.content}
+                    </div>
+
+                    <div>
+                        <CommentCreate postID={postID} fetchData={fetchData} />
+                    </div>
+
+                    <div className="allCommentsContainer">
+                        <b> Comments </b>
+
+                        <div>
+                            {
+                                comments.map(comment => {
+                                    return <div key={nanoid()} className="commentContainer">
+                                        <img src="/avatar.jpg" style={{ width: "20px" }} alt="avatar" />
+                                        
+                                        {comment.username ?
+                                            <span>
+                                                <b> {comment.username.username} </b>
+                                            </span>
+                                            : null }
+
+                                        <div className="commentContent">
+                                            {comment.content}
+                                        </div>
+                                        {comment._id}
+                                        <button onClick={()=>handleCommentDelete(comment._id)}>  Delete </button>
+                                    </div>
+                                })
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </>
+    )
+
+}
+
+export default Post
+

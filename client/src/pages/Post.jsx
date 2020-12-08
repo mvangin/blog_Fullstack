@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid'
 import { Link } from 'react-router-dom'
 import CommentCreate from "./CommentCreate"
 
-function Post({ match }) {
+function Post({ match, user }) {
 
     const [post, setPost] = useState([]);
     const [comments, setComments] = useState([])
@@ -26,13 +26,13 @@ function Post({ match }) {
         fetchData();
     }, [])
 
-
     return (
         <>
             <div className='postContainer'>
                 <div className="sizeContainer">
                     <div>
-                        <h1><b> {post.title}  </b>  </h1>
+                        <h1><b> {post.title}  </b>  </h1> 
+
                         <div className="postAuthor">
                             By <i> {post.username ? post.username.username : null} </i>
                         </div>
@@ -41,7 +41,7 @@ function Post({ match }) {
                     </div>
 
                     <div>
-                        <CommentCreate postID={postID} fetchData={fetchData} />
+                        <CommentCreate user={user} postID={postID} fetchData={fetchData} />
                     </div>
 
                     <div className="allCommentsContainer">
