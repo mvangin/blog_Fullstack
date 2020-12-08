@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
 import CommentCreate from "./CommentCreate"
+import Comments from "./Comments"
 import { useHistory } from "react-router-dom"
 
 
@@ -39,13 +40,7 @@ function Post({ match, setPosts, posts }) {
             })
     }
 
-    function handleCommentDelete(commentID) {
-        api.deleteCommentByID(postID, commentID)
-            .then(() => {
-                //setPosts(posts.filter((post => post._id !== postID)));
-                //history.push('/posts');
-            })
-    }
+
     return (
         <>
             <div className='postContainer'>
@@ -64,32 +59,7 @@ function Post({ match, setPosts, posts }) {
                         <CommentCreate postID={postID} fetchData={fetchData} />
                     </div>
 
-                    <div className="allCommentsContainer">
-                        <b> Comments </b>
-
-                        <div>
-                            {
-                                comments.map(comment => {
-                                    return <div key={nanoid()} className="commentContainer">
-                                        <img src="/avatar.jpg" style={{ width: "20px" }} alt="avatar" />
-                                        
-                                        {comment.username ?
-                                            <span>
-                                                <b> {comment.username.username} </b>
-                                            </span>
-                                            : null }
-
-                                        <div className="commentContent">
-                                            {comment.content}
-                                        </div>
-                                        {comment._id}
-                                        <button onClick={()=>handleCommentDelete(comment._id)}>  Delete </button>
-                                    </div>
-                                })
-                            }
-
-                        </div>
-                    </div>
+                    <Comments comments={comments} setComments={setComments} postID={postID}/>
                 </div>
             </div>
 
