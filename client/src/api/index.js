@@ -7,6 +7,7 @@ const api = axios.create({
 
 const UNAUTHORIZED = 401;
 
+// if unauthorized redirect to login page
 api.interceptors.response.use(
     response => response,
     error => {

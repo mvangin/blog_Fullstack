@@ -33,7 +33,7 @@ function Post({ match }) {
                 <div className="sizeContainer">
                     <div>
                         <h1><b> {post.title}  </b>  </h1>
-                        <div class="postAuthor">
+                        <div className="postAuthor">
                             By <i> {post.username ? post.username.username : null} </i>
                         </div>
                         <br/>

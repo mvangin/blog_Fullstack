@@ -33,7 +33,7 @@ function CommentCreate({ postID, fetchData }) {
 
 
             <div>
-                <button type="submit" class="commentSubmit"> Leave a comment </button>
+                <button type="submit" className="commentSubmit"> Leave a comment </button>
             </div>
 
         </form>
