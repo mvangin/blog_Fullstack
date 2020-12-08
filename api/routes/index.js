@@ -52,6 +52,7 @@ router.get('/posts/:postID', commentController.commentListGet)
 //router.post('/posts/:postID', commentController.commentPost)
 router.post('/posts/:postID', passport.authenticate('jwt', {session: false}), commentController.commentPost)
 
+router.delete('/posts/:postID/:commentID', commentController.commentDelete)
 
 
 module.exports = router;

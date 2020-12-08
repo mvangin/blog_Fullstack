@@ -36,5 +36,12 @@ exports.commentPost = function (req, res) {
 }
 
 exports.commentDelete = function (req, res) {
-
+    Comment.findByIdAndDelete(req.params.commentID, function(err) {
+        if (err) {
+            next(err)
+        }
+    
+            console.log("successfully deleted comment")
+            res.json({success: true})
+    })
 }
