@@ -45,12 +45,12 @@ function Post({ match }) {
                     </div>
 
                     <div className="allCommentsContainer">
-                        <u> All Comments  </u>
+                        <b> Comments </b>  
 
                         <div>
                             {
                                 comments.map(comment => {
-                                    return <div key={nanoid()}> {comment.content}.  {comment.username ? <span> Posted by: {comment.username.username} </span> : null} </div>
+                                    return <div key={nanoid()} className="commentContainer"> <img src="/avatar.jpg" style={{width: "20px"}} alt="avatar"/>  {comment.username ? <span> <b>  {comment.username.username} </b> </span> : null}  <div className="commentContent"> {comment.content} </div>  </div>
                                 })
                             }
 

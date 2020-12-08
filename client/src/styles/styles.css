@@ -81,6 +81,10 @@
     width: 100%;
 }
 
+.postAuthor {
+    color: rgb(87, 86, 86);
+}
+
 .homepageContainer {
     display: flex;
     justify-content: center;
@@ -124,6 +128,21 @@
 
 .commentInput {
     width: 100%;
+}
+
+.commentContainer {
+    border-bottom: 1px solid rgb(180, 179, 179);
+    padding: 10px;
+    margin: 20px;
+}
+
+.commentAuthor {
+    color: grey;
+    font-size: .8rem;
+}
+
+.commentContent {
+    margin-top: 10px;
 }
 
 .commentSubmit {
