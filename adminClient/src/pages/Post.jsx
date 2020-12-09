@@ -33,11 +33,16 @@ function Post({ match, setPosts, posts }) {
     }, [])
 
     function handlePostDelete() {
+        comments.forEach((comment) => {
+            api.deleteCommentByID(postID, comment._id)
+        })
+
         api.deletePostByID(postID)
             .then(() => {
                 setPosts(posts.filter((post => post._id !== postID)));
-                history.push(`/posts/${postID}`);
+                history.push(`/posts`);
             })
+
     }
 
 
@@ -46,7 +51,11 @@ function Post({ match, setPosts, posts }) {
             <div className='postContainer'>
                 <div className="sizeContainer">
                     <div>
-                        <div> <h1 className="postTitle"><b> {postItem.title}  </b> </h1> <button className="postDelete" onClick={handlePostDelete}> Delete </button> </div>
+                        <div>
+                            <h1 className="postTitle"><b> {postItem.title}  </b> </h1>
+                            <button className="postDelete" onClick={handlePostDelete}> Delete </button>
+                            <button className="postUpdate" onClick={handlePostDelete}> Publish </button>
+                        </div>
 
                         <div style={{ clear: "both" }} className="postAuthor">
                             By <i> {postItem.username ? postItem.username.username : null} </i>
@@ -59,7 +68,7 @@ function Post({ match, setPosts, posts }) {
                         <CommentCreate postID={postID} fetchData={fetchData} />
                     </div>
 
-                    <Comments comments={comments} setComments={setComments} postID={postID}/>
+                    <Comments comments={comments} setComments={setComments} />
                 </div>
             </div>
 

@@ -19,7 +19,7 @@ function PostCreate() {
         if (title.trim() == "" || content.trim() == "") {
             return
         }
-
+        
         api.createPost({ title, content, username })
             .then(history.push('/posts'))
     }

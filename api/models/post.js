@@ -6,7 +6,7 @@ let postSchema = new Schema({
     title: 'string', 
     content: 'string',
     date: 'string',
-    published: 'boolean',
+    published: {type:'boolean', default:false},
     comment: {type: Schema.Types.ObjectId, ref: 'Comment'}
 
 

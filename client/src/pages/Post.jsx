@@ -31,12 +31,12 @@ function Post({ match, user }) {
             <div className='postContainer'>
                 <div className="sizeContainer">
                     <div>
-                        <h1><b> {post.title}  </b>  </h1> 
+                        <h1><b> {post.title}  </b>  </h1>
 
                         <div className="postAuthor">
                             By <i> {post.username ? post.username.username : null} </i>
                         </div>
-                        <br/>
+                        <br />
                         {post.content}
                     </div>
 
@@ -45,12 +45,20 @@ function Post({ match, user }) {
                     </div>
 
                     <div className="allCommentsContainer">
-                        <b> Comments </b>  
+                        <b> Comments </b>
 
                         <div>
                             {
                                 comments.map(comment => {
-                                    return <div key={nanoid()} className="commentContainer"> <img src="/avatar.jpg" style={{width: "20px"}} alt="avatar"/>  {comment.username ? <span> <b>  {comment.username.username} </b> </span> : null}  <div className="commentContent"> {comment.content} </div>  </div>
+                                    return <div key={nanoid()} className="commentContainer">
+                                        <img src="/avatar.jpg" style={{ width: "20px" }} alt="avatar" />
+                                        {comment.username ?
+                                            <span>
+                                                <b>  {comment.username.username} </b>
+                                            </span>
+                                            : null}
+                                        <div className="commentContent"> {comment.content} </div>
+                                    </div>
                                 })
                             }
 

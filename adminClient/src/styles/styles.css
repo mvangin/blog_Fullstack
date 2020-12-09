@@ -126,6 +126,18 @@
     float: left;
 }
 
+
+
+.postUpdate{
+    float:right;
+    margin-top: 10px;
+    background:rgb(75, 176, 235);
+    color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .postDelete {
     float:right;
     margin-top: 10px;
@@ -135,8 +147,6 @@
     border-radius: 5px;
     padding: 5px;
 }
-
-
 .createComment {
     margin-top: 30px;
     width: 600px;   
@@ -169,6 +179,17 @@
     background: rgb(64, 148, 197);
     color:rgb(250, 250, 250);
 }
+
+.commentDelete {
+    margin-top: 10px;
+    background:rgb(192, 25, 25);
+    color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
 
 .allCommentsContainer {
     margin-top: 30px;

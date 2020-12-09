@@ -35,7 +35,7 @@ exports.commentPost = function (req, res) {
         })
 }
 
-exports.commentDelete = function (req, res) {
+exports.commentDelete = function (req, res, next) {
     Comment.findByIdAndDelete(req.params.commentID, function(err) {
         if (err) {
             next(err)

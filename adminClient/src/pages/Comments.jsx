@@ -32,7 +32,7 @@ function Comments({comments, setComments,postID}) {
                             <div className="commentContent">
                                 {comment.content}
                             </div>
-                            <button onClick={() => handleCommentDelete(comment._id)}>  Delete </button>
+                            <button className="commentDelete" onClick={() => handleCommentDelete(comment._id)}>  Delete </button>
                         </div>
                     })
                 }
