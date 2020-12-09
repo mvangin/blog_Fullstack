@@ -53,6 +53,7 @@ export const login = payload => api.post(`/login`, payload)
 export const getAllPosts = () => (api.get(`/posts`))
 
 export const updatePostByID = (postID, payload) => api.put(`/posts/${postID}`, payload)
+
 export const deletePostByID = postID => api.delete(`/posts/${postID}`)
 
 export const deleteCommentByID = (postID, commentID) => api.delete(`/posts/${postID}/${commentID}`)

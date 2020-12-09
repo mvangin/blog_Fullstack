@@ -31,7 +31,7 @@ function App() {
                 <Route path="/posts/create" exact component={PostCreate} />
                 <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} posts={posts} setPosts={setPosts} />}/>
                 <Route
-                    path="/movies/update/:id"
+                    path="/posts/:id/update"
                     exact
                     component={PostUpdate}
                 />

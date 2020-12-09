@@ -85,7 +85,9 @@ exports.blogGet = function (req, res) {
 }
 
 exports.blogPut = function (req, res) {
-    res.send(`edit specific blog ${req.params.postID}`)
+    id = req.params.postID;
+    Post.findByIdAndUpdate(id, {published: true})
+
 }
 
 exports.blogDelete = function (req, res) {

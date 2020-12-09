@@ -3,7 +3,7 @@ import api from '../api'
 import { nanoid } from 'nanoid'
 import CommentCreate from "./CommentCreate"
 import Comments from "./Comments"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 
 
 function Post({ match, setPosts, posts }) {
@@ -44,8 +44,6 @@ function Post({ match, setPosts, posts }) {
             })
 
     }
-
-
     return (
         <>
             <div className='postContainer'>
@@ -54,7 +52,11 @@ function Post({ match, setPosts, posts }) {
                         <div>
                             <h1 className="postTitle"><b> {postItem.title}  </b> </h1>
                             <button className="postDelete" onClick={handlePostDelete}> Delete </button>
-                            <button className="postUpdate" onClick={handlePostDelete}> Publish </button>
+                            <Link to={{ pathname:`/posts/${postItem._id}/update`, state: { postItem }}}>
+                                <button className="postUpdate">
+                                    Update
+                              </button>
+                            </Link>
                         </div>
 
                         <div style={{ clear: "both" }} className="postAuthor">
