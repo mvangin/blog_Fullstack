@@ -68,7 +68,7 @@
 .createPostContainer {
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .postForm {
@@ -82,13 +82,13 @@
 }
 
 .postCheckedContainer{
-    padding: 10px;
+    padding: 5px;
     font-size: 1.5rem;
 }
 
 .postChecked {
     transform: scale(1.5);
-    margin: 2rem;
+    margin: 1.5rem;
 }
 
 .postAuthor {

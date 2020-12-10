@@ -27,6 +27,7 @@ exports.blogPost = function (req, res) {
     const title = req.body.title;
     const content = req.body.content;
     const username = req.body.username;
+    const published = req.body.checked
 
     if (!content || !title) {
         return res.status(400).json({
@@ -35,7 +36,7 @@ exports.blogPost = function (req, res) {
         })
     }
 
-    const post = new Post({ title, content, username })
+    const post = new Post({ title, content, username, published })
 
     if (!post) {
         return res.status(400).json({ success: false, error: err })

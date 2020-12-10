@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import api from '../api'
-import { useHistory, useLocation } from "react-router-dom"
+import { Redirect, useHistory, useLocation } from "react-router-dom"
 
 
 function PostCreate() {
+    let location = useLocation();
+
+
     const history = useHistory();
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [checked, setChecked] = useState(false);
+    const [loaded, setLoaded] = useState(false);
     let username = localStorage.getItem('id');
 
 
-    let location = useLocation();
-  
+
     useEffect(() => {
         //api.getPostCreate()
     }, [])
@@ -21,23 +25,33 @@ function PostCreate() {
         if (title.trim() == "" || content.trim() == "") {
             return
         }
-        
-        api.createPost({ title, content, username })
-            .then(history.push('/posts'))
+
+        api.createPost({ title, content, username, checked })
+            .then(response => setLoaded(true))
+        //.then(history.push('/posts'))
     }
 
     return (
+
         <>
+            {loaded ? <Redirect to='/posts' /> : null}
+
             <div className="createPostContainer">
                 <form onSubmit={handleSubmit} className="postForm">
                     <label>
-                        <input type="text" value={location.state.title ?  location.state.postItem.title : null} onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
+                        <input type="text" onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
                     </label>
 
 
                     <label>
-                        <textarea rows="8" cols="80" type="text" value={location.state.content  ?  location.state.postItem.content : null} onChange={(e) => { setContent(e.target.value); }} placeholder="content" className="postInput" />
+                        <textarea rows="8" cols="80" type="text" onChange={(e) => { setContent(e.target.value); }} placeholder="content" className="postInput" />
                     </label>
+
+                    <label className="postCheckedContainer">
+                        Publish
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} className="postChecked" />
+                    </label>
+
 
                     <input type="submit" value="Create Post" className="postInput submit" />
                 </form>
