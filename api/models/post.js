@@ -12,10 +12,5 @@ let postSchema = new Schema({
 
 })
 
-postSchema
-.virtual('url')
-.get(function () {
-  return '/blogs/' + this._id;
-});
 
 module.exports = mongoose.model('Post', postSchema)

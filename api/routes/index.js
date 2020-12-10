@@ -5,10 +5,6 @@ var commentController = require('../controllers/commentController')
 var userController = require('../controllers/userController')
 var passport = require('passport')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
 //get login
 router.get('/login', userController.loginGet)

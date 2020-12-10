@@ -1,9 +1,6 @@
-var express = require('express');
 let User = require('../models/user')
-var bcrypt = require('bcryptjs')
 let Post = require('../models/post');
 let Comment = require('../models/comment')
-const { NotExtended } = require('http-errors');
 let async = require('async')
 
 exports.blogsListGet = async function (req, res) {

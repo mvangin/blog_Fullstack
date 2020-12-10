@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import api from '../api'
-import { nanoid } from 'nanoid'
-import { Redirect } from 'react-router-dom';
 import '../styles/styles.css'
 
 

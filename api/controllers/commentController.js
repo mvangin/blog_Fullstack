@@ -1,4 +1,3 @@
-var express = require('express');
 let Comment = require('../models/comment')
 
 

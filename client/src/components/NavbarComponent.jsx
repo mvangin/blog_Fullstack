@@ -28,7 +28,7 @@ function NavbarComponent({ user }) {
 
                         <Nav className="ml-auto">
                             <Link to="/logout" className="nav-link">
-                                Logout {user}
+                                Logout <i>{user}</i>
                             </Link>
                         </Nav>
                     </>
