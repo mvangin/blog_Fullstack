@@ -84,19 +84,32 @@ exports.blogGet = function (req, res) {
     })
 }
 
-exports.blogPut = function (req, res) {
-    id = req.params.postID;
-    Post.findByIdAndUpdate(id, {published: true})
+exports.blogUpdate = function (req, res) {
 
+        //let post = new Post({title: req.body.title, content:req.body.content, })
+
+        Post.findByIdAndUpdate(req.params.postID, {title:req.body.title, content:req.body.content, published: req.body.checked})
+        .then(() => {
+            return res.status(201).json({
+                success: true,
+                message: "blog update"
+            })
+        }).catch(err => {
+            return res.status(400).json({
+                err,
+                message: "blog not updated",
+            })
+        })
 }
 
+
 exports.blogDelete = function (req, res) {
-    Post.findByIdAndDelete(req.params.postID, function(err) {
+    Post.findByIdAndDelete(req.params.postID, function (err) {
         if (err) {
             next(err)
         }
-    
-            console.log("successfully delete blog")
-            res.json({success: true})
+
+        console.log("successfully delete blog")
+        res.json({ success: true })
     })
 }

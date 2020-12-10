@@ -81,6 +81,16 @@
     width: 100%;
 }
 
+.postCheckedContainer{
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.postChecked {
+    transform: scale(1.5);
+    margin: 2rem;
+}
+
 .postAuthor {
     color: rgb(87, 86, 86);
 }
@@ -126,8 +136,6 @@
     float: left;
 }
 
-
-
 .postUpdate{
     float:right;
     margin-top: 10px;
@@ -147,6 +155,8 @@
     border-radius: 5px;
     padding: 5px;
 }
+
+
 .createComment {
     margin-top: 30px;
     width: 600px;   

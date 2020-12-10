@@ -11,11 +11,13 @@ const UNAUTHORIZED = 401;
 api.interceptors.response.use(
     response => response,
     error => {
-        const { status } = error.response;
-        if (status === UNAUTHORIZED) {
-            alert("please login first");
+        if (error.response) {
+            const { status } = error.response;
+            if (status === UNAUTHORIZED) {
+                alert("please login first");
+            }
+            return Promise.reject(error);
         }
-        return Promise.reject(error);
     }
 );
 

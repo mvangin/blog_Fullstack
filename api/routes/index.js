@@ -39,7 +39,7 @@ router.get('/posts/:postID', blogController.blogGet)
 
 
 //update blog
-router.put('/posts/:postID', blogController.blogPut)
+router.put('/posts/:postID', blogController.blogUpdate)
 
 //delete blog
 router.delete('/posts/:postID', blogController.blogDelete)
