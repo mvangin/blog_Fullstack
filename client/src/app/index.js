@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { PostList, PostCreate, PostUpdate, Logout, Post, LoginSignup, Homepage } from '../pages'
+import { PostList, Logout, Post, LoginSignup, Homepage } from '../pages'
 import { NavbarComponent } from '../components'
 import jwt_decode from "jwt-decode";
 
@@ -28,13 +28,7 @@ function App() {
                 <Route path="/" exact component={Homepage} />
 
                 <Route path="/posts/" exact component={PostList} />
-                <Route path="/posts/create" exact component={PostCreate} />
                 <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} />}/>
-                <Route
-                    path="/movies/update/:id"
-                    exact
-                    component={PostUpdate}
-                />
 
                 <Route path="/logout" exact render={() => <Logout setUser={setDecTokenUser} />} />
 

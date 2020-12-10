@@ -26,12 +26,6 @@ function NavbarComponent({ user }) {
                 {user ?
                     <>
 
-                        < Nav className="mr-auto">
-                            <Link to="/posts/create" className="nav-link">
-                            Create Posts
-                                        </Link>
-                        </Nav>
-
                         <Nav className="ml-auto">
                             <Link to="/logout" className="nav-link">
                                 Logout {user}
