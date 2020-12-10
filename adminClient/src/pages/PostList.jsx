@@ -33,7 +33,7 @@ function PostList({ setPosts, posts }) {
                         return (
                             <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
                                 <Card.Body>
-                                    <Card.Header><b>{item.title} </b></Card.Header>
+                        <Card.Header><b>{item.title} </b> {item.published ? <div className="text-success"> Published </div> : <div className="text-danger"> Unpublished</div>} </Card.Header>
                                     <Card.Title> </Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">
                                         {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
