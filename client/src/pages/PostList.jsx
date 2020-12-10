@@ -18,7 +18,9 @@ function PostList() {
         async function fetchData() {
             await api.getAllPosts().then(postsRes => {
                 let data = postsRes.data.data
-                setPosts(data)
+                let publishedData = data.filter(dataItem => dataItem.published ===true)
+                //let data = postsRes.data.data
+                setPosts(publishedData)
                 setIsLoading(false);
             })
         }
