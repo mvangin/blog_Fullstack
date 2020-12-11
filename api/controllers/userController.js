@@ -6,6 +6,8 @@ require('dotenv').config();
 
 const secret = process.env.SECRET
 
+const CurrentadminPassword = process.env.CURRENTADMINPASSWORD
+
 exports.loginGet = function (req, res) {
     res.send('login page');
 }
@@ -14,10 +16,16 @@ exports.loginPost = function (req, res) {
     const username = req.body.username;
     const password = req.body.password;
     console.log(username)
+    const adminPassword = req.body.adminPassword
+    
+    if (adminPassword !== CurrentadminPassword)
+    { res.json({
+        error: "admin password incorrect"
+    })}
     User.findOne({ username })
         .then((user) => {
             if (!user) {
-                return res.status(404).json({error: "no user found"});
+                return res.json({error: "Invalid email or password. Please try again."});
             }
             bcrypt.compare(password, user.password)
                 .then((isMatch, error) => {
@@ -46,8 +54,7 @@ exports.loginPost = function (req, res) {
                             });
 
                     } else {
-                        res.status(400).json({error: "password incorrect",
-                        raw: error});
+                        res.json({error: "Invalid email or password. Please try again."});
                     }
                 });
         })

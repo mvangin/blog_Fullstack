@@ -5,12 +5,15 @@ import { Link } from "react-router-dom"
 function Logout({ setUser }) {
     localStorage.removeItem('token')
     localStorage.removeItem('id')
-    setUser(null)
+
 
 
 
     return (
         <div className="homepageContainer">
+
+            {setUser(null)}
+
             <div>
                 <h1>
                     You have been logged out

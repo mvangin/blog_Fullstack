@@ -7,11 +7,12 @@ import jwt_decode from "jwt-decode";
 
 
 
-function Login({setUser}) {
+function Login({ setUser }) {
     const history = useHistory();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(null)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -21,26 +22,31 @@ function Login({setUser}) {
         }
         api.login({ username, password })
             .then(data => {
-                let id = data.data.id;
-                localStorage.setItem("token", data.data.token)
-                localStorage.setItem("id", id)
-                history.push(`/posts`);
-
-                if (localStorage.getItem("token") !== null) {
-                    let token = localStorage.getItem("token");
-                    setUser(jwt_decode(token).name);
-                } else {
-                    return null;
+                if (data.data.error){
+                    setError(data.data.error)
                 }
+                 else {
+                    let id = data.data.id;
+                    localStorage.setItem("token", data.data.token)
+                    localStorage.setItem("id", id)
+                    history.push(`/posts`);
 
+                    if (localStorage.getItem("token") !== null) {
+                        let token = localStorage.getItem("token");
+                        setUser(jwt_decode(token).name);
+                    } else {
+                        return null;
+                    }
+                }
             })
     }
 
     return (
         <>
             <div className="bodyContainer">
-               
+
                 <div className="formContainer">
+                    {error ? <div className="loginError"> {error} </div> : null}
                     <form onSubmit={handleSubmit} className="form">
                         <label>
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
@@ -52,7 +58,7 @@ function Login({setUser}) {
                         </label>
 
 
-                        <input className="formInput submit" type="submit" value="Login"/>
+                        <input className="formInput submit" type="submit" value="Login" />
 
                     </form>
                 </div>

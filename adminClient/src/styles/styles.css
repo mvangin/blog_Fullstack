@@ -36,6 +36,10 @@
     width: 200px;
 }
 
+.loginError {
+    color: red;
+}
+
 .form {
     display: flex;
     flex-direction: column;

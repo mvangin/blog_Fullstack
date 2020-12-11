@@ -1,4 +1,3 @@
-let User = require('../models/user')
 let Post = require('../models/post');
 let Comment = require('../models/comment')
 let async = require('async')
