@@ -14,7 +14,9 @@ api.interceptors.response.use(
         if (error.response) {
             const { status } = error.response;
             if (status === UNAUTHORIZED) {
-                alert("please login")
+                console.log(
+                    "unauthorized"
+                )
             }
             return Promise.reject(error);
         }
