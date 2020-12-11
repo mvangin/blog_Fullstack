@@ -19,8 +19,7 @@ function Logout({ setUser }) {
                     You have been logged out
         </h1>
                 <div className="linkContainer">
-                    <Link to="/posts" className="link"><button className="homeLink"> View Blogs </button> </Link>
-                    <Link to="/login" className="link">  <button className="homeLink">  Sign In  </button> </Link>
+                    <Link to="/admin/login" className="link">  <button className="homeLink">  Sign In  </button> </Link>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ api.interceptors.response.use(
         if (error.response) {
             const { status } = error.response;
             if (status === UNAUTHORIZED) {
-                alert("please login first");
+                alert("please login")
             }
             return Promise.reject(error);
         }
@@ -23,14 +23,24 @@ api.interceptors.response.use(
 
 
 
-export const createPost = payload => api.post(`/posts`, payload);
+export const createPost = payload => {
+    let accessString = localStorage.getItem('token');
+    if (accessString === null) {
+        console.log("no token")
+    }
+    return api.post(`/admin/posts`, payload, {
+        headers: { Authorization: accessString }
+    })
+}
+
+
 
 export const getPostCreate = () => {
     let accessString = localStorage.getItem('token');
     if (accessString === null) {
         console.log("no token")
     }
-    return api.get(`/posts/create`, {
+    return api.get(`/admin/posts/create`, {
         headers: { Authorization: accessString }
     })
 }
@@ -42,25 +52,75 @@ export const commentCreate = (postID, payload) => {
     if (accessString === null) {
         console.log("no token")
     }
-    return api.post(`/posts/${postID}`, payload, {
+    return api.post(`/admin/posts/${postID}`, payload, {
+        headers: { Authorization: accessString },
+    })
+}
+
+
+// admin api routes
+
+export const signUp = payload => api.post(`/admin/signup`, payload)
+export const login = payload => api.post(`/admin/login`, payload)
+
+export const getAllPosts = () => {
+
+    let accessString = localStorage.getItem('token');
+    if (accessString === null) {
+        console.log("no token")
+    }
+    return api.get(`/admin/posts`, {
         headers: { Authorization: accessString },
     })
 }
 
 
 
-export const signUp = payload => api.post(`/signup`, payload)
-export const login = payload => api.post(`/login`, payload)
+export const updatePostByID = (postID, payload) => {
+    let accessString = localStorage.getItem('token');
+    if (accessString === null) {
+        console.log("no token")
+    }
+    return api.put(`/admin/posts/${postID}`, payload, {
+        headers: { Authorization: accessString },
+    })
+}
 
-export const getAllPosts = () => (api.get(`/posts`))
 
-export const updatePostByID = (postID, payload) => api.put(`/posts/${postID}`, payload)
 
-export const deletePostByID = postID => api.delete(`/posts/${postID}`)
+export const deletePostByID = postID => {
+    let accessString = localStorage.getItem('token');
+    if (accessString === null) {
+        console.log("no token")
+    }
+    return api.delete(`/admin/posts/${postID}`, {
+        headers: { Authorization: accessString },
+    })
+}
+    
 
-export const deleteCommentByID = (postID, commentID) => api.delete(`/posts/${postID}/${commentID}`)
-
-export const getPostByID = postID => api.get(`/posts/${postID}`)
+export const deleteCommentByID = (postID, commentID) => {
+    let accessString = localStorage.getItem('token');
+    if (accessString === null) {
+        console.log("no token")
+    }
+    return api.delete(`/admin/posts/${postID}/${commentID}`, {
+        headers: { Authorization: accessString },
+    })
+}
+    
+    
+export const getPostByID = postID => {
+    let accessString = localStorage.getItem('token');
+    if (accessString === null) {
+        console.log("no token")
+    }
+    return api.get(`/admin/posts/${postID}`, {
+        headers: { Authorization: accessString },
+    })
+}
+    
+    
 
 const apis = {
     createPost,

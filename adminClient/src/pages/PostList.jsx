@@ -39,7 +39,7 @@ function PostList({ setPosts, posts }) {
                                         {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
                                     </Card.Subtitle>
 
-                                    <Link className="text-white" to={`/posts/${item._id}`} >
+                                    <Link className="text-white" to={`/admin/posts/${item._id}`} >
                                         <Button>
                                             See More
                                             </Button>

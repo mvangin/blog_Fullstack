@@ -85,7 +85,7 @@ exports.signupPost = function (req, res, next) {
                         return next(err);
                     };
                     console.log("success")
-                    res.redirect("/");
+                    res.status(200)
                 });
             })
         })

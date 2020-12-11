@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useLocation, useHistory } from "react-router-dom"
 import api from '../api'
 
@@ -22,8 +22,10 @@ function PostUpdate({ match }) {
             return
         }
 
-        api.updatePostByID(postID, { title, content, checked, postID})
-            .then(history.push('/posts'))
+        api.updatePostByID(postID, { title, content, checked, postID })
+            .then(
+                history.push(`/admin/posts`)
+            )
     }
 
     return (
@@ -40,9 +42,9 @@ function PostUpdate({ match }) {
                     </label>
 
 
-                    <label className="postCheckedContainer"> 
+                    <label className="postCheckedContainer">
                         Publish
-                        <input type="checkbox" checked= {checked} onChange={() => setChecked(!checked)} className="postChecked"/>
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} className="postChecked" />
                     </label>
 
                     <input type="submit" value="Update Post" className="postInput submit" />

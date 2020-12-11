@@ -32,7 +32,7 @@ function Login({ setUser }) {
                     let id = data.data.id;
                     localStorage.setItem("token", data.data.token)
                     localStorage.setItem("id", id)
-                    history.push(`/posts`);
+                    history.push(`/admin/posts`);
 
                     if (localStorage.getItem("token") !== null) {
                         let token = localStorage.getItem("token");

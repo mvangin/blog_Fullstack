@@ -34,7 +34,7 @@ function PostCreate() {
     return (
 
         <>
-            {loaded ? <Redirect to='/posts' /> : null}
+            {loaded ? <Redirect to='/admin/posts' /> : null}
 
             <div className="createPostContainer">
                 <form onSubmit={handleSubmit} className="postForm">

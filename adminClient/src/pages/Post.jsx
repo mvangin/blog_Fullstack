@@ -40,7 +40,7 @@ function Post({ match, setPosts, posts }) {
         api.deletePostByID(postID)
             .then(() => {
                 setPosts(posts.filter((post => post._id !== postID)));
-                history.push(`/posts`);
+                history.push(`/admin/posts`);
             })
 
     }
@@ -52,7 +52,7 @@ function Post({ match, setPosts, posts }) {
                         <div>
                             <h1 className="postTitle"><b> {postItem.title}  </b> </h1>
                             <button className="postDelete" onClick={handlePostDelete}> Delete </button>
-                            <Link to={{ pathname:`/posts/${postItem._id}/update`, state: { postItem }}}>
+                            <Link to={{ pathname:`/admin/posts/${postItem._id}/update`, state: { postItem }}}>
                                 <button className="postUpdate">
                                     Update
                               </button>

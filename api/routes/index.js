@@ -51,4 +51,50 @@ router.post('/posts/:postID', passport.authenticate('jwt', {session: false}), co
 router.delete('/posts/:postID/:commentID', commentController.commentDelete)
 
 
+////// admin routes
+
+//get login
+router.get('/admin/login', userController.loginGet)
+
+//post login
+router.post('/admin/login', userController.loginPost)
+
+//get signup
+router.get('/admin/signup', userController.signupGet)
+
+// post signup
+router.post('/admin/signup', userController.signupPost)
+
+
+//get all blogs
+router.get('/admin/posts', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
+//router.get('/posts', passport.authenticate('jwt', {session: false}), blogController.blogsListGet)
+
+
+//new blog form
+router.get('/admin/posts/create',  passport.authenticate('jwt', {session: false}), blogController.getPostCreate)
+
+//create blog
+router.post('/admin/posts', passport.authenticate('jwt', {session: false}), blogController.blogPost)
+
+//get specific blog
+router.get('/admin/posts/:postID', passport.authenticate('jwt', {session: false}), blogController.blogGet)
+
+
+//update blog
+router.put('/admin/posts/:postID', passport.authenticate('jwt', {session: false}), blogController.blogUpdate)
+
+//delete blog
+router.delete('/admin/posts/:postID', passport.authenticate('jwt', {session: false}), blogController.blogDelete)
+
+
+//get all comments of specific blog post
+router.get('/admin/posts/:postID', passport.authenticate('jwt', {session: false}), commentController.commentListGet)
+
+//post comment on specific blog post
+//router.post('/posts/:postID', commentController.commentPost)
+router.post('/admin/posts/:postID', passport.authenticate('jwt', {session: false}), commentController.commentPost)
+
+router.delete('/admin/posts/:postID/:commentID', passport.authenticate('jwt', {session: false}), commentController.commentDelete)
+
 module.exports = router;
