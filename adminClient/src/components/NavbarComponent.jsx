@@ -23,7 +23,7 @@ function NavbarComponent({ user }) {
                     <>
                      <Nav>
                         <Link to="/admin/posts" className="nav-link">
-                            List Posts
+                            All Posts
                             </Link>
                     </Nav>
                         < Nav className="mr-auto">

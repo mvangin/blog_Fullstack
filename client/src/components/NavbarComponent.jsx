@@ -16,7 +16,7 @@ function NavbarComponent({ user }) {
                 <Nav >
                     <Nav>
                         <Link to="/posts" className="nav-link">
-                            List Posts
+                            All Posts
                             </Link>
                     </Nav>
 

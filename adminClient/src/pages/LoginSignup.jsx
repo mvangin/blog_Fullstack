@@ -22,7 +22,7 @@ function LoginSignup({setUser}) {
                         {login ? <h4>  <u> Login </u></h4> : <h4> Login </h4>}
                     </div>
                     <div onClick={() => handleSignup()} className="userChoice">
-                        {login ? <h4 > Signup</h4> : <h4 ><u> Sign up </u> </h4>}
+                        {login ? <h4 > Sign up</h4> : <h4 ><u> Sign up </u> </h4>}
                     </div>
                 </div>
                 {login ? <Login setUser={setUser} /> : <SignUp handleLogin={handleLogin}  />}
