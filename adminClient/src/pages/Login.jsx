@@ -19,7 +19,6 @@ function Login({ setUser }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        e.preventDefault();
         if (username.trim() == "" || password.trim() == "") {
             return
         }
@@ -52,16 +51,16 @@ function Login({ setUser }) {
                     {error ? <div className="loginError"> {error} </div> : null}
 
                     <form onSubmit={handleSubmit} className="form">
-                        <label>
+                        <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
                         </label>
 
 
-                        <label>
+                        <label className="formLabel">
                             <input className="formInput" type="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                         </label>
 
-                        <label>
+                        <label className="formLabel">
                             <input className="formInput" type="password" placeholder="Admin Password" value={adminPassword} onChange={(e) => { setAdminPassword(e.target.value) }} />
                         </label>
 
