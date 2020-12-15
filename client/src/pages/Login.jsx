@@ -46,8 +46,9 @@ function Login({ setUser }) {
             <div className="bodyContainer">
 
                 <div className="formContainer">
-                    {error ? <div className="loginError"> {error} </div> : null}
                     <form onSubmit={handleSubmit} className="form">
+                    {error ? <div className="loginError"> {error} </div> : null}
+
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
                         </label>

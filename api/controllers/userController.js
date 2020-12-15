@@ -18,14 +18,15 @@ exports.loginPost = function (req, res) {
     console.log(username)
     const adminPassword = req.body.adminPassword
     
-    if (adminPassword !== CurrentadminPassword)
+    if (adminPassword && adminPassword !== CurrentadminPassword)
     { res.json({
-        error: "admin password incorrect"
+        error: "Admin password incorrect"
     })}
+    
     User.findOne({ username })
         .then((user) => {
             if (!user) {
-                return res.json({error: "Invalid email or password. Please try again."});
+                return res.json({error: "Invalid username or password. Please try again."});
             }
             bcrypt.compare(password, user.password)
                 .then((isMatch, error) => {
@@ -54,7 +55,7 @@ exports.loginPost = function (req, res) {
                             });
 
                     } else {
-                        res.json({error: "Invalid email or password. Please try again."});
+                        res.json({error: "Invalid username or password. Please try again."});
                     }
                 });
         })
