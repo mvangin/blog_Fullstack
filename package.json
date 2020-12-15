@@ -6,7 +6,7 @@
   "scripts": 
   {
     "start": "cd api && npm start",
-    "heroku-postbuild": "cd client && npm install && cd adminClient && npm install",
+    "heroku-postbuild": "cd ./client && npm install && cd ./adminClient && npm install ",
     "test": "echo \"Error: no test specified\""
   },
   
