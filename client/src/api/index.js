@@ -2,7 +2,8 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: 'http://localhost:9000'
+    baseURL: 'https://snofflestein-api.herokuapp.com'
+    //baseURL: 'http://localhost:9000'
 })
 
 const UNAUTHORIZED = 401;
@@ -11,11 +12,14 @@ const UNAUTHORIZED = 401;
 api.interceptors.response.use(
     response => response,
     error => {
-        const { status } = error.response;
-        if (status === UNAUTHORIZED) {
-            alert("please login first");
+        console.log(error)
+        if (error.response) {
+            const { status } = error.response;
+            if (status === UNAUTHORIZED) {
+                alert("please login first");
+            }
+            return Promise.reject(error);
         }
-        return Promise.reject(error);
     }
 );
 

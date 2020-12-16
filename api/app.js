@@ -15,6 +15,9 @@ require('./passport-config')(passport);
 let cors = require('cors')
 require('dotenv').config();
 
+
+
+
 var app = express();
 
 let mongoDB = process.env.MONGO_URI
@@ -30,12 +33,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-const corsOptions = {
-  origin: 'https://snufflestein-blogapi.herokuapp.com',
-  optionsSuccessStatus: 200
-}
 
-app.use(cors(corsOptions))
+
+app.use(cors())
 app.use(bp.json());
 
 
@@ -51,6 +51,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/test', function(req,res) {
+ res.json({success:"yes"})
+})
 
 app.use('/', indexRouter);
 
