@@ -30,8 +30,12 @@ app.use(function (req, res, next) {
   next();
 });
 
+const corsOptions = {
+  origin: 'https://snufflestein-blogapi.herokuapp.com',
+  optionsSuccessStatus: 200
+}
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(bp.json());
 
 
