@@ -26,6 +26,9 @@
     "passport-local": "^1.0.0",
     "pug": "^3.0.0"
   },
+  "engines": {
+    "node": "v12.19.0"
+  },
   "main": "app.js",
   "author": "",
   "license": "ISC",
