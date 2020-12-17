@@ -25,6 +25,7 @@ function App() {
 
             <NavbarComponent user={decTokenUser} />
             <Switch>
+
                 <Route path="/admin" exact component={Homepage} />
 
                 <Route path="/admin/posts" exact render={()=><PostList posts={posts} setPosts={setPosts} />} />
