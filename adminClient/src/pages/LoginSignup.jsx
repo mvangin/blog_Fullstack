@@ -7,6 +7,7 @@ import '../styles/styles.css'
 function LoginSignup({setUser}) {
 
     const [login, setLogin] = useState(true);
+    
     function handleLogin() {
         setLogin(true)
     }

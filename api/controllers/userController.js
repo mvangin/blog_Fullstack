@@ -17,16 +17,17 @@ exports.loginPost = function (req, res) {
     const password = req.body.password;
     console.log(username)
     const adminPassword = req.body.adminPassword
-    
-    if (adminPassword && adminPassword !== CurrentadminPassword)
-    { res.json({
-        error: "Admin password incorrect"
-    })}
-    
+
+    if (adminPassword && adminPassword !== CurrentadminPassword) {
+        res.json({
+            error: "Admin password incorrect"
+        })
+    }
+
     User.findOne({ username })
         .then((user) => {
             if (!user) {
-                return res.json({error: "Invalid username or password. Please try again."});
+                return res.json({ error: "Invalid username or password. Please try again." });
             }
             bcrypt.compare(password, user.password)
                 .then((isMatch, error) => {
@@ -37,7 +38,7 @@ exports.loginPost = function (req, res) {
                             id: user._id,
                             name: user.username
                         };
-                        jwt.sign(payload, secret, {expiresIn: '1d'},
+                        jwt.sign(payload, secret, { expiresIn: '1d' },
                             (error, token) => {
                                 if (error) res.status(500)
                                     .json({
@@ -55,11 +56,11 @@ exports.loginPost = function (req, res) {
                             });
 
                     } else {
-                        res.json({error: "Invalid username or password. Please try again."});
+                        res.json({ error: "Invalid username or password. Please try again." });
                     }
                 });
         })
-    
+
 }
 
 exports.signupGet = function (req, res) {
@@ -67,27 +68,34 @@ exports.signupGet = function (req, res) {
 }
 
 exports.signupPost = function (req, res, next) {
-    let username = req.body.username;
+    let username = req.body.username.trim();
+    let password = req.body.password.trim();
+
+    if (username.length < 5 || password.length < 5) {
+        console.log(username.length)
+        return res.json({ error: "username and password must be at least five characters long" })
+    }
     User.findOne({ username })
         .then(user => {
             if (user) {
                 let error = 'Username already in database'
-                return res.status(400).json(error)
+                return res.json({ error: error })
             }
-            bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
+            bcrypt.hash(password, 10, (err, hashedPassword) => {
                 if (err) {
                     return next(err);
                 };
                 const user = new User({
-                    username: req.body.username,
+                    username: username,
                     password: hashedPassword
                 }).save(err => {
                     if (err) {
                         return next(err);
-                    };
-                    console.log("success")
-                    res.status(200)
+                    } else {
+                        return res.json({ success: true });
+                    }
                 });
             })
         })
+
 }
