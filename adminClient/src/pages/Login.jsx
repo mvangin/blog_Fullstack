@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import api from '../api'
-import { nanoid } from 'nanoid'
 import { useHistory } from 'react-router-dom';
 import '../styles/styles.css'
 import jwt_decode from "jwt-decode";

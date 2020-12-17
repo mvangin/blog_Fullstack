@@ -11,14 +11,13 @@ function PostUpdate({ match }) {
     const [title, setTitle] = useState(() => location ? location.state.postItem.title : null);
     const [content, setContent] = useState(() => location ? location.state.postItem.content : null);
     const [checked, setChecked] = useState(() => location ? location.state.postItem.published : false);
-    let id = localStorage.getItem('id');
 
     let postID = match.params.id
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (title.trim() == "" || content.trim() == "") {
+        if (title.trim() === "" || content.trim() === "") {
             return
         }
 

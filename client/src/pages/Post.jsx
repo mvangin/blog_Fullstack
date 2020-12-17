@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
-import { Link } from 'react-router-dom'
 import CommentCreate from "./CommentCreate"
 
 function Post({ match, user }) {

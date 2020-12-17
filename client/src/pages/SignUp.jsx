@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import api from '../api'
-import { nanoid } from 'nanoid'
-import { Redirect } from 'react-router-dom';
+
 import '../styles/styles.css'
 
 
@@ -10,11 +9,11 @@ function SignUp({handleLogin}) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [submitted, setSubmitted] = useState(false)
+    //const [submitted, setSubmitted] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (username.trim() == "" || password.trim() == "") {
+        if (username.trim() === "" || password.trim() === "") {
             return
         }
         e.preventDefault();

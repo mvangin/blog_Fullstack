@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import api from '../api'
-import { useHistory, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function CommentCreate({ postID, fetchData, user }) {
 
-    const history = useHistory();
 
     const [content, setContent] = useState("");
 
@@ -12,7 +11,7 @@ function CommentCreate({ postID, fetchData, user }) {
     function handleSubmit(e) {
         e.preventDefault();
         e.preventDefault();
-        if (content.trim() == "") {
+        if (content.trim() === "") {
             return
         }
 

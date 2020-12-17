@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api'
-import { nanoid } from 'nanoid'
 import CommentCreate from "./CommentCreate"
 import Comments from "./Comments"
 import { useHistory, Link } from "react-router-dom"

@@ -8,11 +8,11 @@ function SignUp({handleLogin}) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [submitted, setSubmitted] = useState(false)
+    //const [submitted, setSubmitted] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (username.trim() == "" || password.trim() == "") {
+        if (username.trim() === "" || password.trim() === "") {
             return
         }
         e.preventDefault();

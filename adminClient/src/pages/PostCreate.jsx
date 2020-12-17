@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import api from '../api'
-import { Redirect, useHistory, useLocation } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 
 function PostCreate() {
-    let location = useLocation();
 
 
-    const history = useHistory();
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [checked, setChecked] = useState(false);
@@ -22,7 +20,7 @@ function PostCreate() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (title.trim() == "" || content.trim() == "") {
+        if (title.trim() === "" || content.trim() === "") {
             return
         }
 

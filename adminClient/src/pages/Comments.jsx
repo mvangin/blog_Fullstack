@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
-import CommentCreate from "./CommentCreate"
-import { useHistory } from "react-router-dom"
 
 function Comments({comments, setComments,postID}) {
 
