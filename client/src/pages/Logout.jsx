@@ -6,9 +6,6 @@ function Logout({ setUser }) {
     localStorage.removeItem('token')
     localStorage.removeItem('id')
     setUser(null)
-
-
-
     return (
         <div className="homepageContainer">
             <div>

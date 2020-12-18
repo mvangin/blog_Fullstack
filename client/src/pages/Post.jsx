@@ -27,14 +27,16 @@ function Post({ match, user }) {
 
     return (
         <>
-            <div className='postContainer'>
+            <div className='postContainer container'>
                 <div className="sizeContainer">
-                    <div>
+                    <div class="postTitleContainer">
                         <h1><b> {post.title}  </b>  </h1>
-
                         <div className="postAuthor">
                             By <i> {post.username ? post.username.username : null} </i>
                         </div>
+                    </div>
+                    <div>
+
                         <br />
                         {post.content}
                     </div>

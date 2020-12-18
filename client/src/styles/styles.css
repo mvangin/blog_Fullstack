@@ -132,11 +132,16 @@
 }
 
 .sizeContainer {
-    width: 600px;
+    width: 80%;
 }
+
+.postTitleContainer{
+    margin-top: 10px;
+    text-align: center;
+}
+
 .createComment {
     margin-top: 30px;
-    width: 600px;   
 }
 
 .commentInput {

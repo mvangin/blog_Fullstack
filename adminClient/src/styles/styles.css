@@ -141,7 +141,12 @@
 }
 
 .sizeContainer {
-    width: 600px;
+    width: 80%;
+}
+
+.postTitleContainer{
+    margin-top: 10px;
+    text-align: center;
 }
 
 .postTitle {
@@ -171,7 +176,7 @@
 
 .createComment {
     margin-top: 30px;
-    width: 600px;   
+    width: 100%;   
 }
 
 .commentInput {

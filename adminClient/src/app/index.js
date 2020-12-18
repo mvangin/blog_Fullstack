@@ -26,8 +26,8 @@ function App() {
             <NavbarComponent user={decTokenUser} />
             <Switch>
 
-                <Route path="/" exact component={Homepage} />
-                <Route path="/admin" exact component={Homepage} />
+                <Route path="/" exact render={() =>  <Homepage user={decTokenUser}/>} />
+                <Route path="/admin" exact render={() =>  <Homepage user={decTokenUser}/>} /> 
 
                 <Route path="/admin/posts" exact render={() => <PostList posts={posts} setPosts={setPosts} />} />
                 <Route path="/admin/posts/create" exact component={PostCreate} />

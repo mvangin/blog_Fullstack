@@ -25,7 +25,7 @@ function App() {
 
             <NavbarComponent user={decTokenUser}/>
             <Switch>
-                <Route path="/" exact component={Homepage} />
+            <Route path="/" exact render={() =>  <Homepage user={decTokenUser}/>} />
 
                 <Route path="/posts/" exact component={PostList} />
                 <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} />}/>

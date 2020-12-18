@@ -5,28 +5,21 @@ var cookieParser = require('cookie-parser');
 const bp = require('body-parser');
 
 var logger = require('morgan');
-let mongoose = require('mongoose')
 var indexRouter = require('./routes/index');
-let user = require('./models/user');
-let post = require('./models/post')
-let comment = require('./models/comment')
 let passport = require('passport');
 require('./passport-config')(passport);
 let cors = require('cors')
 require('dotenv').config();
 
-
-
-
-var app = express();
+let mongoose = require("mongoose")
 
 let mongoDB = process.env.MONGO_URI
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
-
-
-
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+var app = express();
 
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
@@ -41,7 +34,7 @@ app.use(bp.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+//app.use(express.static(path.join(__dirname, '../build')))
 
 app.use(passport.initialize());
 

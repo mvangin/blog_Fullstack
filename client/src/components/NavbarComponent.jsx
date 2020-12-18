@@ -19,13 +19,10 @@ function NavbarComponent({ user }) {
                             All Posts
                             </Link>
                     </Nav>
-
-
                 </Nav>
                 
                 {user ?
                     <>
-
                         <Nav className="ml-auto">
                             <Link to="/logout" className="nav-link">
                                 Logout <i>{user}</i>
