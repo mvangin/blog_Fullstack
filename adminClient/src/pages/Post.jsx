@@ -3,6 +3,8 @@ import api from '../api'
 import CommentCreate from "./CommentCreate"
 import Comments from "./Comments"
 import { useHistory, Link } from "react-router-dom"
+import ReactHtmlParser from 'react-html-parser';
+
 
 
 function Post({ match, setPosts, posts }) {
@@ -62,7 +64,7 @@ function Post({ match, setPosts, posts }) {
                             By <i> {postItem.username ? postItem.username.username : null} </i>
                         </div>
                         <br />
-                        {postItem.content}
+                        {ReactHtmlParser(postItem.content)}
                     </div>
 
                     <div>

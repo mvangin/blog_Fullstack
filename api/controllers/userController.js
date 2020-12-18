@@ -73,7 +73,7 @@ exports.signupPost = function (req, res, next) {
 
     if (username.length < 5 || password.length < 5) {
         console.log(username.length)
-        return res.json({ error: "username and password must be at least five characters long" })
+        return res.json({ error: "Username and password must be at least five characters long" })
     }
     User.findOne({ username })
         .then(user => {

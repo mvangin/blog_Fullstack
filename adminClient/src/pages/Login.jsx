@@ -18,9 +18,6 @@ function Login({ setUser }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (username.trim() === "" || password.trim() === "") {
-            return
-        }
         api.login({ username, password, adminPassword})
             .then(data => {
                 if (data.data.error) {
