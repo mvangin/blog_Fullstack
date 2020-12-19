@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 
@@ -26,14 +27,21 @@ function PostList({ setPosts, posts }) {
 
 
     return (
-        <div className="container">
+        isLoading ?
+            <div className="d-flex justify-content-center ">
+                <Spinner animation="border" role="status" id="spinner">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+            </div>
+            :
+
             <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
                 {
                     posts.map((item) => {
                         return (
                             <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
                                 <Card.Body>
-                        <Card.Header><b>{item.title} </b> {item.published ? <div className="text-success"> Published </div> : <div className="text-danger"> Unpublished</div>} </Card.Header>
+                                    <Card.Header><b>{item.title} </b> {item.published ? <div className="text-success"> Published </div> : <div className="text-danger"> Unpublished</div>} </Card.Header>
                                     <Card.Title> </Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">
                                         {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
@@ -59,8 +67,7 @@ function PostList({ setPosts, posts }) {
                     })
 
                 }
-            </div>
-        </div>
+            </div >
 
     )
 

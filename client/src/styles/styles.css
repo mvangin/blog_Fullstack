@@ -38,6 +38,9 @@
     width: 100%;
 }
 
+.errors {
+    color: red;
+}
 .loginError {
     color: red;
 }
@@ -62,6 +65,13 @@
     padding: 10px;
 
 }
+
+.marketingUpdates{
+    margin: 0px 10px;
+    
+}
+
+
 .formSubmit {
   width: 100%;
   margin-top: 20px;
@@ -77,6 +87,7 @@
     font-size: 1.5rem;
     color:rgb(250, 250, 250);
 }
+
 
 .createPostContainer {
     display: flex;
@@ -99,9 +110,10 @@
 }
 
 .homepageContainer {
+    color:white;
     display: flex;
     justify-content: center;
-    height: 70vh;
+    height: 50vh;
     align-items: center;
 }
 

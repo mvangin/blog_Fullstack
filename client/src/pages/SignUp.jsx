@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import api from '../api'
-
+import {nanoid} from "nanoid"
 import '../styles/styles.css'
 
 
@@ -9,22 +9,20 @@ function SignUp({ handleLogin }) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [marketing, setMarketing] = useState(true)
+
     //const [submitted, setSubmitted] = useState(false)
-    const [error, setError] = useState(null)
+    const [errors, setErrors] = useState(null)
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (username.trim() === "" || password.trim() === "") {
-            return
-        }
-        e.preventDefault();
-        api.signUp({ username, password })
+
+        api.signUp({ username, password, marketing })
             .then(data => {
                 console.log(data)
-                if (data.data.error) {
-                    console.log(data)
-                    setError(data.data.error)
+                if (data.data.errors) {
+                    setErrors(data.data.errors)
                 } else {
                     handleLogin()
                 }
@@ -40,16 +38,23 @@ function SignUp({ handleLogin }) {
 
                 <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
-                        {error ? <div className="loginError"> {error} </div> : null}
+
+                      { errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li> )): null }
 
                         <label className="formLabel">
-                            <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
+                            <input className="formInput" type="text" value={username} placeholder="Email" onChange={(e) => { setUsername(e.target.value) }} />
                         </label>
 
 
                         <label className="formLabel">
                             <input className="formInput" type="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                         </label>
+
+                        <label>
+                            Would you like to receive new and exciting updates?
+                        <input type="checkbox" checked={marketing} onChange={() => setMarketing(!marketing)} className="marketingUpdates" />
+                        </label>
+
 
                         <input className="formInput submit" type="submit" value="Sign up" />
 

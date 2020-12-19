@@ -49,7 +49,7 @@ function PostUpdate({ match }) {
                                 'undo redo | formatselect | bold italic backcolor | \
                                  alignleft aligncenter alignright alignjustify | \
                                 bullist numlist outdent indent | removeformat | help'
-                        }} apiKey="izb6wun1mfx6s4yw07jgv1cha30fjzeyuzsc9npti5tlo8hk" value={content} onEditorChange={(content) => { setContent(content); }} placeholder="content" className="postInput" />
+                        }} apiKey={process.env.REACT_APP_TINYMCE} value={content} onEditorChange={(content) => { setContent(content); }} placeholder="content" className="postInput" />
                     </label>
 
 

@@ -4,6 +4,8 @@ import { nanoid } from 'nanoid'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
+
 
 
 
@@ -18,7 +20,7 @@ function PostList() {
         async function fetchData() {
             await api.getAllPosts().then(postsRes => {
                 let data = postsRes.data.data
-                let publishedData = data.filter(dataItem => dataItem.published ===true)
+                let publishedData = data.filter(dataItem => dataItem.published === true)
                 //let data = postsRes.data.data
                 setPosts(publishedData)
                 setIsLoading(false);
@@ -28,7 +30,13 @@ function PostList() {
     }, [])
 
     return (
-        <div className="container">
+        isLoading ?
+            <div className="d-flex justify-content-center ">
+                <Spinner animation="border" role="status" id="spinner">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+            </div>
+            :
             <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
                 {
                     posts.map((item) => {
@@ -46,7 +54,7 @@ function PostList() {
                                             See More
                                             </Button>
                                     </Link>
-                                    
+
 
 
                                 </Card.Body>
@@ -63,7 +71,6 @@ function PostList() {
 
                 }
             </div>
-        </div>
 
     )
 

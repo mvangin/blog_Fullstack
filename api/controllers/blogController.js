@@ -26,9 +26,10 @@ exports.blogPost = function (req, res) {
     const published = req.body.checked
 
     if (!content || !title) {
-        return res.status(400).json({
+        let error = "you must provide title and content"
+        return res.json({
             success: false,
-            error: "you must provide title and content"
+            error: error.array()
         })
     }
 

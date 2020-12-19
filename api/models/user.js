@@ -4,7 +4,8 @@ let Schema = mongoose.Schema;
 let userSchema = new Schema({
     username: 'string',
     password: 'string', 
-    admin: {type:'boolean', default:false}
+    admin: {type:'boolean', default:false},
+    marketing: {type:'boolean', default:false}
 
 })
 

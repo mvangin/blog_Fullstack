@@ -15,10 +15,7 @@ function Login({ setUser }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        e.preventDefault();
-        if (username.trim() === "" || password.trim() === "") {
-            return
-        }
+
         api.login({ username, password })
             .then(data => {
                 if (data.data.error){
@@ -46,7 +43,7 @@ function Login({ setUser }) {
 
                 <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
-                    {error ? <div className="loginError"> {error} </div> : null}
+                    {error ? <li className="loginError"> {error} </li> : null}
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />

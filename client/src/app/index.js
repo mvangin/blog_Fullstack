@@ -23,16 +23,16 @@ function App() {
     return (
         <Router>
 
-            <NavbarComponent user={decTokenUser}/>
+            <NavbarComponent user={decTokenUser} />
             <Switch>
-            <Route path="/" exact render={() =>  <Homepage user={decTokenUser}/>} />
+                <Route path="/" exact render={() => <Homepage user={decTokenUser} />} />
 
                 <Route path="/posts/" exact component={PostList} />
-                <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} />}/>
+                <Route path="/posts/:id" exact render={({ match }) => <Post match={match} user={decTokenUser} />} />
 
                 <Route path="/logout" exact render={() => <Logout setUser={setDecTokenUser} />} />
 
-                <Route path="/login" exact render={() => <LoginSignup setUser={setDecTokenUser}/>} />
+                <Route path="/login" exact render={() => <LoginSignup setUser={setDecTokenUser} />} />
 
 
             </Switch>

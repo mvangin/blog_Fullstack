@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import api from '../api'
 import '../styles/styles.css'
+import {nanoid} from "nanoid"
 
 
 
@@ -9,15 +10,15 @@ function SignUp({ handleLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     //const [submitted, setSubmitted] = useState(false)
-    const [error, setError] = useState(null)
+    const [errors, setErrors] = useState(null)
 
     function handleSubmit(e) {
 
         e.preventDefault();
         api.signUp({ username, password })
             .then(data => {
-                if (data.data.error) {
-                    setError(data.data.error)
+                if (data.data.errors) {
+                    setErrors(data.data.errors)
                 } else {
                     handleLogin(true)
                     console.log("logged")
@@ -33,7 +34,7 @@ function SignUp({ handleLogin }) {
 
                 <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
-                        {error ? <div className="loginError"> {error} </div> : null}
+                        {errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li>)) : null}
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />

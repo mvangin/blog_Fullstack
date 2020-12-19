@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
 import CommentCreate from "./CommentCreate"
+import ReactHtmlParser from 'react-html-parser';
+
 
 function Post({ match, user }) {
 
@@ -38,7 +40,7 @@ function Post({ match, user }) {
                     <div>
 
                         <br />
-                        {post.content}
+                        {ReactHtmlParser(post.content)}
                     </div>
 
                     <div>

@@ -37,6 +37,10 @@
     width: 100%;
 }
 
+.errors {
+    color: red;
+}
+
 .loginError {
     color: red;
 }
@@ -109,9 +113,10 @@
 }
 
 .homepageContainer {
+    color: white;
+    height: 100%;
     display: flex;
     justify-content: center;
-    height: 70vh;
     align-items: center;
 }
 

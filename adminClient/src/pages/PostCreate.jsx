@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from '../api'
 import { Redirect } from "react-router-dom"
 import { Editor } from "@tinymce/tinymce-react";
+import {nanoid} from "nanoid"
 
 
 
@@ -11,7 +12,7 @@ function PostCreate() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [checked, setChecked] = useState(false);
-    const [error, setError] = useState(false)
+    const [errors, setErrors] = useState(false)
     const [loaded, setLoaded] = useState(false);
     let username = localStorage.getItem('id');
 
@@ -24,16 +25,17 @@ function PostCreate() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (title.trim() === "" || content.trim() === "") {
-            return
-        }
 
         api.createPost({ title, content, username, checked })
-            .then(response => setLoaded(true))
-        //.then(history.push('/posts'))
+            .then(data => {
+                if (data.data.error) {
+                    setErrors(data.data.error)
+                } else {
+                    setLoaded(true)
+                }
+                //.then(history.push('/posts'))
+            })
     }
-
-    //add error handling
 
     return (
 
@@ -42,13 +44,15 @@ function PostCreate() {
 
             <div className="createPostContainer">
                 <form onSubmit={handleSubmit} className="postForm">
+                    {errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li>)) : null}
+
                     <label>
                         <input type="text" onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
                     </label>
 
                     <label>
                         <Editor init={{
-                            height:300,
+                            height: 300,
                             plugins: [
                                 'advlist autolink lists link image charmap print preview anchor',
                                 'searchreplace visualblocks code fullscreen',

@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 
 
 
+
 function Login({ setUser }) {
     const history = useHistory();
 
@@ -22,8 +23,7 @@ function Login({ setUser }) {
             .then(data => {
                 if (data.data.error) {
                     setError(data.data.error)
-                }
-                else {
+                } else {
                     let id = data.data.id;
                     localStorage.setItem("token", data.data.token)
                     localStorage.setItem("id", id)
@@ -46,7 +46,7 @@ function Login({ setUser }) {
                 <div className="formContainer">
 
                     <form onSubmit={handleSubmit} className="form">
-                    {error ? <div className="loginError"> {error} </div> : null}
+                    {error ? <li className="errors"> {error} </li> : null}
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />

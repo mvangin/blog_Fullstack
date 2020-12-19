@@ -57,7 +57,7 @@ router.delete('/posts/:postID/:commentID', commentController.commentDelete)
 router.get('/admin/login', userController.loginGet)
 
 //post login
-router.post('/admin/login', userController.loginPost)
+router.post('/admin/login', userController.loginPostAdmin)
 
 //get signup
 router.get('/admin/signup', userController.signupGet)

@@ -5,14 +5,20 @@ import { Link } from 'react-router-dom'
 
 function NavbarComponent({ user }) {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark">
             < Navbar.Brand>
                 <Link to="/" className="nav-link text-light">
-                    SnoffleStein Blogs
+                    <img src="/brandLogo.png" alt="Logo" style={{ width: "60px" }} />
                 </Link>
             </Navbar.Brand >
+
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Collapse id="responsive-navbar-nav" >
+                < Navbar.Brand>
+                    <Link to="/" className="nav-link text-light">
+                        SnoffleStein Blogs
+                    </Link>
+                </Navbar.Brand >
                 <Nav >
                     <Nav>
                         <Link to="/posts" className="nav-link">
@@ -20,7 +26,7 @@ function NavbarComponent({ user }) {
                             </Link>
                     </Nav>
                 </Nav>
-                
+
                 {user ?
                     <>
                         <Nav className="ml-auto">
