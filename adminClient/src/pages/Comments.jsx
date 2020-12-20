@@ -21,9 +21,9 @@ function Comments({comments, setComments,postID}) {
                         return <div key={nanoid()} className="commentContainer">
                             <img src="/avatar.jpg" style={{ width: "20px" }} alt="avatar" />
 
-                            {comment.username ?
+                            {comment.displayName ?
                                 <span>
-                                    <b> {comment.username.username} </b>
+                                    <b> {comment.displayName} </b>
                                 </span>
                                 : null}
 

@@ -187,3 +187,12 @@
 .allCommentsContainer {
     margin-top: 30px;
 }
+
+.contactForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contactContent{
+    height: 200px;
+}

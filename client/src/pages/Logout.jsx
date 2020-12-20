@@ -1,23 +1,18 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 
-function Logout({ setUser }) {
+
+function Logout({ setUser, setDisplayName }) {
     localStorage.removeItem('token')
     localStorage.removeItem('id')
+    localStorage.removeItem('displayName')
+
     setUser(null)
+    setDisplayName(null)
+
     return (
-        <div className="homepageContainer">
-            <div>
-                <h1>
-                    You have been logged out
-        </h1>
-                <div className="linkContainer">
-                    <Link to="/posts" className="link"><button className="homeLink"> View Blogs </button> </Link>
-                    <Link to="/login" className="link">  <button className="homeLink">  Sign In  </button> </Link>
-                </div>
-            </div>
-        </div>
+        <Redirect to="/" />
     )
 }
 

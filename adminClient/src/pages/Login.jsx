@@ -12,14 +12,13 @@ function Login({ setUser }) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [adminPassword, setAdminPassword] = useState("");
 
     const [error, setError] = useState(null)
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        api.login({ username, password, adminPassword})
+        api.login({ username, password})
             .then(data => {
                 if (data.data.error) {
                     setError(data.data.error)
@@ -55,10 +54,6 @@ function Login({ setUser }) {
 
                         <label className="formLabel">
                             <input className="formInput" type="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
-                        </label>
-
-                        <label className="formLabel">
-                            <input className="formInput" type="password" placeholder="Admin Password" value={adminPassword} onChange={(e) => { setAdminPassword(e.target.value) }} />
                         </label>
 
                         <input className="formInput submit" type="submit" value="Login" />

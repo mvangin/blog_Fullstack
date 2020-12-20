@@ -11,12 +11,15 @@ function SignUp({ handleLogin }) {
     const [password, setPassword] = useState("");
     //const [submitted, setSubmitted] = useState(false)
     const [errors, setErrors] = useState(null)
+    const [adminPassword, setAdminPassword] = useState("");
+
 
     function handleSubmit(e) {
 
         e.preventDefault();
-        api.signUp({ username, password })
+        api.signUp({ username, password, adminPassword})
             .then(data => {
+                console.log(data)
                 if (data.data.errors) {
                     setErrors(data.data.errors)
                 } else {
@@ -43,6 +46,10 @@ function SignUp({ handleLogin }) {
 
                         <label className="formLabel">
                             <input className="formInput" type="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                        </label>
+
+                        <label className="formLabel">
+                            <input className="formInput" type="password" placeholder="Admin Password" value={adminPassword} onChange={(e) => { setAdminPassword(e.target.value) }} />
                         </label>
 
                         <input className="formInput submit" type="submit" value="Sign up" />

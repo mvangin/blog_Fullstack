@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
-import CommentCreate from "./CommentCreate"
+import CommentCreate from "../components/CommentCreate"
 import ReactHtmlParser from 'react-html-parser';
 
 
-function Post({ match, user }) {
+function Post({ match, user, displayName }) {
 
     const [post, setPost] = useState([]);
     const [comments, setComments] = useState([])
@@ -17,6 +17,7 @@ function Post({ match, user }) {
         await api.getPostByID(postID)
             .then(res => {
                 setPost(res.data.posts);
+                console.log(res.data.posts)
                 setComments(res.data.comments);
                 setIsLoading(false);
             })
@@ -44,7 +45,7 @@ function Post({ match, user }) {
                     </div>
 
                     <div>
-                        <CommentCreate user={user} postID={postID} fetchData={fetchData} />
+                        <CommentCreate user={user} displayName={displayName} postID={postID} fetchData={fetchData} />
                     </div>
 
                     <div className="allCommentsContainer">
@@ -55,9 +56,9 @@ function Post({ match, user }) {
                                 comments.map(comment => {
                                     return <div key={nanoid()} className="commentContainer">
                                         <img src="/avatar.jpg" style={{ width: "20px" }} alt="avatar" />
-                                        {comment.username ?
+                                        {comment.displayName ?
                                             <span>
-                                                <b>  {comment.username.username} </b>
+                                                <b>  {comment.displayName} </b>
                                             </span>
                                             : null}
                                         <div className="commentContent"> {comment.content} </div>

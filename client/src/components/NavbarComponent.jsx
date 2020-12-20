@@ -3,9 +3,9 @@ import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom'
 
 
-function NavbarComponent({ user }) {
+function NavbarComponent({ user, displayName }) {
     return (
-        <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             < Navbar.Brand>
                 <Link to="/" className="nav-link text-light">
                     <img src="/brandLogo.png" alt="Logo" style={{ width: "60px" }} />
@@ -27,11 +27,12 @@ function NavbarComponent({ user }) {
                     </Nav>
                 </Nav>
 
+ 
                 {user ?
                     <>
                         <Nav className="ml-auto">
                             <Link to="/logout" className="nav-link">
-                                Logout <i>{user}</i>
+                                Logout <i>{displayName}</i>
                             </Link>
                         </Nav>
                     </>

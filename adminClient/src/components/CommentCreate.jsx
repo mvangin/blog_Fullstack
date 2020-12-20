@@ -15,8 +15,8 @@ function CommentCreate({ postID, fetchData }) {
             return
         }
 
-        let username = localStorage.getItem('id')
-        let payload = { content, username, postID }
+        let displayName = "ADMIN"
+        let payload = { content, displayName, postID }
         console.log(payload)
         api.commentCreate(postID, payload)
             .then(() => fetchData())

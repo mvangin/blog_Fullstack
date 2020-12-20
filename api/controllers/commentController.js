@@ -7,16 +7,15 @@ exports.commentListGet = function (req, res) {
 
 exports.commentPost = function (req, res) {
     let content = req.body.content;
-    let username = req.body.username;
+    let displayName = req.body.displayName;
     let post = req.body.postID;
-    console.log(req.body)
     if (!content) {
         return res.status(400).json({
             success: false,
             error: "you must provide content"
         })
     }
-    const comment = new Comment({ username, content, post })
+    const comment = new Comment({ displayName, content, post })
 
     comment
         .save()

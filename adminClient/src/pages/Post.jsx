@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api'
-import CommentCreate from "./CommentCreate"
+import CommentCreate from "../components/CommentCreate"
 import Comments from "./Comments"
 import { useHistory, Link } from "react-router-dom"
 import ReactHtmlParser from 'react-html-parser';

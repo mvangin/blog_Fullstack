@@ -63,7 +63,7 @@ router.post('/admin/login', userController.loginPostAdmin)
 router.get('/admin/signup', userController.signupGet)
 
 // post signup
-router.post('/admin/signup', userController.signupPost)
+router.post('/admin/signup', userController.signupPostAdmin)
 
 
 //get all blogs

@@ -10,6 +10,7 @@ function SignUp({ handleLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [marketing, setMarketing] = useState(true)
+    const [displayName, setDisplayName] = useState("")
 
     //const [submitted, setSubmitted] = useState(false)
     const [errors, setErrors] = useState(null)
@@ -18,7 +19,7 @@ function SignUp({ handleLogin }) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        api.signUp({ username, password, marketing })
+        api.signUp({ username, password, marketing, displayName })
             .then(data => {
                 console.log(data)
                 if (data.data.errors) {
@@ -40,6 +41,10 @@ function SignUp({ handleLogin }) {
                     <form onSubmit={handleSubmit} className="form">
 
                       { errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li> )): null }
+
+                      <label className="formLabel">
+                            <input className="formInput" type="text" value={displayName} placeholder="Display name" onChange={(e) => { setDisplayName(e.target.value) }} />
+                        </label>
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Email" onChange={(e) => { setUsername(e.target.value) }} />

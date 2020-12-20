@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 
 
 
-function Login({ setUser }) {
+function Login({ setUser, setDisplayName }) {
     const history = useHistory();
 
     const [username, setUsername] = useState("");
@@ -18,21 +18,21 @@ function Login({ setUser }) {
 
         api.login({ username, password })
             .then(data => {
-                if (data.data.error){
+                if (data.data.error) {
                     setError(data.data.error)
                 }
-                 else {
+                else {
                     let id = data.data.id;
                     localStorage.setItem("token", data.data.token)
                     localStorage.setItem("id", id)
                     history.push(`/posts`);
+                    console.log("displayName1212" + jwt_decode(data.data.token).displayName)
 
-                    if (localStorage.getItem("token") !== null) {
-                        let token = localStorage.getItem("token");
-                        setUser(jwt_decode(token).name);
-                    } else {
-                        return null;
-                    }
+
+                    setDisplayName(jwt_decode(data.data.token).displayName)
+
+                    setUser(jwt_decode((data.data.token)).name);
+
                 }
             })
     }
@@ -43,7 +43,7 @@ function Login({ setUser }) {
 
                 <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
-                    {error ? <li className="loginError"> {error} </li> : null}
+                        {error ? <li className="loginError"> {error} </li> : null}
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
