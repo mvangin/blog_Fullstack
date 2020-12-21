@@ -3,8 +3,10 @@ var router = express.Router();
 var blogController = require('../controllers/blogController')
 var commentController = require('../controllers/commentController')
 var userController = require('../controllers/userController')
+var contactController = require('../controllers/contactController')
 var passport = require('passport')
 
+router.post('/contactPost', contactController.contactPost)
 
 //get login
 router.get('/login', userController.loginGet)
@@ -45,10 +47,12 @@ router.delete('/posts/:postID', blogController.blogDelete)
 router.get('/posts/:postID', commentController.commentListGet)
 
 //post comment on specific blog post
+
 //router.post('/posts/:postID', commentController.commentPost)
 router.post('/posts/:postID', passport.authenticate('jwt', {session: false}), commentController.commentPost)
 
 router.delete('/posts/:postID/:commentID', commentController.commentDelete)
+
 
 
 ////// admin routes

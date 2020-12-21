@@ -4,9 +4,8 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
 
-
-function ContactForm({ show, onHide }) {
-    const [email, setEmail] = useState("")
+function ContactForm({ show, onHide, user }) {
+    const [email, setEmail] = useState(() => ( user ? user : ""))
     const [subject, setSubject] = useState("");
     const [content, setContent] = useState("");
 
@@ -16,13 +15,19 @@ function ContactForm({ show, onHide }) {
 
         let payload = { email, subject, content }
 
-        console.log(payload)
 
-        /*
-          api.contactPost(payload)
-              .then(() => fetchData())
-          setContent("");
-          */
+        api.contactPost(payload)
+            .then((response) => {
+                if (response.data.status === 'success') {
+                    onHide();
+                    setEmail("")
+                    setSubject("")
+                    setContent("")
+
+                } else if (response.data.status === 'fail') {
+                    alert("Message failed to send.")
+                }
+            })
     }
 
     return (
@@ -52,6 +57,8 @@ function ContactForm({ show, onHide }) {
 
             </Modal.Body>
             <Modal.Footer>
+                <Button onClick={handleSubmit}>Send!</Button>
+
                 <Button onClick={onHide}>Close</Button>
             </Modal.Footer>
         </Modal>

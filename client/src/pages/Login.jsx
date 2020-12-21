@@ -26,13 +26,10 @@ function Login({ setUser, setDisplayName }) {
                     localStorage.setItem("token", data.data.token)
                     localStorage.setItem("id", id)
                     history.push(`/posts`);
-                    console.log("displayName1212" + jwt_decode(data.data.token).displayName)
-
 
                     setDisplayName(jwt_decode(data.data.token).displayName)
 
                     setUser(jwt_decode((data.data.token)).name);
-
                 }
             })
     }

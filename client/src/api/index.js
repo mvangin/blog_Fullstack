@@ -35,6 +35,7 @@ export const commentCreate = (postID, payload) => {
     })
 }
 
+export const contactPost = payload => api.post(`/contactPost`, payload)
 
 export const signUp = payload => api.post(`/signup`, payload)
 export const login = payload => api.post(`/login`, payload)
@@ -49,6 +50,7 @@ const apis = {
     signUp,
     login,
     commentCreate,
+    contactPost,
 }
 
 export default apis

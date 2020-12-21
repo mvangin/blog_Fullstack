@@ -2,15 +2,12 @@ import React from "react"
 import { Link } from 'react-router-dom'
 
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import Button from 'react-bootstrap/Button'
 import { useState } from "react"
-import ContactForm from "../components/ContactForm"
 
 
 
 function Homepage({ user }) {
 
-    const [modalShow, setModalShow] = useState(false);
 
     return (
         <>
@@ -26,25 +23,14 @@ function Homepage({ user }) {
                             user ?
                                 <div className="linkContainer">
                                     <Link to="/posts" className="link"><button className="homeLink"> View Blogs </button> </Link>
-                                    <button onClick={() => setModalShow(true)} className="homeLink"> Contact Us </button> 
-
-                                    <ContactForm
-                                        show={modalShow}
-                                        onHide={() => setModalShow(false)}
-                                        //add user
-                                    />
+                                    <Link to="/logout" className="link">  <button className="homeLink">  Logout  </button> </Link>
                                 </div>
 
                                 :
                                 <div className="linkContainer">
                                     <Link to="/posts" className="link"><button className="homeLink"> View Blogs </button> </Link>
                                     <Link to="/login" className="link">  <button className="homeLink">  Sign In  </button> </Link>
-                                    <button onClick={() => setModalShow(true)} className="homeLink"> Contact Us </button> 
 
-                                    <ContactForm
-                                        show={modalShow}
-                                        onHide={() => setModalShow(false)}
-                                    />
                                 </div>
                         }
                     </div>
