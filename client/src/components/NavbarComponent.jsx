@@ -3,6 +3,13 @@ import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom'
 import { useState } from "react"
 import ContactForm from "../components/ContactForm"
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook } from "@fortawesome/free-brands-svg-icons"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+
+
 
 function NavbarComponent({ user, displayName }) {
 
@@ -29,9 +36,19 @@ function NavbarComponent({ user, displayName }) {
                     </Link>
                 </Nav>
 
+                <Nav>
+                    <a href="https://theconflictcontinuum.com/" className="nav-link"> <FontAwesomeIcon icon={faShoppingCart} style={{ fontSize: "1.5rem", color: "white", margin: "1.5rem" }} /> </a>
+                </Nav>
 
                 <Nav className="ml-auto">
-                    <Link onClick={() => setModalShow(true)} className="contactUs mr-5 nav-link text-light"> Contact Us </Link>
+                    <a href="https://www.facebook.com/conflictarch/"> <FontAwesomeIcon icon={faFacebook} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
+                    <a href="https://www.twitter.com/conflictarch/"> <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
+                    <a href="https://www.instagram.com/theconflictcontinuum/"> <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
+                </Nav>
+
+
+                <Nav>
+                    <Link onClick={() => setModalShow(true)} className="contactUs ml-3 mr-3 nav-link text-light"> Contact Us </Link>
                 </Nav>
 
                 <ContactForm
@@ -39,6 +56,8 @@ function NavbarComponent({ user, displayName }) {
                     onHide={() => setModalShow(false)}
                     user={user}
                 />
+
+
                 {user ?
                     <>
                         <Nav >
