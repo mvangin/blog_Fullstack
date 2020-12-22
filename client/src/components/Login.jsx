@@ -40,7 +40,7 @@ function Login({ setUser, setDisplayName }) {
                         {error ? <li className="loginError"> {error} </li> : null}
 
                         <label className="formLabel">
-                            <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />
+                            <input className="formInput" type="text" value={username} placeholder="Email" onChange={(e) => { setUsername(e.target.value) }} />
                         </label>
 
 
