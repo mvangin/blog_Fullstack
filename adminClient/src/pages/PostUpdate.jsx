@@ -19,14 +19,14 @@ function PostUpdate({ match }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (title.trim() === "" || content.trim() === "") {
+        if (title.trim() == "" || content.trim() == "") {
             return
         }
 
         api.updatePostByID(postID, { title, content, checked, postID })
             .then(
                 history.push(`/admin/posts`)
-            )
+            ).catch(error => console.log(error))
     }
 
     return (

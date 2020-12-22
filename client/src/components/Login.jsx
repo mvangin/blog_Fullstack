@@ -18,19 +18,16 @@ function Login({ setUser, setDisplayName }) {
 
         api.login({ username, password })
             .then(data => {
-                if (data.data.error) {
-                    setError(data.data.error)
-                }
-                else {
-                    let id = data.data.id;
-                    localStorage.setItem("token", data.data.token)
-                    localStorage.setItem("id", id)
-                    history.push(`/posts`);
+                let id = data.data.id;
+                localStorage.setItem("token", data.data.token)
+                localStorage.setItem("id", id)
+                history.push(`/posts`);
 
-                    setDisplayName(jwt_decode(data.data.token).displayName)
+                setDisplayName(jwt_decode(data.data.token).displayName)
 
-                    setUser(jwt_decode((data.data.token)).name);
-                }
+                setUser(jwt_decode((data.data.token)).name);
+            }).catch(error => {
+                setError(error.response.data.error)
             })
     }
 

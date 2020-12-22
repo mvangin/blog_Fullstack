@@ -9,12 +9,14 @@ exports.commentPost = function (req, res) {
     let content = req.body.content;
     let displayName = req.body.displayName;
     let post = req.body.postID;
+
     if (!content) {
         return res.status(400).json({
             success: false,
             error: "you must provide content"
         })
     }
+    
     const comment = new Comment({ displayName, content, post })
 
     comment
@@ -34,12 +36,13 @@ exports.commentPost = function (req, res) {
 }
 
 exports.commentDelete = function (req, res, next) {
-    Comment.findByIdAndDelete(req.params.commentID, function(err) {
+    Comment.findByIdAndDelete(req.params.commentID, function (err) {
         if (err) {
-            next(err)
+            return res.status(400).json({
+                deleted: false,
+            })
         }
-    
-            console.log("successfully deleted comment")
-            res.json({success: true})
+        console.log("successfully deleted comment")
+        res.json({ success: true })
     })
 }

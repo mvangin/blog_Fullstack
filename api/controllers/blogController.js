@@ -27,17 +27,16 @@ exports.blogPost = function (req, res) {
 
     if (!content || !title) {
         let error = "you must provide a title and content"
-        return res.json({
+        return res.status(400).json({
             success: false,
             error: error
         })
     }
-    console.log("error")
 
     const post = new Post({ title, content, username, published })
 
     if (!post) {
-        return res.status(400).json({ success: false, error: err })
+        return res.status(400).json({ success: false })
     }
 
     post

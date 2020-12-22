@@ -21,13 +21,12 @@ function PostCreate() {
 
         api.createPost({ title, content, username, checked })
             .then(data => {
-                if (data.data.error) {
-                    setError(data.data.error)
-                } else {
                     setLoaded(true)
-                }
+                }).catch(error => {
+                    setError(error.response.data.error)
+                })
                 //.then(history.push('/posts'))
-            })
+           
     }
 
     return (

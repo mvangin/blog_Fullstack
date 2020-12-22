@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import api from '../api'
 import { useHistory } from 'react-router-dom';
 import '../styles/styles.css'
@@ -18,25 +18,25 @@ function Login({ setUser }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        api.login({ username, password})
+        setError(null)
+        api.login({ username, password })
             .then(data => {
-                if (data.data.error) {
-                    setError(data.data.error)
-                } else {
-                    let id = data.data.id;
-                    localStorage.setItem("token", data.data.token)
-                    localStorage.setItem("id", id)
-                    history.push(`/admin/posts`);
+                let id = data.data.id;
+                localStorage.setItem("token", data.data.token)
+                localStorage.setItem("id", id)
+                history.push(`/admin/posts`);
 
-                    if (localStorage.getItem("token") !== null) {
-                        let token = localStorage.getItem("token");
-                        setUser(jwt_decode(token).name);
-                    } else {
-                        return null;
-                    }
+                if (localStorage.getItem("token") !== null) {
+                    let token = localStorage.getItem("token");
+                    setUser(jwt_decode(token).name);
+                } else {
+                    return null;
                 }
+            }).catch(error => {
+                setError(error.response.data.error)
             })
     }
+
 
     return (
         <>
@@ -45,7 +45,7 @@ function Login({ setUser }) {
                 <div className="formContainer">
 
                     <form onSubmit={handleSubmit} className="form">
-                    {error ? <li className="errors"> {error} </li> : null}
+                        {error ? <li className="errors"> {error} </li> : null}
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />

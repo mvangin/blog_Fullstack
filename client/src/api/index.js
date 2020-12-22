@@ -2,8 +2,8 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: 'https://snofflestein-api.herokuapp.com'
-    //baseURL: 'http://localhost:1234'
+    //baseURL: 'https://snofflestein-api.herokuapp.com'
+    baseURL: 'http://localhost:1234'
 })
 
 const UNAUTHORIZED = 401;

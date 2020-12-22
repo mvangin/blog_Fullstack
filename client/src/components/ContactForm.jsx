@@ -1,28 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../api'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
 
-function ContactForm({ show, onHide, user }) {
-    const [email, setEmail] = useState(() => ( user ? user : ""))
+function ContactForm({ show, onHide }) {
+    const [email, setEmail] = useState("")
     const [subject, setSubject] = useState("");
     const [content, setContent] = useState("");
 
+    function handleClose() {
+        setEmail("")
+        setSubject("")
+        setContent("")
+        onHide();
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
 
         let payload = { email, subject, content }
-
-
         api.contactPost(payload)
             .then((response) => {
                 if (response.data.status === 'success') {
-                    onHide();
                     setEmail("")
                     setSubject("")
                     setContent("")
+                    onHide();
 
                 } else if (response.data.status === 'fail') {
                     alert("Message failed to send.")
@@ -59,7 +63,7 @@ function ContactForm({ show, onHide, user }) {
             <Modal.Footer>
                 <Button onClick={handleSubmit}>Send!</Button>
 
-                <Button onClick={onHide}>Close</Button>
+                <Button onClick={handleClose}>Close</Button>
             </Modal.Footer>
         </Modal>
     );

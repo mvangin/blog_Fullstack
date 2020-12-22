@@ -22,7 +22,7 @@ exports.loginPost = function (req, res) {
     User.findOne({ username })
         .then((user) => {
             if (!user) {
-                return res.json({ error: "Invalid username or password. Please try again." });
+                return res.status(400).json({ error: "Invalid username or password. Please try again." });
             } else {
                 bcrypt.compare(password, user.password)
                     .then((isMatch) => {
@@ -45,7 +45,7 @@ exports.loginPost = function (req, res) {
                                     }
 
 
-                                    res.json({
+                                    res.status(200).json({
                                         success: true,
                                         token: `Bearer ${token}`,
                                         id: user._id,
@@ -55,7 +55,7 @@ exports.loginPost = function (req, res) {
                                 });
 
                         } else {
-                            res.json({ error: "Invalid username or password. Please try again." });
+                            res.status(400).json({ error: "Invalid username or password. Please try again." });
                         }
                     });
             }
@@ -70,11 +70,11 @@ exports.loginPostAdmin = function (req, res) {
     User.findOne({ username })
         .then((user) => {
             if (!user) {
-                return res.json({ error: "Invalid username or password. Please try again." });
+                return res.status(400).send({ error: "Invalid username or password. Please try again." });
             }
 
             if (!user.admin) {
-                return res.json({ error: "Login requires admin authorization" });
+                return res.status(400).json({ error: "Login requires admin authorization" });
             }
             
             bcrypt.compare(password, user.password)
@@ -93,13 +93,13 @@ exports.loginPostAdmin = function (req, res) {
                                     error = "Error signing token";
                                     res.status(500)
                                         .json({
-                                            error: error.array(),
+                                            error: error,
                                             raw: error
                                         });
                                 }
                                 let username = user.username + ""
 
-                                res.json({
+                                res.status(200).json({
                                     success: true,
                                     token: `Bearer ${token}`,
                                     id: user._id,
@@ -109,7 +109,7 @@ exports.loginPostAdmin = function (req, res) {
                             });
 
                     } else {
-                        res.json({ error: "Invalid username or password. Please try again." });
+                        res.status(400).json({ error: "Invalid username or password. Please try again." });
                     }
                 });
         })
@@ -123,7 +123,7 @@ exports.signupGet = function (req, res) {
 
 exports.signupPost = [
 
-    body('displayName').trim().isLength({ min: 5 }).withMessage('display must be at least 5 characters long').escape(),
+    body('displayName').trim().isLength({ min: 5 }).withMessage('Display must be at least 5 characters long').escape(),
 
     body('username').trim().isEmail().withMessage('Valid email address required').escape(),
 
@@ -134,8 +134,7 @@ exports.signupPost = [
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            res.json({ errors: errors.array() });
-            return
+            return res.status(400).json({ errors: errors.array() });
         }
 
         /*if (username.length < 5 || password.length < 5) {
@@ -145,7 +144,6 @@ exports.signupPost = [
         */
 
         const displayName = req.body.displayName;
-        console.log(displayName)
         const username = req.body.username;
         const password = req.body.password;
         const marketing = req.body.marketing;
@@ -156,17 +154,17 @@ exports.signupPost = [
             .then(user => {
                 if (user) {
                     let error = 'Username already in use'
-                    res.json({ error: error });
+                    res.status(400).json({ error: error });
                 } else {
                     User.findOne({ displayName })
                         .then(disp => {
                             if (disp) {
                                 let error = 'display name already in use'
-                                return res.json({ error: error })
+                                return res.status(400).json({ error: error })
                             } else {
                                 bcrypt.hash(password, 10, (err, hashedPassword) => {
                                     if (err) {
-                                        return next(err);
+                                        return res.status(500).json({ error: err })
                                     };
                                     console.log(displayName)
                                     const user = new User({
@@ -179,7 +177,7 @@ exports.signupPost = [
                                             return next(err);
                                         } else {
 
-                                            return res.json({ success: true });
+                                            return res.status(200).json({ success: true });
                                         }
                                     });
                                 })
@@ -203,8 +201,8 @@ exports.signupPostAdmin = [
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            res.json({ errors: errors.array() });
-            return
+            return res.status(400).json({ errors: errors.array() });
+            
         }
 
         /*if (username.length < 5 || password.length < 5) {
@@ -219,7 +217,7 @@ exports.signupPostAdmin = [
         const adminPassword = req.body.adminPassword
 
         if (adminPassword !== CurrentadminPassword) {
-            res.json({
+             res.status(400).json({
                 error: "Admin password incorrect"
             })
         } else {
@@ -227,11 +225,11 @@ exports.signupPostAdmin = [
                 .then(user => {
                     if (user) {
                         let error = 'Username already in use'
-                        res.json({ error: error });
+                         res.status(400).json({ error: error });
                     } else {
                         bcrypt.hash(password, 10, (err, hashedPassword) => {
                             if (err) {
-                                return next(err);
+                                 res.status(500).json({ success: false });
                             };
                             const user = new User({
                                 username: username,
@@ -239,10 +237,9 @@ exports.signupPostAdmin = [
                                 admin: true
                             }).save(err => {
                                 if (err) {
-                                    return next(err);
+                                     res.status(500).json({ success: false });
                                 } else {
-
-                                    return res.json({ success: true });
+                                    return res.status(200).json({ success: true });
                                 }
                             });
                         })

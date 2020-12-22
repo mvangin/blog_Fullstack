@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import api from '../api'
 import '../styles/styles.css'
-import {nanoid} from "nanoid"
+import { nanoid } from "nanoid"
 
 
 
@@ -11,22 +11,23 @@ function SignUp({ handleLogin }) {
     const [password, setPassword] = useState("");
     //const [submitted, setSubmitted] = useState(false)
     const [errors, setErrors] = useState(null)
+    const [error, setError] = useState(null)
     const [adminPassword, setAdminPassword] = useState("");
 
 
     function handleSubmit(e) {
 
         e.preventDefault();
-        api.signUp({ username, password, adminPassword})
+        setError(null)
+        setErrors(null)
+        api.signUp({ username, password, adminPassword })
             .then(data => {
-                console.log(data)
-                if (data.data.errors) {
-                    setErrors(data.data.errors)
-                } else {
-                    handleLogin(true)
-                    console.log("logged")
-                }
+                handleLogin(true)
+                console.log("logged")
+            }).catch(error =>  {
+                error.response.data.error ? setError(error.response.data.error) :  setErrors(error.response.data.errors)
             })
+               
 
     }
     return (
@@ -38,6 +39,7 @@ function SignUp({ handleLogin }) {
                 <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
                         {errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li>)) : null}
+                        {error ? <li className="errors"> {error} </li> : null}
 
                         <label className="formLabel">
                             <input className="formInput" type="text" value={username} placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} />

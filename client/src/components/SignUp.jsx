@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import api from '../api'
-import {nanoid} from "nanoid"
+import { nanoid } from "nanoid"
 import '../styles/styles.css'
 
 
@@ -14,6 +14,8 @@ function SignUp({ handleLogin }) {
 
     //const [submitted, setSubmitted] = useState(false)
     const [errors, setErrors] = useState(null)
+    const [error, setError] = useState(null)
+
 
 
     function handleSubmit(e) {
@@ -21,14 +23,10 @@ function SignUp({ handleLogin }) {
 
         api.signUp({ username, password, marketing, displayName })
             .then(data => {
-                console.log(data)
-                if (data.data.errors) {
-                    setErrors(data.data.errors)
-                } else {
-                    handleLogin()
-                }
+                handleLogin()
+            }).catch(error => {
+                error.response.data.error ? setError(error.response.data.error) : setErrors(error.response.data.errors)
             })
-
     }
 
     return (
@@ -39,10 +37,10 @@ function SignUp({ handleLogin }) {
 
                 <div className="formContainer">
                     <form onSubmit={handleSubmit} className="form">
+                        {errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li>)) : null}
+                        {error ? <li className="errors"> {error} </li> : null}
 
-                      { errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li> )): null }
-
-                      <label className="formLabel">
+                        <label className="formLabel">
                             <input className="formInput" type="text" value={displayName} placeholder="Display name" onChange={(e) => { setDisplayName(e.target.value) }} />
                         </label>
 

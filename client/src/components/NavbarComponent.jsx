@@ -54,7 +54,6 @@ function NavbarComponent({ user, displayName }) {
                 <ContactForm
                     show={modalShow}
                     onHide={() => setModalShow(false)}
-                    user={user}
                 />
 
 

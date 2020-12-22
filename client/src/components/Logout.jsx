@@ -10,6 +10,7 @@ function Logout({ setUser, setDisplayName }) {
 
     setUser(null)
     setDisplayName(null)
+    
 
     return (
         <Redirect to="/" />
