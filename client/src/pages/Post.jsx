@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../api'
 import { nanoid } from 'nanoid'
-import CommentCreate from "../components/CommentCreate"
+import {CommentCreate} from "../components"
 import ReactHtmlParser from 'react-html-parser';
 
 

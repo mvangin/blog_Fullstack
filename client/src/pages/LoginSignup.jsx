@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import Login from "./Login"
-import SignUp from "./SignUp"
+import {Login, SignUp} from "../components"
 import '../styles/styles.css'
+import Container from "react-bootstrap/Container"
 
 
-function LoginSignup({setUser, setDisplayName}) {
+
+function LoginSignup({ setUser, setDisplayName }) {
 
     const [login, setLogin] = useState(true);
     function handleLogin() {
@@ -15,19 +16,21 @@ function LoginSignup({setUser, setDisplayName}) {
         setLogin(false)
     }
     return (
-        <div className="loginSignupCont">
-            <div className="loginSignupBorder">
-                <div className="userContainer">
-                    <div onClick={() => handleLogin()} className="userChoice">
-                        {login ? <h4>  <u> Login </u></h4> : <h4> Login </h4>}
+        <Container className="dflex justify-center align-center">
+            <div className="loginSignupCont">
+                <div className="loginSignupBorder">
+                    <div className="userContainer">
+                        <div onClick={() => handleLogin()} className="userChoice">
+                            {login ? <h4>  <u> Login </u></h4> : <h4> Login </h4>}
+                        </div>
+                        <div onClick={() => handleSignup()} className="userChoice">
+                            {login ? <h4 > Sign up</h4> : <h4 ><u> Sign up </u> </h4>}
+                        </div>
                     </div>
-                    <div onClick={() => handleSignup()} className="userChoice">
-                        {login ? <h4 > Sign up</h4> : <h4 ><u> Sign up </u> </h4>}
-                    </div>
+                    {login ? <Login setUser={setUser} setDisplayName={setDisplayName} /> : <SignUp handleLogin={handleLogin} />}
                 </div>
-                {login ? <Login setUser={setUser} setDisplayName={setDisplayName}/> : <SignUp handleLogin={handleLogin}  />}
             </div>
-        </div>
+        </Container>
     )
 }
 

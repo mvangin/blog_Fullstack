@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { PostList, Logout, Post, LoginSignup, Homepage } from '../pages'
-import { NavbarComponent } from '../components'
+import { PostList, Post, LoginSignup, Homepage } from '../pages'
+import { NavbarComponent, Logout} from '../components'
 import jwt_decode from "jwt-decode";
 
 import 'bootstrap/dist/css/bootstrap.min.css'

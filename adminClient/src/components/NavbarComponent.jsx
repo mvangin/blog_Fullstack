@@ -34,7 +34,7 @@ function NavbarComponent({ user }) {
                                         </Link>
                         </Nav>
 
-                        <Nav className="ml-auto">
+                        <Nav className="ml-auto tex-light">
                             <Link to="/admin/logout" className="nav-link">
                                 Logout <i>{user}</i>
                             </Link>

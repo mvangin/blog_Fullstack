@@ -16,7 +16,7 @@ function NavbarComponent({ user, displayName }) {
     const [modalShow, setModalShow] = useState(false);
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
             < Navbar.Brand>
                 <Link to="/" className="nav-link">
                     <img src="/brandLogo.png" alt="Logo" style={{ width: "60px" }} />
@@ -61,14 +61,14 @@ function NavbarComponent({ user, displayName }) {
                 {user ?
                     <>
                         <Nav >
-                            <Link to="/logout" className="nav-link ">
+                            <Link to="/logout" className="nav-link text-light">
                                 Logout <i>{displayName}</i>
                             </Link>
                         </Nav>
                     </>
                     :
                     <Nav >
-                        <Link to="/login" className="nav-link ">
+                        <Link to="/login" className="nav-link text-light">
                             Login
                         </Link>
                     </Nav>
