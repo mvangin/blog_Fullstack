@@ -12,16 +12,9 @@ function PostCreate() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [checked, setChecked] = useState(false);
-    const [errors, setErrors] = useState(false)
+    const [error, setError] = useState(false)
     const [loaded, setLoaded] = useState(false);
     let username = localStorage.getItem('id');
-
-
-
-
-    useEffect(() => {
-        //api.getPostCreate()
-    }, [])
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -29,7 +22,7 @@ function PostCreate() {
         api.createPost({ title, content, username, checked })
             .then(data => {
                 if (data.data.error) {
-                    setErrors(data.data.error)
+                    setError(data.data.error)
                 } else {
                     setLoaded(true)
                 }
@@ -44,7 +37,7 @@ function PostCreate() {
 
             <div className="createPostContainer">
                 <form onSubmit={handleSubmit} className="postForm">
-                    {errors ? errors.map(error => (<li key={nanoid()} className="errors"> {error.msg} </li>)) : null}
+                {error ? <li style={{color:"red"}}> {error} </li> : null}
 
                     <label>
                         <input type="text" onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />

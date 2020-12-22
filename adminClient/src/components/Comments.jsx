@@ -14,7 +14,6 @@ function Comments({comments, setComments,postID}) {
     return (
         <div className="allCommentsContainer">
             <b> Comments </b>
-
             <div>
                 {
                     comments.map(comment => {

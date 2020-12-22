@@ -7,9 +7,7 @@ function CommentCreate({ postID, fetchData }) {
 
     const [content, setContent] = useState("");
 
-
     function handleSubmit(e) {
-        e.preventDefault();
         e.preventDefault();
         if (content.trim() === "") {
             return
@@ -27,8 +25,7 @@ function CommentCreate({ postID, fetchData }) {
 
         <form onSubmit={handleSubmit} className="createComment" >
 
-            <textarea placeholder="Enter your comment here..." className="commentInput" type="text" value={content} onChange={(e) => { setContent(e.target.value); }} />
-
+            <textarea placeholder="Enter your comment here..." className="commentInput" type="text" value={content} onChange={(e) => { setContent(e.target.value);}} />
 
             <div>
                 <button type="submit" className="commentSubmit"> Leave a comment </button>
