@@ -28,7 +28,7 @@ function Shop({ show, onHide }) {
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center">
                 <div className="text-center">
-                    <img src="/shop.png" alt="shopping image" style={{ width: "300px" }} />
+                    <img src="/Shop.png" alt="shopping image" style={{ width: "300px" }} />
                     <a href="https://theconflictcontinuum.com/">
                         <h1 className="text-dark">
                             <u> Go to Store </u>

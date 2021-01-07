@@ -33,10 +33,19 @@ function PostUpdate({ match }) {
         <>
             <div className="container createPostContainer">
                 <form onSubmit={handleSubmit} className="postForm">
+
+                    <div className="text-center m-2">
+                        Title
+                    </div>
+
                     <label>
-                        <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
+                        <input type="text" value={title} onChange={(e) => { setTitle(e.target.value); }}  className="postInput" />
                     </label>
 
+
+                    <div className="text-center m-2">
+                        Content 
+                    </div>
                     <label>
                         <Editor init={{
                             height: 300,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from '../api'
 import { Redirect } from "react-router-dom"
 import { Editor } from "@tinymce/tinymce-react";
-import {nanoid} from "nanoid"
+import { nanoid } from "nanoid"
 
 
 
@@ -21,12 +21,12 @@ function PostCreate() {
 
         api.createPost({ title, content, username, checked })
             .then(data => {
-                    setLoaded(true)
-                }).catch(error => {
-                    setError(error.response.data.error)
-                })
-                //.then(history.push('/posts'))
-           
+                setLoaded(true)
+            }).catch(error => {
+                setError(error.response.data.error)
+            })
+        //.then(history.push('/posts'))
+
     }
 
     return (
@@ -36,12 +36,32 @@ function PostCreate() {
 
             <div className="createPostContainer">
                 <form onSubmit={handleSubmit} className="postForm">
-                {error ? <li style={{color:"red"}}> {error} </li> : null}
+                    {error ? <li style={{ color: "red" }}> {error} </li> : null}
 
+                    <div className="text-center m-2">
+                        Title
+                    </div>
                     <label>
-                        <input type="text" onChange={(e) => { setTitle(e.target.value); }} placeholder="title" className="postInput" />
+                        <input type="text" onChange={(e) => { setTitle(e.target.value); }} className="postInput" />
                     </label>
+                    {/*
+                    <label>
+                        <Editor init={{
+                            height: 200,
+                            plugins: [
+                                'image'
+                            ],
+                            menubar: 'insert image',
+                            statusbar: 'false',
+                            toolbar: 'false'
+                        }}
+                            apiKey={process.env.REACT_APP_TINYMCE} value={title} onEditorChange={(title) => { setTitle(title); }} className="postInput" />
+                    </label>
+                    */}
 
+                    <div className="text-center m-2">
+                        Content
+                    </div>
                     <label>
                         <Editor init={{
                             height: 300,
@@ -55,7 +75,7 @@ function PostCreate() {
                                  alignleft aligncenter alignright alignjustify | \
                                 bullist numlist outdent indent | removeformat | help'
                         }}
-                            apiKey="izb6wun1mfx6s4yw07jgv1cha30fjzeyuzsc9npti5tlo8hk" value={content} onEditorChange={(content) => { setContent(content); }} placeholder="content" className="postInput" />
+                            apiKey={process.env.REACT_APP_TINYMCE} value={content} onEditorChange={(content) => { setContent(content); }} placeholder="content" className="postInput" />
                     </label>
 
                     <label className="postCheckedContainer">
