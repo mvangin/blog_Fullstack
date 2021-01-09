@@ -10,6 +10,8 @@
 
 * Visually appealing design and responsiveness through custom
   CSS, Bootstrap, and React
+  
+* Authentication implemented with JSON Web Tokens and Passport.js
 
 * Administrator Frontend: Signup/Login to manage, create, and
   publish blogs as needed.
