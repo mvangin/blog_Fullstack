@@ -1,11 +1,10 @@
-<h1>
-  <br>
+## The Conflict Continuum Blogsite
+
+<div>
   <img src="/ConflictContinuum.png" alt="ConflictContinuum" width="400"></a>
-  <br>
-</h1>
+</div>
 
 ## Key Features
-* The Conflict Continuum Blogsite
 
 * Blog data organized and stored using NodeJS,Express,Mongoose and MongoDB
 
@@ -18,5 +17,10 @@
 * Customer Frontend: Signup/login to view, and add comments
   to published posts. Customers can easily contact blog
   administrators (implemented using Nodemailer).
+
+## Demo
+View live demo on heroku (free hosting version, initial startup may be slow). 
+*  Customer portal [here](https://conflict-continuum.herokuapp.com/).
+*  Administrator portal [here](https://conflict-continuum-admin.herokuapp.com/admin) (requires administrative password to signup)
 
 
