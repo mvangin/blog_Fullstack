@@ -19,29 +19,4 @@
   to published posts. Customers can easily contact blog
   administrators (implemented using Nodemailer).
 
-## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/amitmerchant1990/pomolectron
-
-# Go into the back-end repository
-$ cd api
-
-# Install dependencies
-$ npm install
-
-# Run the back-end
-$ npm start
-
-# Go into the frontend client or administrative repository
-$ cd client or cd adminClient
-
-# Install dependencies
-$ npm install
-
-# Run the front-end
-$ npm start
-```
