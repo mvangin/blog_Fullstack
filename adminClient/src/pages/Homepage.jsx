@@ -9,7 +9,7 @@ function Homepage({ user }) {
                     <div className="homepageContainer">
                         <div>
                             <h1>
-                                SnoffleStein Blogs (Admin)
+                                The Conflict Continuum (Admin)
                             </h1>
                             {user ?
                                 <div className="linkContainer">

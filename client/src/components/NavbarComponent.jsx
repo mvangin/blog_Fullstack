@@ -11,8 +11,6 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 
-
-
 function NavbarComponent({ user, displayName }) {
 
     const [shopModalShow, setShopModalShow] = useState(false);
@@ -31,7 +29,7 @@ function NavbarComponent({ user, displayName }) {
             <Navbar.Collapse id="responsive-navbar-nav" >
                 < Navbar.Brand>
                     <Link to="/" className="nav-link text-light">
-                        SnoffleStein Blogs
+                        The Conflict Continuum
                     </Link>
                 </Navbar.Brand >
                 <Nav>

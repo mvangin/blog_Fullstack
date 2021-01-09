@@ -24,7 +24,7 @@ function Homepage({ user }) {
                 <div className="homepageContainer">
                     <div>
                         <h1>
-                            Welcome to SnoffleStein Blogs
+                            Welcome to The Conflict Continuum
                             </h1>
 
 

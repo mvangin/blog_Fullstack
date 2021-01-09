@@ -7,8 +7,6 @@ import { nanoid } from "nanoid"
 
 
 function PostCreate() {
-
-
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [checked, setChecked] = useState(false);
@@ -29,6 +27,7 @@ function PostCreate() {
 
     }
 
+
     return (
 
         <>
@@ -41,10 +40,17 @@ function PostCreate() {
                     <div className="text-center m-2">
                         Title
                     </div>
+
                     <label>
                         <input type="text" onChange={(e) => { setTitle(e.target.value); }} className="postInput" />
                     </label>
+
                     {/*
+                    <form onSubmit={handleUpload}>
+                        <input type="file" />
+                        <button type="button" type="submit" className="btn btn-primary"> Upload </button>
+                    </form>
+   
                     <label>
                         <Editor init={{
                             height: 200,

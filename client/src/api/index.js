@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: 'https://snofflestein-api.herokuapp.com'
+    baseURL: 'https://conflict-continuum-api.herokuapp.com'
     //baseURL: 'http://localhost:1234'
 })
 

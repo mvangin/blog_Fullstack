@@ -15,7 +15,7 @@ function NavbarComponent({ user }) {
             </Navbar.Brand >
             < Navbar.Brand>
                 <Link to="/admin" className="nav-link text-light">
-                    SnoffleStein Blogs (Admin)
+                    The Conflict Continuum (Admin)
                     </Link>
             </Navbar.Brand >
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
