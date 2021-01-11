@@ -27,57 +27,59 @@ function NavbarComponent({ user, displayName }) {
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" >
-                < Navbar.Brand>
+                <Navbar.Brand>
                     <Link to="/" className="nav-link text-light">
                         The Conflict Continuum
                     </Link>
                 </Navbar.Brand >
                 <Nav>
-                    <Link to="/posts" className="nav-link">
-                        All Posts
+                    <Link to="/posts" className="nav-link allPosts">
+                        All Blogs
                     </Link>
                 </Nav>
 
                 <Nav>
-                    <Link onClick={() => setShopModalShow(true)} > <FontAwesomeIcon icon={faShoppingCart} style={{ fontSize: "1.5rem", color: "white", margin: "1.5rem" }} /> </Link>
+                    <Link onClick={() => setShopModalShow(true)} > <FontAwesomeIcon icon={faShoppingCart} className="shoppingIcon" /> </Link>
                     <Shop
                         show={shopModalShow}
                         onHide={() => setShopModalShow(false)}
                     />
                 </Nav>
 
-                    <Nav className="ml-auto">
+                <Nav className="ml-auto social-media">
+                    <div>
                         <a href="https://www.facebook.com/conflictarch/"> <FontAwesomeIcon icon={faFacebook} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
                         <a href="https://www.twitter.com/conflictarch/"> <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
                         <a href="https://www.instagram.com/theconflictcontinuum/"> <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
-                    </Nav>
+                    </div>
+                </Nav>
 
 
-                    <Nav>
-                        <Link onClick={() => setContactModalShow(true)} className="contactUs ml-3 mr-3 nav-link text-light"> Contact Us </Link>
-                    </Nav>
+                <Nav>
+                    <Link onClick={() => setContactModalShow(true)} className="contactUs nav-link text-light"> Contact Us </Link>
+                </Nav>
 
-                    <ContactForm
-                        show={contactModalShow}
-                        onHide={() => setContactModalShow(false)}
-                    />
+                <ContactForm
+                    show={contactModalShow}
+                    onHide={() => setContactModalShow(false)}
+                />
 
 
-                    {user ?
-                        <>
-                            <Nav >
-                                <Link to="/logout" className="nav-link text-light">
-                                    Logout <i>{displayName}</i>
-                                </Link>
-                            </Nav>
-                        </>
-                        :
+                {user ?
+                    <>
                         <Nav >
-                            <Link to="/login" className="nav-link text-light">
-                                Login
-                        </Link>
+                            <Link to="/logout" className="nav-link text-light">
+                                Logout <i>{displayName}</i>
+                            </Link>
                         </Nav>
-                    }
+                    </>
+                    :
+                    <Nav >
+                        <Link to="/login" className="nav-link text-light">
+                            Login
+                        </Link>
+                    </Nav>
+                }
 
 
 
