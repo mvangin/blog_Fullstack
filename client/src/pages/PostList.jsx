@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
 import Container from 'react-bootstrap/Container'
+import Image from "react-bootstrap/Image"
 
 
 function PostList() {
@@ -38,40 +39,64 @@ function PostList() {
                         </Spinner>
                     </div>
                     :
-                    <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
-                        {
-                            posts.map((item) => {
-                                return (
-                                    <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
-                                        <Card.Body >
-                                            <Card.Header ><b>{item.title} </b></Card.Header>
-                                            <Card.Title> <img src="/stockBlog.png" style={{width:"100%"}}/> </Card.Title>
-                                            <Card.Subtitle className="mb-2 text-muted">
-                                                {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
-                                            </Card.Subtitle>
+                    <Container>
+                        <div className="banner">
+                            <div className="bannerPics">
+                                <Image fluid src="/storepic1.jpg" className="storePic" alt="storepic" />
+                                <Image fluid src="/storepic2.jpg" className="storePic" alt="storepic" />
+                            </div>
+                            <div className="bannerContent">
+                                <h1 className="bannerTitle">
+                                    New Store Launch!
+                                </h1>
 
-                                            <Link className="text-white" to={`/posts/${item._id}`} >
-                                                <u className="text-dark">
-                                                    See More
+                                <div className="bannerSummary">
+                                    The Conflict Continuum Store offers ancient combat
+                                    sport themed athletic apparel and casual wear.
+                                    <a href="https://theconflictcontinuum.com/" id="shopLink"> <u> SHOP NOW! </u> </a> 
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div className="d-flex justify-content-center justify-content-md-between flex-wrap text-center">
+                            {
+                                posts.map((item) => {
+                                    return (
+                                        <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
+                                            <Card.Body >
+                                                <Card.Header ><b>{item.title} </b></Card.Header>
+                                                <Card.Title> <img src="/stockBlog.png" style={{ width: "100%" }} /> </Card.Title>
+                                                <Card.Subtitle className="mb-2 text-muted">
+                                                    {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                                                </Card.Subtitle>
+
+                                                <Link className="text-white" to={`/posts/${item._id}`} >
+                                                    <u className="text-dark">
+                                                        See More
                                                 </u>
-                                            </Link>
+                                                </Link>
 
 
 
-                                        </Card.Body>
+                                            </Card.Body>
 
-                                    </Card>
+                                        </Card>
 
-                                    /*  <div key={nanoid()}>
-                <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
-                                   : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
-            </div>
-                                       */
-                                )
-                            })
+                                        /*  <div key={nanoid()}>
+                    <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
+                                       : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                </div>
+                                           */
+                                    )
+                                })
 
-                        }
-                    </div>
+                            }
+                        </div>
+                    </Container>
             }
         </Container >
     )

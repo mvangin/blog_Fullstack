@@ -27,8 +27,6 @@ function Homepage({ user }) {
                             Welcome to The Conflict Continuum
                             </h1>
 
-
-
                         {
                             user ?
                                 <div className="linkContainer">

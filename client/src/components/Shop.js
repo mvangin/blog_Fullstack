@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
@@ -22,9 +22,11 @@ function Shop({ show, onHide }) {
             centered
         >
             <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    You are now leaving SnuffleStein Blogs
-              </Modal.Title>
+                <Modal.Title>
+                    <div>
+                        <h3> You are now leaving <i> The Conflict Continuum </i> </h3>
+                    </div>
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center">
                 <div className="text-center">
