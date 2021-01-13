@@ -7,7 +7,6 @@ import Spinner from 'react-bootstrap/Spinner'
 import Container from 'react-bootstrap/Container'
 import Image from "react-bootstrap/Image"
 
-
 function PostList() {
 
     const [posts, setPosts] = useState([]);
@@ -41,15 +40,17 @@ function PostList() {
                     <Container>
                         <div className="banner">
                             <div className="bannerPics">
-                                <Image fluid src="/storepic1.jpg" className="storePic" alt="storepic" />
-                                <Image fluid src="/storepic2.jpg" className="storePic" alt="storepic" />
+                                <img src="/storepic1.jpg" className="storePic storePic1" alt="storepic1" />
+                                <img fluid src="/storepic2.jpg" className="storePic storePic2" alt="storepic2" />
                             </div>
                             <div className="bannerContent">
                                 <h1 className="bannerTitle">
-                                    New Store Launch!
+                                    New Store Has Launched!
                                 </h1>
 
                                 <div className="bannerSummary">
+                                    {//<Image fluid src="/storepic1.jpg" className="" alt="storepic" />
+                                    }
                                     The Conflict Continuum Store offers ancient combat
                                     sport themed athletic apparel and casual wear.
                                     <a href="https://theconflictcontinuum.com/" id="shopLink"> <u> SHOP NOW! </u> </a>
@@ -60,7 +61,23 @@ function PostList() {
 
 
 
-                        <div className="d-flex">
+                        <div>
+                            <div className="authorContainer">
+                                <div className="authorTitle">
+                                    <div>
+                                        <b> Meet the Author </b>
+                                    </div>
+                                    <Image fluid src="/contactAuthor.jpg" id="authorPic" alt="storepic" />
+                                </div>
+                                <div className="authorContent">
+                                    <p>
+                                        Michael van Ginkel has a masters degree in conflict studies.
+                                        Through scholarship and fellowship funding, he has researched
+                                        conflict and hand-to-hand combat across Europe, Asia, and America.
+                                        </p>
+                                </div>
+                            </div>
+
 
                             <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
                                 {
@@ -97,27 +114,27 @@ function PostList() {
 
                                 }
                             </div>
-
-                            <div className="w-50">
-                                <div className="authorContainer">
-                                    <div className="authorTitle">
-                                        <div>
-                                            <b> Meet the Author </b>
-                                        </div>
-                                        <Image fluid src="/contactAuthor.jpg" id="authorPic" alt="storepic" />
-                                    </div>
-                                    <div className="authorContent">
-                                        <p>
-                                            Michael van Ginkel has dedicated his life to researching conflict.
-                                            Michael van Ginkel has a masters degree in conflict studies. 
-                                            Through scholarship and fellowship funding, he has researched 
-                                            conflict and hand-to-hand combat across Europe, Asia, and America. 
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
+
                     </Container>
+            }
+            {
+                /*
+            <footer className="bg-dark footer">
+                <div className="text-white">
+                    <div>
+                        Michael van Ginkel has dedicated his life to researching conflict. For freelance articles, project collaborations, or consultations you can <u> contact the author</u>
+                    </div>
+                    <div>
+                        Latest Journal Publications
+                    </div>
+                    <div>
+                        In the News
+                    </div>
+                </div>
+            </footer>
+            */
             }
         </Container >
     )

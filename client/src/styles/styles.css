@@ -219,7 +219,6 @@
     display: flex;
     background:rgb(235, 233, 233);
     padding: 10px;
-   
 }
 
 .bannerContent {
@@ -228,6 +227,7 @@
 }
 
 .bannerTitle {
+    text-align: center;
     font-weight: bold;
     font-size: 1.8rem;
 }
@@ -240,29 +240,51 @@
     color: black;
 }
 
-.bannerPics {
-    width: 50%;
-    display:none;
-
+.storePic {
+   width: 100%;
 }
 
-.storePic {
-    width: 50%;
+.storePic2 {
+    display: none;
 }
 
 .authorContainer {
+    float: right;
+    width: 30%;
     padding: 20px;
+    display: none;
 }
 
 #authorPic {
     width: 40%;
     float: left;
-    margin: 10px;
+    margin: 0px 15px 0px 0px;
 }
 
-.authorContent {
+.footer {
+    display: flex;
+}
+
+
+@media (max-width: 768px) {
+    .banner {
+        display: block;
+    }
+
+    .bannerContent {
+        text-align: center;
+    }
+
+    .bannerPics {
+        text-align: center;
+    }
+
+    .storePic1 {
+        width: 50%;
+    }
 
 }
+
 
 @media (min-width: 992px){
     .allPosts {
@@ -285,10 +307,22 @@
     }
 
     .bannerContent {
-        width: 50%
+        width: 50%;
     }
 
     .bannerPics {
+        display: flex;
+    }
+
+    .authorContainer {
+        display: block;
+    }
+
+    .storePic {
+        width: 50% 
+    }
+
+    .storePic2 {
         display: block;
     }
 
