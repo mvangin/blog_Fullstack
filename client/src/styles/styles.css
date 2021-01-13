@@ -250,6 +250,19 @@
     width: 50%;
 }
 
+.authorContainer {
+    padding: 20px;
+}
+
+#authorPic {
+    width: 40%;
+    float: left;
+    margin: 10px;
+}
+
+.authorContent {
+
+}
 
 @media (min-width: 992px){
     .allPosts {

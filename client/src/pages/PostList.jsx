@@ -28,7 +28,6 @@ function PostList() {
         fetchData();
     }, [])
 
-    let reducedContent;
     return (
         <Container>
             {
@@ -53,7 +52,7 @@ function PostList() {
                                 <div className="bannerSummary">
                                     The Conflict Continuum Store offers ancient combat
                                     sport themed athletic apparel and casual wear.
-                                    <a href="https://theconflictcontinuum.com/" id="shopLink"> <u> SHOP NOW! </u> </a> 
+                                    <a href="https://theconflictcontinuum.com/" id="shopLink"> <u> SHOP NOW! </u> </a>
                                 </div>
                             </div>
 
@@ -61,40 +60,62 @@ function PostList() {
 
 
 
+                        <div className="d-flex">
 
-                        <div className="d-flex justify-content-center justify-content-md-between flex-wrap text-center">
-                            {
-                                posts.map((item) => {
-                                    return (
-                                        <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
-                                            <Card.Body >
-                                                <Card.Header ><b>{item.title} </b></Card.Header>
-                                                <Card.Title> <img src="/stockBlog.png" style={{ width: "100%" }} /> </Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted">
-                                                    {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
-                                                </Card.Subtitle>
+                            <div className="d-flex justify-content-center justify-content-md-around flex-wrap text-center">
+                                {
+                                    posts.map((item) => {
+                                        return (
+                                            <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
+                                                <Card.Body >
+                                                    <Card.Header ><b>{item.title} </b></Card.Header>
+                                                    <Card.Title> <img src="/stockBlog.png" alt="stockblog" style={{ width: "100%" }} /> </Card.Title>
+                                                    <Card.Subtitle className="mb-2 text-muted">
+                                                        {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                                                    </Card.Subtitle>
 
-                                                <Link className="text-white" to={`/posts/${item._id}`} >
-                                                    <u className="text-dark">
-                                                        See More
+                                                    <Link className="text-white" to={`/posts/${item._id}`} >
+                                                        <u className="text-dark">
+                                                            See More
                                                 </u>
-                                                </Link>
+                                                    </Link>
 
 
 
-                                            </Card.Body>
+                                                </Card.Body>
 
-                                        </Card>
+                                            </Card>
 
-                                        /*  <div key={nanoid()}>
-                    <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
-                                       : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
-                </div>
-                                           */
-                                    )
-                                })
 
-                            }
+                                            /*  <div key={nanoid()}>
+                        <Link to={`/posts/${item._id}`}> <b> {item.title}  </b></Link>
+                                           : {item.content}. {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                    </div>
+                                               */
+                                        )
+                                    })
+
+                                }
+                            </div>
+
+                            <div className="w-50">
+                                <div className="authorContainer">
+                                    <div className="authorTitle">
+                                        <div>
+                                            <b> Meet the Author </b>
+                                        </div>
+                                        <Image fluid src="/contactAuthor.jpg" id="authorPic" alt="storepic" />
+                                    </div>
+                                    <div className="authorContent">
+                                        <p>
+                                            Michael van Ginkel has dedicated his life to researching conflict.
+                                            Michael van Ginkel has a masters degree in conflict studies. 
+                                            Through scholarship and fellowship funding, he has researched 
+                                            conflict and hand-to-hand combat across Europe, Asia, and America. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </Container>
             }

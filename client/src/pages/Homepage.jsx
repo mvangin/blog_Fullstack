@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
+/*
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
@@ -12,8 +13,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-
-
+*/
 
 function Homepage({ user }) {
 
