@@ -23,9 +23,9 @@ function Homepage({ user }) {
             <Jumbotron fluid style={{ height: "100vh", marginBottom: "0px", paddingBottom: "0px", backgroundImage: "url(/vesuvius.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
                 <div className="homepageContainer">
                     <div>
-                        <h1>
+                        <h1 class="text-center text-md-left">
                             Welcome to The Conflict Continuum
-                            </h1>
+                        </h1>
 
                         {
                             user ?
