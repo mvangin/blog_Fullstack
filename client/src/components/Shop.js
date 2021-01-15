@@ -18,8 +18,8 @@ function Shop({ show, onHide }) {
             centered
         >
             <Modal.Header>
-                <Modal.Title>
-                    <div>
+                <Modal.Title className="w-100">
+                    <div className="text-center" >
                         <h3> You are now leaving <i> The Conflict Continuum </i> </h3>
                     </div>
                 </Modal.Title>
