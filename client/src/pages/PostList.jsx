@@ -150,25 +150,40 @@ function PostList() {
                                     </div>
                                     <div>
                                         <p>
-                                            Countering Maritime Drug Trafficking in Bangladesh’s Coastal Waters, Stable Seas
+                                            <a href="https://www.stableseas.org/maritime-enforcement-illicit-trades/countering-maritime-drug-trafficking-bangladesh">
+
+                                                Countering Maritime Drug Trafficking in Bangladesh’s Coastal Waters, Stable Seas
+                                            </a>
+
                                         </p>
-                                        <img src="bangladesh.jpg" alt="banladesh" />
+                                        <a href="https://www.stableseas.org/maritime-enforcement-illicit-trades/countering-maritime-drug-trafficking-bangladesh">
+                                            <img src="bangladesh.jpg" alt="banladesh" />
+                                        </a>
                                     </div>
 
                                     <div>
                                         <p>
-                                            “BARMM Blue Economy: Policy Proposals For the Bangsamoro Autonomous Region in Muslim Mindanao”, Stable Seas
-                                        </p>
-                                        <img src="blueEconomy.jpg" alt="blueOcean" />
+                                            <a href="https://www.stableseas.org/publications/blue-economy-policy-proposals-barmm">
 
+                                                “BARMM Blue Economy: Policy Proposals For the Bangsamoro Autonomous Region in Muslim Mindanao”, Stable Seas
+                                            </a>
+
+                                        </p>
+                                        <a href="https://www.stableseas.org/publications/blue-economy-policy-proposals-barmm">
+                                            <img src="blueEconomy.jpg" alt="blueOcean" />
+                                        </a>
                                     </div>
 
                                     <div>
                                         <p>
-                                            “A South Pacific Island-Led Approach to Regional Maritime Security“, Center for International Maritime Security
+                                            <a href="http://cimsec.org/a-south-pacific-island-led-approach-to-regional-maritime-security/45703" >
+
+                                                “A South Pacific Island-Led Approach to Regional Maritime Security“, Center for International Maritime Security
+                                            </a>
+
                                         </p>
-                                        <a href="" >
-                                        <img src="southPacific.jpg" alt="southPacific" />
+                                        <a href="http://cimsec.org/a-south-pacific-island-led-approach-to-regional-maritime-security/45703" >
+                                            <img src="southPacific.jpg" alt="southPacific" />
                                         </a>
                                     </div>
                                 </div>

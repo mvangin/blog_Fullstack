@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+
+
 /*  Login/Signup page */
 
 .loginSignupCont {
@@ -271,7 +273,8 @@
 
 .footer {
     background-color: rgb(41, 41, 41);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -281,6 +284,7 @@
 .footer h1 {
     font-size: 20px;
     color: white;
+    padding: 15px 0px 10px 0px;
 
 }
 .footer .social {
@@ -290,7 +294,6 @@
 }
 
 .footer .socialIcons {
-    padding: 10px;
 }
 
 .recentPubs .pubContainer h1 {
@@ -305,17 +308,33 @@
     width: 100px;
 }
 
+
 .recentPubs .pubContainer div{
     display: flex;
     align-items: center;
-    padding: 10px;
-    justify-content: center;;
+    justify-content: center;
+    padding-top: 10px;
 }
 
 .recentPubs .pubContainer p{
     font-size: .8rem;
     max-width: 300px;
     padding-right: 10px;
+}
+
+.recentPubs .pubContainer a {
+    text-decoration: none;
+    color:white;
+}
+
+
+.recentPubs .pubContainer p:hover {
+    transform: scale(.97);
+}
+
+
+.recentPubs .pubContainer img:hover {
+    transform: scale(.97);
 }
 
 .twitter {
@@ -365,6 +384,10 @@
 
 
 @media (min-width: 992px){
+    .footer{
+        grid-template-columns: .8fr 1.1fr 1.1fr;
+
+    }
     .allPosts {
         font-size:1.2rem;
     }
@@ -403,6 +426,7 @@
     .storePic2 {
         display: block;
     }
+
 
 }
 
