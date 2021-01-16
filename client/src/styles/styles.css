@@ -270,9 +270,78 @@
 /*  footer  */
 
 .footer {
+    background-color: rgb(41, 41, 41);
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+   
 }
 
+.footer h1 {
+    font-size: 20px;
+    color: white;
+
+}
+.footer .social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .socialIcons {
+    padding: 10px;
+}
+
+.recentPubs .pubContainer h1 {
+    background: white;
+    color: rgb(41, 41, 41);
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.recentPubs img {
+    width: 100px;
+}
+
+.recentPubs .pubContainer div{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;;
+}
+
+.recentPubs .pubContainer p{
+    font-size: .8rem;
+    max-width: 300px;
+    padding-right: 10px;
+}
+
+.twitter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;;
+}
+.twitter img {
+    padding: 10px;
+    width: 300px;
+}
+
+.twitter img:hover {
+    transform: scale(.98);
+    cursor: pointer;
+}
+
+.twitter h1 {
+    background: white;
+    color: rgb(41, 41, 41);
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
 /*  Media Queries  */
 
 @media (max-width: 768px) {
