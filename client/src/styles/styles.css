@@ -3,6 +3,32 @@
 }
 
 
+/*  navbar  */
+
+
+.contactForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contactContent{
+    height: 200px;
+}
+
+.allPosts {
+    font-size:1.5rem;
+}
+
+.shoppingIcon {
+    font-size: 2rem;
+    color: white;
+    margin: 1rem 0rem;
+}
+
+.contactUs {
+
+    max-width: 100px;
+}
 
 /*  Login/Signup page */
 
@@ -29,6 +55,7 @@
     cursor: pointer;
     padding: 5px 20px;
 }
+
 
 .bodyContainer{
     display: flex;
@@ -128,6 +155,9 @@
     justify-content: center;
 }
 
+.linkContainer button:hover{
+    transform: scale(.97)
+}
 .homeLink {
     border: 1px solid rgb(75, 176, 235);
     border-radius: 5px;
@@ -195,30 +225,6 @@
     margin-top: 30px;
 }
 
-/*  navbar  */
-.contactForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.contactContent{
-    height: 200px;
-}
-
-.allPosts {
-    font-size:1.5rem;
-}
-
-.shoppingIcon {
-    font-size: 2rem;
-    color: white;
-    margin: 1rem 0rem;
-}
-
-.contactUs {
-
-    max-width: 100px;
-}
 
 
 /*  PostList   */
