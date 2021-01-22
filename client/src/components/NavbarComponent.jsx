@@ -18,7 +18,7 @@ function NavbarComponent({ user, displayName }) {
     const [contactModalShow, setContactModalShow] = useState(false);
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+        <Navbar className="navbarChange" collapseOnSelect expand="lg" bg="dark" variant="dark" >
             < Navbar.Brand>
                 <Link to="/" className="nav-link">
                     <img src="/brandLogo.png" alt="Logo" style={{ width: "60px" }} />
@@ -39,7 +39,7 @@ function NavbarComponent({ user, displayName }) {
                 </Nav>
 
                 <Nav>
-                    <Link onClick={() => setShopModalShow(true)} > <FontAwesomeIcon icon={faShoppingCart} className="shoppingIcon" /> </Link>
+                    <Link onClick={() => setShopModalShow(true)} > <FontAwesomeIcon icon={faShoppingCart} className="shoppingIcon faShop" /> </Link>
                     <Shop
                         show={shopModalShow}
                         onHide={() => setShopModalShow(false)}
@@ -48,9 +48,9 @@ function NavbarComponent({ user, displayName }) {
 
                 <Nav className="ml-auto social-media">
                     <div>
-                        <a href="https://www.facebook.com/conflictarch/"> <FontAwesomeIcon icon={faFacebook} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
-                        <a href="https://www.twitter.com/conflictarch/"> <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
-                        <a href="https://www.instagram.com/theconflictcontinuum/"> <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "1.2rem", color: "white", margin: ".5rem" }} /> </a>
+                        <a href="https://www.facebook.com/conflictarch/"> <FontAwesomeIcon className="fa" icon={faFacebook}  /> </a>
+                        <a href="https://www.twitter.com/conflictarch/"> <FontAwesomeIcon className="fa" icon={faTwitter} /> </a>
+                        <a href="https://www.instagram.com/theconflictcontinuum/"> <FontAwesomeIcon className="fa" icon={faInstagram} /> </a>
                     </div>
                 </Nav>
 

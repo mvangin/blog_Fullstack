@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from 'react-router-dom'
-
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
 /*
@@ -20,7 +19,7 @@ function Homepage({ user }) {
 
     return (
         <>
-            <Jumbotron fluid style={{ height: "100vh", marginBottom: "0px", paddingBottom: "0px", backgroundImage: "url(/vesuvius.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
+            <Jumbotron fluid style={{ height: "100vh", marginBottom: "0px", paddingTop: "150px", paddingBottom: "0px", backgroundImage: "url(/vesuvius.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
                 <div className="homepageContainer">
                     <div>
                         <h1 class="text-center text-md-left">

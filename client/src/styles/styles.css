@@ -5,6 +5,10 @@
 
 /*  navbar  */
 
+.navbarChange {
+    position: absolute !important;
+    width: 100%;
+}
 
 .contactForm {
     width: 100%;
@@ -25,8 +29,22 @@
     margin: 1rem 0rem;
 }
 
-.contactUs {
 
+.fa {
+    font-size: 1.2rem;
+    color: white;
+     margin: .5rem;
+}  
+
+.fa:hover  {
+    transform: scale(1.3);
+}
+
+.faShop:hover {
+    transform: scale(1.3);
+}
+
+.contactUs {
     max-width: 100px;
 }
 
@@ -142,6 +160,14 @@
 
 /*  homepage  */
 
+.homepageJumbo1 {
+    height: 100vh;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .homepageContainer {
     color:white;
     display: flex;
@@ -228,6 +254,10 @@
 
 
 /*  PostList   */
+
+.postListContainer {
+    padding-top: 150px;
+}
 
 .banner {
     display: flex;
