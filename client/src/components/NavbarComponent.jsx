@@ -28,9 +28,7 @@ function NavbarComponent({ user, displayName }) {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" >
                 <Navbar.Brand>
-                    <Link to="/" className="nav-link text-light">
-                        The Conflict Continuum
-                    </Link>
+                    <Link to="/" className="nav-link text-light"> The Conflict Continuum </Link>
                 </Navbar.Brand >
                 <Nav>
                     <Link to="/posts" className="nav-link allPosts">
