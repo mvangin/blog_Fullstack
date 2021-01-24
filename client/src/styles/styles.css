@@ -4,6 +4,9 @@
 
 
 /*  navbar  */
+.nav-link:hover {
+    transform: scale(1.1);
+}
 
 .navbarChange {
     position: absolute !important;
@@ -11,6 +14,7 @@
 }
 
 .contactForm {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -18,6 +22,7 @@
 .contactContent{
     height: 200px;
 }
+
 
 .allPosts {
     font-size:1.5rem;
@@ -48,12 +53,38 @@
     max-width: 100px;
 }
 
+#closeContact {
+    position: absolute;
+    width: 40px;
+    background:rgb(199, 9, 9);
+    border: none;
+    right: -10px;
+    top: -80px;
+    display: flex;
+    justify-content: center;
+}
+
+.faTimesCircle{
+    font-size: 1.5rem;
+}
+
+#contactFooter {
+    width: 100%;
+    justify-content: center;
+}
+
+
 /*  Login/Signup page */
+
+.loginSignupContainer {
+    padding-top: 150px;
+}
 
 .loginSignupCont {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .loginSignupBorder {
@@ -84,6 +115,7 @@
 
 .formContainer {
     width: 100%;
+  
 }
 
 .errors {
@@ -98,6 +130,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     
   }
 

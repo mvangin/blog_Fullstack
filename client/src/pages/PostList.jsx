@@ -26,6 +26,8 @@ function PostList() {
                 //let data = postsRes.data.data
                 setPosts(publishedData)
                 setIsLoading(false);
+            }).catch((error)=> {
+                console.log(error)
             })
         }
         fetchData();

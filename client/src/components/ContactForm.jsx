@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import api from '../api'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 function ContactForm({ show, onHide }) {
@@ -48,6 +50,7 @@ function ContactForm({ show, onHide }) {
             </Modal.Header>
             <Modal.Body>
                 <form onSubmit={handleSubmit} className="contactForm" >
+                    <Button id="closeContact" onClick={handleClose}><FontAwesomeIcon className="faTimesCircle" icon={faTimes}/></Button>
                     <label>
                         <input placeholder="Email" className="postInput contactEmail" value={email} onChange={(e) => { setEmail(e.target.value); }} />
                     </label>
@@ -60,10 +63,8 @@ function ContactForm({ show, onHide }) {
                 </form>
 
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer id="contactFooter">
                 <Button onClick={handleSubmit}>Send!</Button>
-
-                <Button onClick={handleClose}>Close</Button>
             </Modal.Footer>
         </Modal>
     );

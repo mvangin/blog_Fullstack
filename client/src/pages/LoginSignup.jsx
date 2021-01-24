@@ -16,7 +16,7 @@ function LoginSignup({ setUser, setDisplayName }) {
         setLogin(false)
     }
     return (
-        <Container className="dflex justify-center align-center">
+        <Container className="dflex justify-center align-center loginSignupContainer">
             <div className="loginSignupCont">
                 <div className="loginSignupBorder">
                     <div className="userContainer">
