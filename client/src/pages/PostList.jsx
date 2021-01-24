@@ -10,7 +10,6 @@ import Image from "react-bootstrap/Image"
 
 
 
-
 function PostList() {
 
     const [posts, setPosts] = useState([]);
@@ -32,6 +31,7 @@ function PostList() {
         }
         fetchData();
     }, [])
+
 
     return (
 
@@ -92,7 +92,7 @@ function PostList() {
                                     {
                                         posts.map((item) => {
                                             return (
-                                                <Card key={nanoid()} style={{ width: '18rem', margin: '10px' }}>
+                                                <Card key={nanoid()} id="postCard" style={{ width: '18rem', margin: '10px' }}>
                                                     <Card.Body >
                                                         <Card.Header ><b>{item.title} </b></Card.Header>
                                                         <Card.Title> <img src="/stockBlog.png" alt="stockblog" style={{ width: "100%" }} /> </Card.Title>
