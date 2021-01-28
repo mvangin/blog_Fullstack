@@ -25,7 +25,7 @@ function PostList() {
                 //let data = postsRes.data.data
                 setPosts(publishedData)
                 setIsLoading(false);
-            }).catch((error)=> {
+            }).catch((error) => {
                 console.log(error)
             })
         }
@@ -92,25 +92,17 @@ function PostList() {
                                     {
                                         posts.map((item) => {
                                             return (
-                                                <Card key={nanoid()} id="postCard" style={{ width: '18rem', margin: '10px' }}>
-                                                    <Card.Body >
-                                                        <Card.Header ><b>{item.title} </b></Card.Header>
-                                                        <Card.Title> <img src="/stockBlog.png" alt="stockblog" style={{ width: "100%" }} /> </Card.Title>
-                                                        <Card.Subtitle className="mb-2 text-muted">
-                                                            {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
-                                                        </Card.Subtitle>
-
-                                                        <Link className="text-white" to={`/posts/${item._id}`} >
-                                                            <u className="text-dark">
-                                                                See More
-                                                </u>
-                                                        </Link>
-
-
-
-                                                    </Card.Body>
-
-                                                </Card>
+                                                <Link to={`/posts/${item._id}`} className="text-dark card-link" >
+                                                    <Card key={nanoid()}  id="postCard" style={{ width: '18rem', margin: '10px' }}>
+                                                        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+                                                            <Card.Header ><b>{item.title} </b></Card.Header>
+                                                            <Card.Title> <img src="/stockBlog.png" alt="stockblog" style={{ width: "100%"}} /> </Card.Title>
+                                                            <Card.Subtitle className="mb-2 text-muted">
+                                                                {item.username ? <span> Posted by: <i>{item.username.username} </i> </span> : null}
+                                                            </Card.Subtitle>
+                                                        </Card.Body>
+                                                    </Card>
+                                                </Link>
 
 
                                                 /*  <div key={nanoid()}>
