@@ -216,13 +216,14 @@
 .homepageInner > *:first-child {
     left: 0;
     right: 0;
-    bottom: 150px;
+    bottom: 170px;
     position: absolute;
     animation: slide-in-from-left 1.5s;
 }
 
 .homepageInner > *:last-child {
     left: 0;
+    bottom: 80px;
     right: 0;
     position: absolute;
     animation: slide-in-from-right 1.5s;
