@@ -3,6 +3,7 @@ import api from '../api'
 import { useHistory } from 'react-router-dom';
 import '../styles/styles.css'
 import jwt_decode from "jwt-decode";
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -14,16 +15,19 @@ function Login({ setUser }) {
     const [password, setPassword] = useState("");
 
     const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
 
 
     function handleSubmit(e) {
         e.preventDefault();
         setError(null)
+        setLoading(true)
         api.login({ username, password })
             .then(data => {
                 let id = data.data.id;
                 localStorage.setItem("token", data.data.token)
                 localStorage.setItem("id", id)
+                setLoading(false)
                 history.push(`/admin/posts`);
 
                 if (localStorage.getItem("token") !== null) {
@@ -40,6 +44,12 @@ function Login({ setUser }) {
 
     return (
         <>
+            {loading &&
+                <div className="d-flex justify-content-center ">
+                    <Spinner animation="border" role="status" id="spinner"> </Spinner>
+                </div>
+            }
+
             <div className="bodyContainer">
 
                 <div className="formContainer">
@@ -61,6 +71,7 @@ function Login({ setUser }) {
                     </form>
                 </div>
             </div>
+
         </>
     )
 
