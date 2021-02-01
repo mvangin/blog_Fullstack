@@ -37,6 +37,7 @@ function Login({ setUser }) {
                     return null;
                 }
             }).catch(error => {
+                setLoading(false)
                 setError(error.response.data.error)
             })
     }
