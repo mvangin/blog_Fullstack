@@ -22,7 +22,7 @@
 
 ## Demo
 View live demo on heroku (free hosting version, initial startup may be slow). 
-*  Customer portal [here](https://conflict-continuum.herokuapp.com/).
-*  Administrator portal [here](https://conflict-continuum-admin.herokuapp.com/admin) (requires administrative password to signup)
+*  Customer portal [here](https://conflictcontinuum.netlify.app/).
+*  Administrator portal [here](https://https://conflictcontinuum-admin.netlify.app/) (admin password: continuum)
 
 
