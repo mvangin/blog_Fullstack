@@ -21,7 +21,7 @@
   administrators (implemented using Nodemailer).
 
 ## Demo
-View live demo on heroku (free hosting version, initial startup may be slow). 
+View live demo on Netlify
 *  Customer portal [here](https://conflictcontinuum.netlify.app/).
 *  Administrator portal [here](https://https://conflictcontinuum-admin.netlify.app/) (admin password: continuum)
 
