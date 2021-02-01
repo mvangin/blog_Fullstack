@@ -83,6 +83,10 @@
     margin-bottom: 0px;
 }
 
+.createPostContainer .submit {
+    margin-bottom: 20px;
+}
+
 .createPostContainer {
     display: flex;
     justify-content: center;
