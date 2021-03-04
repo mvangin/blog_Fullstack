@@ -23,6 +23,6 @@
 ## Demo
 View live demo on Netlify
 *  Customer portal [here](https://conflictcontinuum.netlify.app/).
-*  Administrator portal [here](https://https://conflictcontinuum-admin.netlify.app/) (admin password: continuum)
+*  Administrator portal [here](https://conflictcontinuum-admin.netlify.app/) (admin password: continuum)
 
 
