@@ -62,7 +62,6 @@ function PostList() {
                                         }
                                     The Conflict Continuum Store offers ancient combat
                                     sport themed athletic apparel and casual wear.
-                                    <a href="https://theconflictcontinuum.com/" id="shopLink"> <u> SHOP NOW! </u> </a>
                                     </div>
                                 </div>
 
