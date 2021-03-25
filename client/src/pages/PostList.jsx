@@ -54,7 +54,7 @@ function PostList() {
                                 </div>
                                 <div className="bannerContent">
                                     <h1 className="bannerTitle">
-                                        New Store Has Launched!
+                                        New Store Coming Soon!
                                 </h1>
 
                                     <div className="bannerSummary">
