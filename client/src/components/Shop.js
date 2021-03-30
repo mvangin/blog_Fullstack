@@ -20,18 +20,16 @@ function Shop({ show, onHide }) {
             <Modal.Header>
                 <Modal.Title className="w-100">
                     <div className="text-center" >
-                        <h3> You are now leaving <i> The Conflict Continuum </i> </h3>
+                        <h3> Go to the <i> The Conflict Continuum Store </i> </h3>
                     </div>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex justify-content-center">
                 <div className="text-center">
-                    <img src="/Shop.png" alt="shopping" style={{ width: "300px" }} />
-                    <a href="https://theconflictcontinuum.com/">
+                    <img src="/Shop.png" alt="shopping" style={{ width: "300px" }} />  
                         <h1 className="text-dark">
-                            <u> Go to Store </u>
+                            <u> Coming Soon </u>
                         </h1>
-                    </a>
                 </div>
 
             </Modal.Body>
