@@ -51,8 +51,6 @@ function NavbarComponent({ user, displayName }) {
                         <a href="https://www.instagram.com/theconflictcontinuum/"> <FontAwesomeIcon className="fa" icon={faInstagram} /> </a>
                     </div>
                 </Nav>
-
-
                 <Nav>
                     <Link onClick={() => setContactModalShow(true)} className="contactUs nav-link text-light"> Contact Us </Link>
                 </Nav>
@@ -62,22 +60,24 @@ function NavbarComponent({ user, displayName }) {
                     onHide={() => setContactModalShow(false)}
                 />
 
+                <Nav> <a href="https://conflictcontinuum-admin.netlify.app/" className="nav-link text-light">  Admin Portal </a> </Nav>
 
                 {user ?
                     <>
                         <Nav >
-                            <Link to="/logout" className="nav-link text-light">
+                            <Link to="/logout" className="mx-2 nav-link text-light border border-light rounded">
                                 Logout <i>{displayName}</i>
                             </Link>
                         </Nav>
                     </>
                     :
                     <Nav >
-                        <Link to="/login" className="nav-link text-light">
+                        <Link to="/login" className="mx-2 nav-link text-light border border-light rounded">
                             Login
                         </Link>
                     </Nav>
                 }
+                
 
 
 
