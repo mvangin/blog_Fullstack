@@ -65,14 +65,14 @@ function NavbarComponent({ user, displayName }) {
                 {user ?
                     <>
                         <Nav >
-                            <Link to="/logout" className="nav-link text-light border border-light rounded">
+                            <Link to="/logout" className="borderLoginLogout nav-link text-light ">
                                 Logout <i>{displayName}</i>
                             </Link>
                         </Nav>
                     </>
                     :
                     <Nav >
-                        <Link to="/login" className="nav-link text-light border border-light rounded">
+                        <Link to="/login" className="borderLoginLogout nav-link text-light ">
                             Login
                         </Link>
                     </Nav>

@@ -520,6 +520,11 @@
         font-size:1.2rem;
     }
 
+    .borderLoginLogout{
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
     .shoppingIcon {
         font-size: 1.5rem;
         color: white;
